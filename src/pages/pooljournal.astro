@@ -1,0 +1,423 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { schemaGraph, breadcrumbs, webPage, faqPage } from '../lib/schema';
+import { u, abs } from '../lib/urls';
+
+const title = 'Pooljournal — logga pH, klor och vattenvärden digitalt';
+const desc = 'Gratis digital driftjournal för poolen. Logga pH, fritt klor, alkalinitet, cyanursyra och hårdhet, få direkt återkoppling mot riktvärdena och följ utvecklingen över säsongen. Sparas bara i din webbläsare.';
+const path = '/pooljournal/';
+
+const faq = [
+  { q: 'Sparas mina mätvärden någonstans på internet?', a: 'Nej. Journalen sparar allt lokalt i din webbläsare (localStorage) på den enhet du använder. Inget skickas till oss eller till någon server. Rensar du webbläsardata eller byter enhet försvinner anteckningarna, så exportera som CSV om du vill ha en säkerhetskopia.' },
+  { q: 'Hur ofta bör jag mäta vattnet?', a: 'En gång i veckan räcker för pH och fritt klor under normal drift. Vid högsäsong, mycket badande, kraftig värme eller efter ett regn kan det vara värt att mäta oftare. Övriga värden (alkalinitet, cyanursyra, hårdhet, salt) räcker det oftast att kontrollera några gånger per säsong.' },
+  { q: 'Varför visas bundet klor automatiskt?', a: 'Bundet klor är skillnaden mellan totalt klor och fritt klor. Det är de så kallade kloraminerna som ger stickande klorlukt och röda ögon. Genom att mata in både fritt och totalt klor räknar journalen ut det åt dig och flaggar när det börjar bli för högt.' },
+  { q: 'Funkar journalen för spabad också?', a: 'Ja. Riktvärdena för pH, klor, alkalinitet och hårdhet är desamma. För spabad ligger temperaturen högre och vattenvolymen är mindre, vilket gör att värdena svänger snabbare — mät därför oftare.' },
+  { q: 'Kan jag skriva ut en färdig säsong?', a: 'Ja, använd knappen Skriv ut. Då får du en ren utskrift av hela journalen att sätta i pärmen eller lämna över vid poolservice.' },
+];
+
+const jsonLd = schemaGraph([
+  {
+    '@type': 'WebApplication',
+    name: 'Pooldoktorns pooljournal',
+    url: abs(path),
+    inLanguage: 'sv-SE',
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'All',
+    description: desc,
+  },
+  webPage(title, desc, path),
+  breadcrumbs([{ name: 'Hem', path: '/' }, { name: 'Pooljournal', path }]),
+  faqPage(faq),
+]);
+---
+
+<Base title={title} description={desc} path={path} jsonLd={jsonLd} ogImage="/bilder/poolvard-vecka-1200.webp">
+  <div class="wrap">
+    <Breadcrumbs trail={[{ name: 'Hem', path: '/' }, { name: 'Pooljournal' }]} />
+    <article class="article">
+      <span class="tag">Verktyg</span>
+      <h1>Pooljournal — håll koll på vattnet hela säsongen</h1>
+      <p class="lead">En digital driftjournal för dig med pool eller spabad. Logga dina mätvärden, få direkt svar på om de ligger inom riktvärdena, och se mönster över tid. Allt sparas bara i din webbläsare — inget konto, inget skickas någonstans.</p>
+
+      <div class="note"><strong>Varför en journal?</strong> Ett enskilt mätvärde säger lite. Men ser du pH och klor vecka för vecka lär du dig hur din pool reagerar — och du upptäcker avvikelser innan vattnet blir grönt. Journalen gör också enklare att förklara läget för en poolservicetekniker.</div>
+
+      <h2 id="verktyget">Din journal</h2>
+      <p>Fyll i det du mätt. Bara datum och de värden du har — hoppa över resten. Fälten färgas grönt, gult eller rött direkt när du skriver, så du ser på en gång vad som behöver åtgärdas.</p>
+
+      <form class="jr" id="jr-form" autocomplete="off">
+        <div class="jr-grid">
+          <label>Datum
+            <input type="date" name="date" id="jr-date" required />
+          </label>
+          <label>Tid
+            <input type="time" name="time" id="jr-time" />
+          </label>
+          <label>pH <span class="hint">7,2–7,6</span>
+            <input type="number" step="0.01" min="0" max="14" name="ph" id="jr-ph" placeholder="7,4" data-min="7.2" data-max="7.6" data-warn="0.2" />
+          </label>
+          <label>Fritt klor <span class="hint">1–3 ppm</span>
+            <input type="number" step="0.01" min="0" name="fcl" id="jr-fcl" placeholder="1,5" data-min="1" data-max="3" data-warn="0.5" />
+          </label>
+          <label>Totalt klor <span class="hint">1–3 ppm</span>
+            <input type="number" step="0.01" min="0" name="tcl" id="jr-tcl" placeholder="1,6" data-min="1" data-max="3" data-warn="0.5" />
+          </label>
+          <label>Bundet klor <span class="hint">räknas ut</span>
+            <input type="text" id="jr-bound" readonly tabindex="-1" placeholder="—" />
+          </label>
+          <label>Alkalinitet <span class="hint">80–160 ppm</span>
+            <input type="number" step="1" min="0" name="alk" id="jr-alk" placeholder="110" data-min="80" data-max="160" data-warn="20" />
+          </label>
+          <label>Cyanursyra <span class="hint">max 50 ppm</span>
+            <input type="number" step="1" min="0" name="cya" id="jr-cya" placeholder="25" data-min="0" data-max="50" data-warn="0" />
+          </label>
+          <label>Total hårdhet <span class="hint">150–400 ppm</span>
+            <input type="number" step="1" min="0" name="hard" id="jr-hard" placeholder="200" data-min="150" data-max="400" data-warn="50" />
+          </label>
+          <label>Salt <span class="hint">2 500–4 000 ppm</span>
+            <input type="number" step="10" min="0" name="salt" id="jr-salt" placeholder="3 000" data-min="2500" data-max="4000" data-warn="500" />
+          </label>
+          <label>Temperatur <span class="hint">°C</span>
+            <input type="number" step="0.1" name="temp" id="jr-temp" placeholder="26" />
+          </label>
+        </div>
+        <div class="jr-checks">
+          <label class="chk"><input type="checkbox" id="jr-back" /> Backspolat filtret</label>
+          <label class="chk"><input type="checkbox" id="jr-vac" /> Bottensugt / dammsugit</label>
+        </div>
+        <label class="jr-note">Dosering och åtgärder
+          <input type="text" id="jr-note" placeholder="t.ex. 150 g chockklor, sänkt pH" />
+        </label>
+        <div class="jr-actions">
+          <button type="submit" class="btn">Spara mätning</button>
+          <span class="jr-msg" id="jr-msg" role="status"></span>
+        </div>
+      </form>
+
+      <div class="jr-trends" id="jr-trends" hidden>
+        <h3>Trend</h3>
+        <div class="spark">
+          <div><span>pH</span><svg id="sp-ph" viewBox="0 0 200 40" preserveAspectRatio="none"></svg><b id="sp-ph-now">—</b></div>
+          <div><span>Fritt klor</span><svg id="sp-fcl" viewBox="0 0 200 40" preserveAspectRatio="none"></svg><b id="sp-fcl-now">—</b></div>
+        </div>
+      </div>
+
+      <div class="jr-list-head">
+        <h3>Loggade mätningar (<span id="jr-count">0</span>)</h3>
+        <div class="jr-list-actions">
+          <button type="button" class="btn2" id="jr-export">Exportera CSV</button>
+          <button type="button" class="btn2" id="jr-print">Skriv ut</button>
+          <button type="button" class="btn2 danger" id="jr-clear">Rensa alla</button>
+        </div>
+      </div>
+      <div class="jr-tablewrap">
+        <table class="jr-table" id="jr-table">
+          <thead>
+            <tr>
+              <th>Datum</th><th>pH</th><th>Fritt Cl</th><th>Totalt Cl</th><th>Bundet Cl</th>
+              <th>Alk</th><th>CYA</th><th>Hårdhet</th><th>Salt</th><th>Temp</th><th>Åtgärd</th><th></th>
+            </tr>
+          </thead>
+          <tbody id="jr-body"></tbody>
+        </table>
+        <p class="jr-empty" id="jr-empty">Inga mätningar loggade än. Fyll i din första ovan.</p>
+      </div>
+
+      <h2 id="riktvarden">Riktvärden att hålla sig inom</h2>
+      <p>Så här ser rekommenderade nivåer ut för en villapool med vanligt reningsverk. Värdena är riktlinjer — har du saltklorinator eller spabad kan zonen skilja något, följ då tillverkarens anvisning.</p>
+      <table>
+        <thead>
+          <tr><th>Värde</th><th>Idealt</th><th>Godkänt</th><th>Varför det spelar roll</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>pH</td><td>ca 7,2</td><td>7,2–7,6</td><td>Styr hur effektivt kloret jobbar och hur vattnet känns mot hud och ögon</td></tr>
+          <tr><td>Fritt klor</td><td>ca 1 ppm</td><td>1–3 ppm</td><td>Det verksamma kloret som oskadliggör bakterier och alger</td></tr>
+          <tr><td>Totalt klor</td><td>ca 1 ppm</td><td>1–3 ppm</td><td>Summan av fritt och bundet klor</td></tr>
+          <tr><td>Bundet klor</td><td>0</td><td>max 0,5 ppm</td><td>Ger stickande klorlukt och irriterade ögon — ska hållas lågt</td></tr>
+          <tr><td>Alkalinitet</td><td>100–120 ppm</td><td>80–160 ppm</td><td>Buffert som håller pH stabilt istället för att det far runt</td></tr>
+          <tr><td>Cyanursyra (CYA)</td><td>0–20 ppm</td><td>max 50 ppm</td><td>Skyddar kloret mot solnedbrytning, men låser det vid för hög halt</td></tr>
+          <tr><td>Total hårdhet</td><td>ca 200 ppm</td><td>150–400 ppm</td><td>Kalcium och magnesium — för lågt fräter, för högt fäller ut som kalk</td></tr>
+          <tr><td>Salt (saltpool)</td><td>—</td><td>2 500–4 000 ppm</td><td>Krav för att saltklorinatorn ska producera klor</td></tr>
+        </tbody>
+      </table>
+      <p class="jr-fineprint">1 ppm = 1 mg per liter. Hårdhet anges ofta även i tyska hårdhetsgrader: 150 ppm ≈ 8,4 °dH och 200 ppm ≈ 11,2 °dH.</p>
+
+      <h2 id="vad-betyder">Vad betyder värdena egentligen?</h2>
+      <p><strong>pH</strong> mäter surhet på en skala 0–14 där 7 är neutralt. Poolvatten ska vara svagt basiskt, 7,2–7,6. Under 7,2 blir vattnet frätande mot utrustning och obehagligt för ögonen; över 7,8 tappar kloret sin effekt och kalk kan fälla ut.</p>
+      <p><strong>Fritt klor</strong> är den aktiva desinfektionen. Är halten under 1 ppm får bakterier och alger fäste. Är den långt över 3 ppm är det slösaktigt och retar hud — låt den sjunka naturligt.</p>
+      <p><strong>Bundet klor</strong>, skillnaden mellan totalt och fritt klor, är det som luktar "klor". Paradoxalt nog betyder klorlukt oftast att det finns för lite <em>fritt</em> klor, inte för mycket.</p>
+      <p><strong>Alkalinitet</strong> är vattnets buffertförmåga. Ligger den rätt stannar pH på plats; är den låg far pH upp och ner vid minsta tillsats, och är den hög är pH svårt att rubba nedåt.</p>
+      <p><strong>Cyanursyra</strong> skyddar kloret mot solljus men bryts inte ner av sig själv. Byggs halten över 50 ppm blir kloret ineffektivt trots att du mäter ett fint värde — enda lösningen är att byta en del av vattnet.</p>
+
+      <h2 id="atgard">Så åtgärdar du avvikelser</h2>
+      <ul>
+        <li><strong>pH för högt:</strong> sänk i små steg med pH-minus, kör cirkulationen 2–4 timmar och mät om.</li>
+        <li><strong>pH för lågt:</strong> höj försiktigt med pH-plus, samma princip — små steg och ny mätning.</li>
+        <li><strong>Fritt klor för lågt:</strong> dosera klor och håll koll veckan efter. Vid grönt vatten: <a href={u('/guider/chockklorering/')}>chockklorera</a>.</li>
+        <li><strong>Bundet klor över 0,5 ppm:</strong> chockklorera, låt solen göra sitt och överväg delvattenbyte.</li>
+        <li><strong>Alkalinitet för låg:</strong> höj med preparat för alkalinitet innan du justerar pH.</li>
+        <li><strong>Cyanursyra över 50 ppm:</strong> byt en del av vattnet — halten går inte att sänka på annat sätt.</li>
+        <li><strong>Hårdhet för låg:</strong> kan bli frätande mot liner och utrustning; för hög hårdhet ger kalkutfällningar och grumligt vatten.</li>
+      </ul>
+      <p>Behöver du fördjupning: <a href={u('/guider/ph-och-klor/')}>pH och klor</a>, <a href={u('/guider/gront-poolvatten/')}>grönt poolvatten</a> och <a href={u('/kalkylator/')}>poolkalkylatorn</a>.</p>
+
+      <h2 id="vanliga-fragor">Vanliga frågor</h2>
+      <div class="faq">
+        {faq.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <div class="a">{f.a}</div>
+          </details>
+        ))}
+      </div>
+
+      <Newsletter />
+    </article>
+  </div>
+
+  <style>
+    .jr{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin:22px 0}
+    .jr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .jr-grid label,.jr-note{display:flex;flex-direction:column;gap:5px;font-size:13.5px;font-weight:600;color:var(--ink2)}
+    .jr .hint{font-weight:500;color:var(--muted);font-size:11.5px;text-transform:none;letter-spacing:0}
+    .jr input[type=number],.jr input[type=date],.jr input[type=time],.jr input[type=text]{padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;width:100%;font-weight:400;color:var(--ink);transition:border-color .15s,background .15s}
+    .jr input:focus{outline:2px solid var(--soft);border-color:var(--brand)}
+    .jr input[data-state=ok]{border-color:#1f9d55;background:#f0fbf4}
+    .jr input[data-state=warn]{border-color:#d9a406;background:#fffbe9}
+    .jr input[data-state=bad]{border-color:#d9534f;background:#fff2f1}
+    #jr-bound{background:#f4f8fa;color:var(--ink2);font-weight:600}
+    .jr-checks{display:flex;gap:22px;flex-wrap:wrap;margin:16px 0 10px}
+    .jr .chk{flex-direction:row;align-items:center;gap:8px;font-weight:600;color:var(--ink2);font-size:14px}
+    .jr .chk input{width:17px;height:17px}
+    .jr-note{margin:10px 0 16px}
+    .jr-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .btn{background:var(--brand);color:#fff;border:0;padding:12px 22px;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer}
+    .btn:hover{background:var(--brand-d)}
+    .btn2{background:#fff;border:1px solid var(--line);color:var(--ink2);padding:8px 14px;border-radius:9px;font-weight:600;font-size:13.5px;cursor:pointer}
+    .btn2:hover{border-color:var(--brand);color:var(--brand)}
+    .btn2.danger:hover{border-color:#d9534f;color:#d9534f}
+    .jr-msg{font-size:13.5px;color:var(--muted)}
+    .jr-trends{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:22px 0}
+    .jr-trends h3{margin-bottom:12px}
+    .spark{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .spark>div{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px}
+    .spark span{font-size:12.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+    .spark svg{width:100%;height:40px;background:var(--soft);border-radius:6px}
+    .spark b{font-size:15px;color:var(--brand)}
+    .jr-list-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin:30px 0 12px}
+    .jr-list-head h3{margin:0}
+    .jr-list-actions{display:flex;gap:8px;flex-wrap:wrap}
+    .jr-tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+    .jr-table{border-collapse:collapse;width:100%;font-size:13.5px;white-space:nowrap}
+    .jr-table th,.jr-table td{border-bottom:1px solid var(--soft);padding:8px 11px;text-align:left}
+    .jr-table thead th{background:var(--soft);font-weight:700;position:sticky;top:0}
+    .jr-table td.v-ok{color:#1f7a45;font-weight:600}
+    .jr-table td.v-warn{color:#a97c05;font-weight:600}
+    .jr-table td.v-bad{color:#d9534f;font-weight:700}
+    .jr-del{background:none;border:0;color:var(--muted);cursor:pointer;font-size:15px}
+    .jr-del:hover{color:#d9534f}
+    .jr-empty{color:var(--muted);font-size:14px;padding:16px}
+    .jr-fineprint{font-size:13px;color:var(--muted)}
+    @media(max-width:860px){.jr-grid{grid-template-columns:1fr 1fr}.spark{grid-template-columns:1fr}}
+    @media(max-width:560px){.jr-grid{grid-template-columns:1fr}}
+    @media print{
+      .jr,.jr-list-actions,.jr-list-head .btn2,header.site,footer.site,.crumbs,.news,.faq,.jr-trends{display:none!important}
+      .jr-tablewrap{border:0}.jr-table td.v-ok,.jr-table td.v-warn,.jr-table td.v-bad{color:#000}
+      .article{border:0;padding:0}
+    }
+  </style>
+
+  <script>
+    const KEY = 'pdjournal_v1';
+
+    type Entry = {
+      id: string; date: string; time: string; ph: number | null; fcl: number | null; tcl: number | null;
+      alk: number | null; cya: number | null; hard: number | null; salt: number | null; temp: number | null;
+      back: boolean; vac: boolean; note: string;
+    };
+
+    const $ = (id: string) => document.getElementById(id) as HTMLInputElement | null;
+    const num = (v: string) => { const n = parseFloat(String(v).replace(',', '.')); return isNaN(n) ? null : n; };
+
+    const load = (): Entry[] => { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch { return []; } };
+    const save = (e: Entry[]) => localStorage.setItem(KEY, JSON.stringify(e));
+
+    // status: ok / warn / bad / null (no range or empty)
+    function status(el: HTMLInputElement): 'ok' | 'warn' | 'bad' | null {
+      const raw = el.value.trim();
+      if (!raw) return null;
+      const v = num(raw); if (v === null) return null;
+      const min = el.dataset.min !== undefined ? parseFloat(el.dataset.min) : null;
+      const max = el.dataset.max !== undefined ? parseFloat(el.dataset.max) : null;
+      const warn = el.dataset.warn !== undefined ? parseFloat(el.dataset.warn) : 0;
+      if (min === null || max === null) return null;
+      if (v >= min && v <= max) return 'ok';
+      if (v >= min - warn && v <= max + warn) return 'warn';
+      return 'bad';
+    }
+
+    const RANGE_FIELDS = ['jr-ph', 'jr-fcl', 'jr-tcl', 'jr-alk', 'jr-cya', 'jr-hard', 'jr-salt'];
+
+    function paint(el: HTMLInputElement) {
+      const s = status(el);
+      if (s) el.dataset.state = s; else delete el.dataset.state;
+    }
+
+    function updateBound() {
+      const fcl = num($('jr-fcl')?.value || '');
+      const tcl = num($('jr-tcl')?.value || '');
+      const out = $('jr-bound');
+      if (!out) return;
+      if (fcl === null || tcl === null) { out.value = '—'; return; }
+      const b = Math.round((tcl - fcl) * 100) / 100;
+      out.value = b.toFixed(2).replace('.', ',') + ' ppm' + (b > 0.5 ? ' (för högt)' : '');
+      out.dataset.state = b > 0.5 ? 'bad' : 'ok';
+    }
+
+    const fmt = (v: number | null, digits = 2) => v === null || v === undefined ? '' : v.toFixed(digits).replace('.', ',');
+
+    function cellStatus(v: number | null, min: number, max: number, warn = 0): string {
+      if (v === null) return '';
+      if (v >= min && v <= max) return 'v-ok';
+      if (v >= min - warn && v <= max + warn) return 'v-warn';
+      return 'v-bad';
+    }
+
+    function render() {
+      const data = load().sort((a, b) => (b.date + b.time).localeCompare(a.date + a.time));
+      const body = $('jr-body') as unknown as HTMLTableSectionElement | null;
+      const empty = $('jr-empty');
+      if (!body) return;
+      body.innerHTML = '';
+      if (empty) empty.hidden = data.length > 0;
+      const count = $('jr-count');
+      if (count) count.textContent = String(data.length);
+
+      for (const e of data) {
+        const bound = (e.fcl !== null && e.tcl !== null) ? Math.round((e.tcl - e.fcl) * 100) / 100 : null;
+        const act = [e.back ? 'Backspolning' : '', e.vac ? 'Bottensugning' : '', e.note].filter(Boolean).join(' · ');
+        const tr = document.createElement('tr');
+        tr.innerHTML =
+          `<td>${e.date}${e.time ? ' ' + e.time : ''}</td>` +
+          `<td class="${cellStatus(e.ph, 7.2, 7.6, 0.2)}">${fmt(e.ph)}</td>` +
+          `<td class="${cellStatus(e.fcl, 1, 3, 0.5)}">${fmt(e.fcl)}</td>` +
+          `<td class="${cellStatus(e.tcl, 1, 3, 0.5)}">${fmt(e.tcl)}</td>` +
+          `<td class="${bound === null ? '' : (bound > 0.5 ? 'v-bad' : 'v-ok')}">${fmt(bound)}</td>` +
+          `<td class="${cellStatus(e.alk, 80, 160, 20)}">${e.alk ?? ''}</td>` +
+          `<td class="${cellStatus(e.cya, 0, 50, 0)}">${e.cya ?? ''}</td>` +
+          `<td class="${cellStatus(e.hard, 150, 400, 50)}">${e.hard ?? ''}</td>` +
+          `<td class="${cellStatus(e.salt, 2500, 4000, 500)}">${e.salt ?? ''}</td>` +
+          `<td>${ e.temp === null ? '' : fmt(e.temp, 1) }</td>` +
+          `<td>${act}</td>` +
+          `<td><button class="jr-del" data-id="${e.id}" title="Ta bort" aria-label="Ta bort">×</button></td>`;
+        body.appendChild(tr);
+      }
+
+      // trend
+      const trends = $('jr-trends') as unknown as HTMLElement | null;
+      const chron = [...data].reverse();
+      if (trends) trends.hidden = chron.length < 2;
+      spark('sp-ph', chron.map((e) => e.ph));
+      spark('sp-fcl', chron.map((e) => e.fcl));
+      const nowPh = $('sp-ph-now'); const nowFcl = $('sp-fcl-now');
+      const last = chron[chron.length - 1];
+      if (nowPh && last) nowPh.textContent = fmt(last.ph);
+      if (nowFcl && last) nowFcl.textContent = fmt(last.fcl);
+    }
+
+    function spark(id: string, vals: (number | null)[]) {
+      const svg = document.getElementById(id) as unknown as SVGSVGElement | null;
+      if (!svg) return;
+      const pts = vals.map((v, i) => ({ v, i })).filter((p) => p.v !== null) as { v: number; i: number }[];
+      svg.innerHTML = '';
+      if (pts.length < 2) return;
+      const min = Math.min(...pts.map((p) => p.v));
+      const max = Math.max(...pts.map((p) => p.v));
+      const span = (max - min) || 1;
+      const W = 200, H = 40, pad = 4;
+      const x = (i: number) => (vals.length <= 1 ? 0 : (i / (vals.length - 1)) * (W - pad * 2) + pad);
+      const y = (v: number) => H - pad - ((v - min) / span) * (H - pad * 2);
+      const d = pts.map((p, k) => `${k === 0 ? 'M' : 'L'}${x(p.i).toFixed(1)},${y(p.v).toFixed(1)}`).join(' ');
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', d);
+      path.setAttribute('fill', 'none');
+      path.setAttribute('stroke', '#0a7ea4');
+      path.setAttribute('stroke-width', '2');
+      path.setAttribute('stroke-linejoin', 'round');
+      svg.appendChild(path);
+    }
+
+    // init
+    const dateEl = $('jr-date');
+    if (dateEl && !dateEl.value) {
+      const d = new Date();
+      dateEl.value = d.toISOString().slice(0, 10);
+      const t = $('jr-time'); if (t) t.value = d.toTimeString().slice(0, 5);
+    }
+
+    for (const f of RANGE_FIELDS) {
+      const el = $(f);
+      if (el) el.addEventListener('input', () => { paint(el); if (f === 'jr-fcl' || f === 'jr-tcl') updateBound(); });
+    }
+    paint($('jr-ph') as HTMLInputElement); // noop-safe
+
+    const form = $('jr-form') as unknown as HTMLFormElement | null;
+    form?.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      const g = (id: string) => ($(id)?.value.trim() || '');
+      const entry: Entry = {
+        id: String(Date.now()),
+        date: g('jr-date') || new Date().toISOString().slice(0, 10),
+        time: g('jr-time'),
+        ph: num(g('jr-ph')), fcl: num(g('jr-fcl')), tcl: num(g('jr-tcl')),
+        alk: num(g('jr-alk')), cya: num(g('jr-cya')), hard: num(g('jr-hard')),
+        salt: num(g('jr-salt')), temp: num(g('jr-temp')),
+        back: ($('jr-back')?.checked) || false,
+        vac: ($('jr-vac')?.checked) || false,
+        note: g('jr-note'),
+      };
+      const data = load(); data.push(entry); save(data);
+      const msg = $('jr-msg'); if (msg) { msg.textContent = 'Sparad.'; setTimeout(() => { msg.textContent = ''; }, 2500); }
+      for (const f of ['jr-ph', 'jr-fcl', 'jr-tcl', 'jr-alk', 'jr-cya', 'jr-hard', 'jr-salt', 'jr-temp', 'jr-note']) {
+        const el = $(f); if (el) { el.value = ''; delete el.dataset.state; }
+      }
+      ($('jr-back') as HTMLInputElement).checked = false;
+      ($('jr-vac') as HTMLInputElement).checked = false;
+      const b = $('jr-bound'); if (b) { b.value = '—'; delete b.dataset.state; }
+      render();
+    });
+
+    (document.getElementById('jr-body') as unknown as HTMLElement)?.addEventListener('click', (ev) => {
+      const t = ev.target as HTMLElement;
+      if (t.classList.contains('jr-del')) {
+        const id = t.dataset.id;
+        save(load().filter((x) => x.id !== id));
+        render();
+      }
+    });
+
+    document.getElementById('jr-clear')?.addEventListener('click', () => {
+      if (confirm('Rensa alla loggade mätningar? Detta går inte att ångra.')) { save([]); render(); }
+    });
+
+    document.getElementById('jr-export')?.addEventListener('click', () => {
+      const data = load().sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+      const head = ['Datum', 'Tid', 'pH', 'Fritt klor', 'Totalt klor', 'Bundet klor', 'Alkalinitet', 'Cyanursyra', 'Total hårdhet', 'Salt', 'Temp', 'Backspolat', 'Bottensugt', 'Åtgärd'];
+      const rows = data.map((e) => {
+        const b = (e.fcl !== null && e.tcl !== null) ? (Math.round((e.tcl - e.fcl) * 100) / 100) : '';
+        return [e.date, e.time, e.ph ?? '', e.fcl ?? '', e.tcl ?? '', b, e.alk ?? '', e.cya ?? '', e.hard ?? '', e.salt ?? '', e.temp ?? '', e.back ? 'Ja' : 'Nej', e.vac ? 'Ja' : 'Nej', e.note];
+      });
+      const csv = [head, ...rows].map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(';')).join('\n');
+      const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `pooljournal-${new Date().toISOString().slice(0, 10)}.csv`;
+      a.click();
+    });
+
+    document.getElementById('jr-print')?.addEventListener('click', () => window.print());
+
+    render();
+  </script>
+</Base>

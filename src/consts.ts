@@ -18,4 +18,5 @@ export const NAV = [
   { label: 'Vinter', href: '/guider/vinterstangning-pool/' },
   { label: 'Köpguider', href: '/kopguider/' },
   { label: 'Kalkylator', href: '/kalkylator/' },
+  { label: 'Pooljournal', href: '/pooljournal/' },
 ];
