@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Genererar bilder för pooldoktorn spabad-sektionen (16:9 webp 400/800/1200 + jpg).
-Enhetlig "editorial establishing shot"-stil: samma avstånd, badet i sammanhang,
-luft runt motivet, tydlig horisont – så att alla kort i rutnätet känns som en serie."""
+"""Spabad-bilder: varm, levande editorial-stil (gyllene timme / skymning),
+med variation per artikel så rutnätet inte blir enformigt."""
 import os, sys, json, urllib.request
 from io import BytesIO
 from PIL import Image, ImageStat
@@ -10,32 +9,29 @@ from PIL import Image, ImageStat
 OUT = "/home/clawd/pooldoktorn-astro/public/bilder"
 os.makedirs(OUT, exist_ok=True)
 
-# Enhetlig kamerastil för HELA setet (nyckeln till att rutnätet ska hänga ihop)
-SHOT = ("wide editorial establishing shot, the entire hot tub visible and centered in the frame, "
-        "generous empty space around the subject, clear garden horizon and sky in the background, "
-        "consistent camera distance and framing, balanced composition")
-QUALITY = ("professional editorial photography, photorealistic, shot on 35mm at f/5.6, "
-           "soft natural daylight, high detail, no text, no watermark, "
-           "absolutely no people, no hands, no human figures, empty scene")
+# Gemensam grund: varmt, levande, luft i bilden, inga personer.
+QUALITY = ("professional editorial photography, photorealistic, warm inviting sunlight, "
+           "gentle steam, soft shadows, rich natural tones, high detail, no text, no watermark, "
+           "absolutely no people, no hands, no human figures")
 NORDIC = "Swedish/Nordic garden setting, muted natural palette"
 
 JOBS = {
- "spabad-komplett-guide": "A modern outdoor hot tub on a wooden deck in a tidy garden, gentle steam rising in the evening light",
- "installera-spabad-markarbete": "An empty prepared concrete and gravel base for a hot tub in a garden, tidy construction context, daylight",
- "spabad-energiforbrukning": "A hot tub with a thick thermal cover on a wooden deck in a Nordic winter garden, snow on the ground",
- "spabad-vattenbalans": "A hot tub in a garden with a water testing kit and test strips on the deck beside it",
- "skotsel-av-spabad": "A clean hot tub on a wooden deck in a garden with a filter cartridge and a bucket standing beside it",
- "vattenbyte-spabad": "A hot tub on a wooden deck in a garden with a drain hose over the edge, water being emptied",
- "spabad-felsokning": "A modern outdoor hot tub in a garden, its control panel and access panel visible on the side",
- "spabad-vinter": "A steaming hot tub in a snowy Nordic winter garden at twilight, warm glow from the water",
- "spabad-eller-badtunna": "A rustic wooden hot tub beside a modern hot tub in a garden, steam rising from both",
- "bygga-in-spabad": "A hot tub recessed into a wooden deck in a modern garden, integrated into the decking, evening light",
- "spabad-kemikalier": "Hot tub maintenance bottles and a test kit on a wooden deck beside a spa in a garden",
- "starta-spabad-forsta-gangen": "A newly filled hot tub in a garden with a garden hose in the filter housing, gentle steam rising",
+ "spabad-komplett-guide": "A modern hot tub on a wooden deck in a tidy garden at golden hour, steam rising from the glowing water, inviting warm light, the whole tub in view with space around it",
+ "installera-spabad-markarbete": "A wooden deck and a prepared hot tub base under construction in a garden, stacked timber and a few tools, warm late-afternoon light, wide view",
+ "spabad-energiforbrukning": "A hot tub with a thick thermal cover in a snowy Nordic winter garden at dusk, warm light glowing softly from under the cover, wide view",
+ "spabad-vattenbalans": "A water testing kit and test strips on the wooden edge of a hot tub with clear rippling water, warm golden light, shallow depth of field, garden bokeh behind",
+ "skotsel-av-spabad": "A clean filter cartridge and a bucket of water on a wooden deck beside a hot tub, warm golden light, shallow depth of field, deck and garden softly behind",
+ "vattenbyte-spabad": "Water draining from a hot tub through a hose over the deck edge, catching warm golden light, garden and deck in view",
+ "spabad-felsokning": "The illuminated control panel of a hot tub at dusk with warm glow, water reflections and the spa softly visible around it",
+ "spabad-vinter": "A steaming hot tub in a snowy Nordic garden at twilight, warm lantern light, snow on the ground and trees, wide view",
+ "spabad-eller-badtunna": "A traditional wooden hot tub beside a modern hot tub on a deck at dusk, steam rising from both, warm inviting light, wide view",
+ "bygga-in-spabad": "A hot tub recessed into a wooden deck in a modern garden at golden hour, integrated into the decking, warm light, wide view",
+ "spabad-kemikalier": "Hot tub maintenance bottles and a test kit on a wooden deck beside a spa, warm golden light, shallow depth of field, spa and garden softly behind",
+ "starta-spabad-forsta-gangen": "A newly filled hot tub in a garden with a garden hose in the filter housing, steam rising, warm evening light, the whole tub in view",
 }
 
 def fal(prompt, key):
-    body = json.dumps({"prompt": f"{prompt}, {SHOT}, {QUALITY}, {NORDIC}",
+    body = json.dumps({"prompt": f"{prompt}, {QUALITY}, {NORDIC}",
                        "image_size": "landscape_16_9", "num_images": 1}).encode()
     req = urllib.request.Request("https://fal.run/fal-ai/flux-pro/v1.1", data=body,
         headers={"Authorization": f"Key {key}", "Content-Type": "application/json"})
