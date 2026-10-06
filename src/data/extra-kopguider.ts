@@ -158,7 +158,7 @@ export const EXTRA_KOPGUIDER = [
     sections: [
       ['Så funkar en poolrobot – och varför den slår slamsugaren',
         '<p>En poolrobot är en självständig enhet med <strong>egen pump, motor och egen filterbehållare</strong>. Den suger upp skräp i sin egen korg i stället för att skicka det vidare till poolens sandfilter. Det är hela poängen: roboten avlastar reningsverket, påverkar inte cirkulationen och behöver inte kopplas in i skimmern.</p>'
-        + '<p>En manuell slamsugare gör samma sak, men du håller i stången och arbetet sker på din tid. Roboten kör själv ett programma och stängs av när den är klar. Det är skillnaden mellan en halvtimme på knä och noll minuter.</p>'
+        + '<p>En manuell slamsugare gör samma sak, men du håller i stången och arbetet sker på din tid. Roboten kör själv ett program och stängs av när den är klar. Det är skillnaden mellan en halvtimme på knä och noll minuter.</p>'
         + '<p>En poolrobot hjälper dessutom till att <strong>hålla vattnet i rörelse</strong>, vilket jämnar ut klor och temperatur. Läs gärna vår <a href="/kopguider/basta-poolrengoraren/">guide om rengöringsutrustning</a> för håv och borste som komplement.</p>'],
       ['Tre typer av rengörare – och varför roboten vinner',
         '<table><thead><tr><th></th><th>Poolrobot</th><th>Sugslangssugare</th><th>Trycksugare</th></tr></thead><tbody>'
@@ -168,7 +168,7 @@ export const EXTRA_KOPGUIDER = [
         + '<tr><td>Belastar reningsverket?</td><td>Nej</td><td>Ja</td><td>Nej</td></tr>'
         + '</tbody></table>'
         + '<p>En <strong>sugslangssugare</strong> kopplas till skimmern och drivs av poolens egen pump. Den belastar reningsverket, tappar effekt när filtret blir smutsigt och kan inte köra medan poolen används.</p>'
-        + '<p>En <strong>trycksugare</strong> kopplas till ett inlopp och använder vattentrycket framåt. Den har egen påse men kräver att ett inlopp vigs åt den.</p>'
+        + '<p>En <strong>trycksugare</strong> kopplas till ett inlopp och använder vattentrycket framåt. Den har egen påse men kräver att ett inlopp reserveras åt den.</p>'
         + '<p>Den <strong>oberoende roboten</strong> är den mest flexibla: den rör inte poolens kretslopp och kan därför köras precis när som helst, även med poolen i bruk.</p>'],
       ['Topp 10 populära poolrobotar',
         '<p>Listan nedan är de modeller som lagerförs och rankas högst hos svenska återförsäljare och testare. Vi är tydliga med att vi inte har labbtestat dem själva – specifikationerna är tillverkarens och återförsäljarnas, och priser ändras löpande.</p>'
