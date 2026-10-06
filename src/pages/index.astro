@@ -1,12 +1,24 @@
 ---
-import { guider, kopguider } from '../data/content';
+import { guider, kopguider, bygge } from '../data/content';
 import Base from '../layouts/Base.astro';
 import { SITE } from '../consts';
-import { website, webPage, schemaGraph } from '../lib/schema';
+import { website, webPage, breadcrumbs, faqPage, schemaGraph } from '../lib/schema';
 import { u } from '../lib/urls';
 
 const title = `${SITE.name} — skötsel och köpguider för din pool`;
-const jsonLd = schemaGraph([website(), webPage(title, SITE.description, '/')]);
+const faq = [
+  { q: 'Vad ska pH-värdet vara i en pool?', a: 'Sikta på pH 7,2–7,6, helst nära 7,2 där klorets effekt är som bäst. Läs mer i <a href="/guider/ph-och-klor/">guiden om pH och klor</a>.' },
+  { q: 'Hur mycket klor ska poolen ha?', a: 'Fritt klor bör ligga på 1–3 mg/l i normal drift. Vid grönt eller grumligt vatten chockklorerar du upp mot 5–10 mg/l och låter värdet sjunka igen.' },
+  { q: 'Varför är poolvattnet grönt?', a: 'Grönt vatten är alger. Orsaken är oftast för lite fritt klor eller fel pH. Sänk pH, <a href="/guider/chockklorering/">chockklorera</a> och kör cirkulationen dygnet runt.' },
+  { q: 'Hur ofta behöver jag sköta poolen?', a: 'En enkel veckorutin räcker: mät vatten, rengör korgarna, sug botten och backspola vid behov. Logga gärna värdena i <a href="/pooljournal/">pooljournalen</a>.' },
+  { q: 'Säljer Pooldoktorn poolprodukter?', a: 'Nej. Vi är en oberoende kunskapssajt och säljer inget själva. Vissa länkar är affiliatelänkar – handlar du via dem får vi en liten provision utan att priset ändras för dig.' },
+];
+const jsonLd = schemaGraph([
+  website(),
+  webPage(title, SITE.description, '/'),
+  breadcrumbs([{ name: 'Hem', path: '/' }]),
+  faqPage(faq),
+]);
 ---
 <Base title={title} description={SITE.description} path="/" jsonLd={jsonLd} ogImage="/bilder/hero.jpg">
   <section class="hero">
@@ -58,15 +70,42 @@ const jsonLd = schemaGraph([website(), webPage(title, SITE.description, '/')]);
     </section>
 
     <section class="sec">
+      <h2>Poolbygge</h2>
+      <div class="sub">Planera, bygg och äg din pool — från första skiss till vardag</div>
+      <div class="grid">
+        {bygge.slice(0, 6).map((p) => (
+          <a class="card" href={u(`/poolbygge/${p.slug}/`)}>
+            <img class="thumb" src={u(`/bilder/${p.img}-800.webp`)}
+              srcset={`${u(`/bilder/${p.img}-400.webp`)} 400w, ${u(`/bilder/${p.img}-800.webp`)} 800w`}
+              sizes="(max-width:860px) 100vw, 360px" width="1200" height="675" loading="lazy" alt={p.h1} />
+            <div class="body">
+              <span class="tag">{p.tag}</span>
+              <h3>{p.h1}</h3>
+              <p>{p.lead.slice(0, 110)}…</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="sec">
       <h2>Verktyg</h2>
-      <div class="sub">Gratis — räkna ut vad din pool behöver</div>
-      <div class="grid two">
+      <div class="sub">Gratis — räkna ut vad din pool behöver och följ värdena över tid</div>
+      <div class="grid">
         <a class="card" href={u('/kalkylator/')}>
           <img class="thumb" src={u('/bilder/hero-800.webp')} width="1200" height="675" loading="lazy" alt="Poolkalkylatorn" />
           <div class="body">
             <span class="tag">Verktyg</span>
             <h3>Poolkalkylatorn — hur mycket klor och pH-minus behöver din pool?</h3>
             <p>Ange volym och aktuella värden och få doseringsförslag direkt.</p>
+          </div>
+        </a>
+        <a class="card" href={u('/pooljournal/')}>
+          <img class="thumb" src={u('/bilder/poolvard-vecka-800.webp')} width="1200" height="675" loading="lazy" alt="Pooljournal" />
+          <div class="body">
+            <span class="tag">Verktyg</span>
+            <h3>Pooljournal — logga pH, klor och vattenvärden</h3>
+            <p>Få direkt återkoppling mot riktvärdena och följ utvecklingen över säsongen.</p>
           </div>
         </a>
         <div class="news" style="margin:0">
@@ -77,6 +116,19 @@ const jsonLd = schemaGraph([website(), webPage(title, SITE.description, '/')]);
             <button type="submit">Prenumerera</button>
           </form>
         </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>Vanliga frågor</h2>
+      <div class="sub">Snabba svar på det poolägare oftast undrar</div>
+      <div class="faq">
+        {faq.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <div class="a" set:html={f.a} />
+          </details>
+        ))}
       </div>
     </section>
   </div>

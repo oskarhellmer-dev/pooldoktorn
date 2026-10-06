@@ -1,14 +1,21 @@
 ---
 import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import { schemaGraph, webPage, breadcrumbs, orgProfile } from '../lib/schema';
+import { schemaGraph, webPage, breadcrumbs, faqPage, orgProfile } from '../lib/schema';
 import { u } from '../lib/urls';
 const path = '/om/';
 const title = 'Om Pooldoktorn — oberoende poolguider';
 const desc = 'Vilka vi är, hur guiderna tas fram, hur vi tjänar pengar och hur du kontaktar oss. Oberoende kunskapssajt för svenska poolägare — vi säljer inget själva.';
+const faq = [
+  { q: 'Vem står bakom Pooldoktorn?', a: 'Pooldoktorn drivs som en oberoende kunskapssajt för svenska pool- och spaägare. Vi säljer inga produkter själva och har inga egna varumärken — inkomsten kommer från annonser och affiliatelänkar.' },
+  { q: 'Hur säkerställer ni att informationen stämmer?', a: 'Guiderna bygger på vedertagen poolkemi och branschpraxis, korskontrolleras mot leverantörers datablad och uppdateras med jämna mellanrum. Vid minsta tvekan gäller alltid anvisningen för din egen utrustning.' },
+  { q: 'Kostar det något att använda sajten?', a: 'Nej. Alla guider och verktyg är gratis. Handlar du via en affiliatelänk får vi en liten provision — priset blir detsamma för dig.' },
+  { q: 'Hur rapporterar jag ett fel?', a: 'Mejla <a href="mailto:hej@pooldoktorn.se">hej@pooldoktorn.se</a> så rättar vi det. Vi läser allt.' },
+];
 const jsonLd = schemaGraph([
   webPage(title, desc, path),
   breadcrumbs([{ name: 'Hem', path: '/' }, { name: 'Om', path }]),
+  faqPage(faq),
   orgProfile(),
 ]);
 ---
@@ -40,6 +47,16 @@ const jsonLd = schemaGraph([
 
       <h2>Kontakt</h2>
       <p>Frågor, rättelser eller samarbeten: <a href="mailto:hej@pooldoktorn.se">hej@pooldoktorn.se</a>. Vi läser allt och svarar så snart vi kan.</p>
+
+      <h2 id="vanliga-fragor">Vanliga frågor</h2>
+      <div class="faq">
+        {faq.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <div class="a" set:html={f.a} />
+          </details>
+        ))}
+      </div>
     </div>
   </div>
 </Base>
