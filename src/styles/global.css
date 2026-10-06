@@ -25,6 +25,7 @@ header.site{background:#fff;border-bottom:1px solid var(--line);position:sticky;
 .nav nav a:hover,.nav nav a[aria-current=page]{color:var(--brand)}
 .burger{display:none;background:none;border:1px solid var(--line);border-radius:8px;font-size:18px;padding:6px 11px;cursor:pointer}
 .mobilemenu{display:none}
+.mobilemenu[hidden]{display:none!important}
 
 /* hero */
 .hero{background:linear-gradient(135deg,var(--brand),#0e9bd1);color:#fff;padding:56px 0}
