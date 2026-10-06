@@ -1,0 +1,48 @@
+---
+import { spa, bySlug, href } from '../../data/content';
+import Base from '../../layouts/Base.astro';
+import ArticleView from '../../components/ArticleView.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Related from '../../components/Related.astro';
+import { article, breadcrumbs, faqPage, howTo, schemaGraph } from '../../lib/schema';
+
+export function getStaticPaths() {
+  return spa.map((p) => ({ params: { slug: p.slug }, props: { page: p } }));
+}
+const { page } = Astro.props;
+const path = `/spabad/${page.slug}/`;
+const related = page.related.map((s: string) => bySlug(s)).filter(Boolean).map((r: any) => ({ ...r, href: href(r.slug) }));
+
+const published = '2026-10-06';
+const modified = '2026-10-06';
+
+// Bygg HowTo-schema om guiden har steg-sektioner
+const steps = (page.sections as any[])
+  .filter((s) => /^steg\s*\d/i.test(s.h2))
+  .map((s) => ({ name: s.h2, text: s.html }));
+
+const nodes: any[] = [
+  article(page.meta_title, page.meta_desc, path, page.img, published, modified),
+  breadcrumbs([
+    { name: 'Hem', path: '/' },
+    { name: 'Spabad', path: '/spabad/' },
+    { name: page.h1, path },
+  ]),
+];
+if (page.faq?.length) nodes.push(faqPage(page.faq));
+if (steps.length >= 3) nodes.push(howTo(page.h1, page.meta_desc, page.img, steps, path));
+const jsonLd = schemaGraph(nodes);
+---
+<Base
+  title={page.meta_title}
+  description={page.meta_desc}
+  path={path}
+  ogImage={`/bilder/${page.img}-1200.webp`}
+  ogType="article"
+  jsonLd={jsonLd}>
+  <div class="wrap">
+    <Breadcrumbs trail={[{ name: 'Hem', path: '/' }, { name: 'Spabad', path: '/spabad/' }, { name: page.h1 }]} />
+    <ArticleView page={page} modified={modified} />
+    <Related related={related} />
+  </div>
+</Base>

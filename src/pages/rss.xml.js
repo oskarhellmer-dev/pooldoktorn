@@ -2,11 +2,18 @@ import rss from '@astrojs/rss';
 import { pages } from '../data/content';
 import { SITE } from '../consts';
 
+const SECTION = {
+  Guide: '/guider',
+  'Köpguide': '/kopguider',
+  Bygge: '/poolbygge',
+  Spa: '/spabad',
+};
+
 export function GET(context) {
   const items = pages.map((p) => ({
     title: p.h1,
     description: p.meta_desc,
-    link: `${p.tag === 'Guide' ? '/guider' : '/kopguider'}/${p.slug}/`,
+    link: `${SECTION[p.tag] ?? '/guider'}/${p.slug}/`,
     pubDate: new Date('2026-10-06'),
   }));
   return rss({

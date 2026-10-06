@@ -1,5 +1,5 @@
 ---
-import { guider, kopguider, bygge } from '../data/content';
+import { guider, kopguider, bygge, spa } from '../data/content';
 import Base from '../layouts/Base.astro';
 import { SITE } from '../consts';
 import { website, webPage, breadcrumbs, faqPage, schemaGraph } from '../lib/schema';
@@ -89,11 +89,32 @@ const jsonLd = schemaGraph([
     </section>
 
     <section class="sec">
+      <h2>Spabad</h2>
+      <div class="sub">Köp, installera och sköt ditt spabad – igång året runt</div>
+      <div class="grid">
+        {spa.slice(0, 6).map((p) => (
+          <a class="card" href={u(`/spabad/${p.slug}/`)}>
+            <img class="thumb" src={u(`/bilder/${p.img}-800.webp`)}
+              srcset={`${u(`/bilder/${p.img}-400.webp`)} 400w, ${u(`/bilder/${p.img}-800.webp`)} 800w`}
+              sizes="(max-width:860px) 100vw, 360px" width="1200" height="675" loading="lazy" alt={p.h1} />
+            <div class="body">
+              <span class="tag">{p.tag}</span>
+              <h3>{p.h1}</h3>
+              <p>{p.lead.slice(0, 110)}…</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="sec">
       <h2>Verktyg</h2>
       <div class="sub">Gratis — räkna ut vad din pool behöver och följ värdena över tid</div>
       <div class="grid">
         <a class="card" href={u('/kalkylator/')}>
-          <img class="thumb" src={u('/bilder/hero-800.webp')} width="1200" height="675" loading="lazy" alt="Poolkalkylatorn" />
+          <img class="thumb" src={u('/bilder/hero-800.webp')}
+            srcset={`${u('/bilder/hero-400.webp')} 400w, ${u('/bilder/hero-800.webp')} 800w, ${u('/bilder/hero-1200.webp')} 1200w`}
+            sizes="(max-width:860px) 100vw, 360px" width="1200" height="675" loading="lazy" alt="Poolkalkylatorn" />
           <div class="body">
             <span class="tag">Verktyg</span>
             <h3>Poolkalkylatorn — hur mycket klor och pH-minus behöver din pool?</h3>
@@ -101,7 +122,9 @@ const jsonLd = schemaGraph([
           </div>
         </a>
         <a class="card" href={u('/pooljournal/')}>
-          <img class="thumb" src={u('/bilder/poolvard-vecka-800.webp')} width="1200" height="675" loading="lazy" alt="Pooljournal" />
+          <img class="thumb" src={u('/bilder/poolvard-vecka-800.webp')}
+            srcset={`${u('/bilder/poolvard-vecka-400.webp')} 400w, ${u('/bilder/poolvard-vecka-800.webp')} 800w, ${u('/bilder/poolvard-vecka-1200.webp')} 1200w`}
+            sizes="(max-width:860px) 100vw, 360px" width="1200" height="675" loading="lazy" alt="Pooljournal" />
           <div class="body">
             <span class="tag">Verktyg</span>
             <h3>Pooljournal — logga pH, klor och vattenvärden</h3>

@@ -5,12 +5,13 @@ import { EXTRA_GUIDER } from './extra-guider';
 import { EXTRA_GUIDER2 } from './extra-guider2';
 import { EXTRA_KOPGUIDER } from './extra-kopguider';
 import { EXTRA_BYGGE } from './extra-bygge';
+import { EXTRA_SPA } from './extra-spa';
 
 export interface FaqItem { q: string; a: string }
 export interface Aff { title: string; text: string; cta: string; url: string }
 export interface Page {
   slug: string;
-  tag: 'Guide' | 'Köpguide' | 'Bygge';
+  tag: 'Guide' | 'Köpguide' | 'Bygge' | 'Spa';
   h1: string;
   meta_title: string;
   meta_desc: string;
@@ -37,6 +38,11 @@ const RELATED_ADDITIONS: Record<string, string[]> = {
   'saltklorinator': ['smart-pool-automation'],
 };
 
+// Korslänkning spabad <-> befintlig spabad-köpguide
+const SPA_LINKS: Record<string, string[]> = {
+  'spabad-kopguide': ['spabad-komplett-guide', 'spabad-energiforbrukning', 'spabad-vattenbalans'],
+};
+
 const normSections = (s: any): { h2: string; html: string }[] =>
   (s || []).map((x: any) => (Array.isArray(x) ? { h2: x[0], html: x[1] } : x));
 const normFaq = (f: any): FaqItem[] =>
@@ -48,10 +54,11 @@ const all: Page[] = [
   ...(EXTRA_GUIDER2 as unknown as Page[]),
   ...(EXTRA_KOPGUIDER as unknown as Page[]),
   ...(EXTRA_BYGGE as unknown as Page[]),
+  ...(EXTRA_SPA as unknown as Page[]),
 ].map((p: any) => ({ ...p, sections: normSections(p.sections), faq: normFaq(p.faq) }));
 
 export const pages: Page[] = all.map((p) => {
-  const extra = RELATED_ADDITIONS[p.slug] || [];
+  const extra = [...(RELATED_ADDITIONS[p.slug] || []), ...(SPA_LINKS[p.slug] || [])];
   const merged = [...p.related];
   for (const s of extra) if (!merged.includes(s) && all.some((x) => x.slug === s)) merged.push(s);
   return { ...p, related: merged.slice(0, 4) };
@@ -60,8 +67,10 @@ export const pages: Page[] = all.map((p) => {
 export const guider = pages.filter((p) => p.tag === 'Guide');
 export const kopguider = pages.filter((p) => p.tag === 'Köpguide');
 export const bygge = pages.filter((p) => p.tag === 'Bygge');
+export const spa = pages.filter((p) => p.tag === 'Spa');
 
-const sectionOf = (tag: Page['tag']) => (tag === 'Guide' ? 'guider' : tag === 'Köpguide' ? 'kopguider' : 'poolbygge');
+const sectionOf = (tag: Page['tag']) =>
+  tag === 'Guide' ? 'guider' : tag === 'Köpguide' ? 'kopguider' : tag === 'Bygge' ? 'poolbygge' : 'spabad';
 
 export const bySlug = (slug: string) => pages.find((p) => p.slug === slug);
 export const href = (slug: string) => {

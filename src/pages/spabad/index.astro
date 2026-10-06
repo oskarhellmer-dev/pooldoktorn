@@ -1,0 +1,60 @@
+---
+import { spa as items } from '../../data/content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { collectionPage, breadcrumbs, faqPage, schemaGraph } from '../../lib/schema';
+import { u } from '../../lib/urls';
+
+const path = '/spabad/';
+const title = 'Spabad – guider för köp, installation och skötsel';
+const desc = 'Allt om spabad: planera köpet, förbered platsen, installera säkert och håll vattnet i balans. Oberoende guider för dig som har eller ska köpa spabad.';
+const faq = [
+  { q: 'Vad ska pH-värdet vara i ett spabad?', a: 'Sikta på pH 7,2–7,6, helst nära 7,2 där klorets effekt är som bäst. Läs mer i <a href="/spabad/spabad-vattenbalans/">vattenbalans för spabad</a>.' },
+  { q: 'Kan man ha spabad ute på vintern?', a: 'Ja, ett korrekt installerat och isolerat spabad är byggt för året-runt-drift. Undvik att tömma och stänga av det – frysskador täcks inte av garantin. Se <a href="/spabad/spabad-vinter/">spabad vintertid</a>.' },
+  { q: 'Vad kostar det att driva ett spabad?', a: 'Driftkostnaden styrs nästan helt av isolering, termolock och badvanor. Så räknar du på förbrukningen i <a href="/spabad/spabad-energiforbrukning/">guiden om energiförbrukning</a>.' },
+];
+const jsonLd = schemaGraph([
+  collectionPage(title, desc, path, items.map((i) => ({ name: i.h1, url: `${path}${i.slug}/` }))),
+  breadcrumbs([{ name: 'Hem', path: '/' }, { name: 'Spabad', path }]),
+  faqPage(faq),
+]);
+---
+<Base title={title} description={desc} path={path} jsonLd={jsonLd} ogImage="/bilder/spabad-komplett-guide-1200.webp">
+  <div class="wrap">
+    <Breadcrumbs trail={[{ name: 'Hem', path: '/' }, { name: 'Spabad' }]} />
+    <section class="sec">
+      <h1 style="font-size:32px;letter-spacing:-.8px;margin-top:22px">Spabad</h1>
+      <p class="sub">Från köp och markarbete till vattenvård och vinterbad – ett spabad är igång året runt.</p>
+      <div class="prose" style="max-width:760px;margin:8px 0 28px">
+        <p>Ett spabad är inte en liten pool. Det är en egen apparat med egen kemi, egen el och en egen dygnsrytm som ska skötas året runt. Det mesta som går fel – irriterande vatten, flödesfel eller en onödigt hög elkostnad – beror på några få beslut och vanor. Här har vi samlat guiderna som gör dem enkla.</p>
+        <p>Fundera du på att köpa spabad eller badtunna? Börja med <a href={u('/spabad/spabad-eller-badtunna/')}>spabad eller badtunna</a> och vår <a href={u('/kopguider/spabad-kopguide/')}>spabad-köpguide</a>. Har du redan ett bad hittar du skötseln under <a href={u('/spabad/skotsel-av-spabad/')}>skötsel</a> och <a href={u('/spabad/spabad-vattenbalans/')}>vattenbalans</a>.</p>
+        <p>Precis som i resten av sajten är vi oberoende och utan säljsnack. Vi säljer inga spabad själva – vi skriver om vad som faktiskt spelar roll. Med rätt vattenvård mår badet bra, och det är ingen konst: det handlar om en fast rutin.</p>
+      </div>
+      <div class="grid">
+        {items.map((p) => (
+          <a class="card" href={u(`/spabad/${p.slug}/`)}>
+            <img class="thumb" src={u(`/bilder/${p.img}-800.webp`)}
+              srcset={`${u(`/bilder/${p.img}-400.webp`)} 400w, ${u(`/bilder/${p.img}-800.webp`)} 800w`}
+              sizes="(max-width:860px) 100vw, 360px" width="1200" height="675" loading="lazy" alt={p.h1} />
+            <div class="body">
+              <span class="tag">{p.tag}</span>
+              <h3>{p.h1}</h3>
+              <p>{p.lead.slice(0, 110)}…</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+    <div class="article" style="margin-top:44px">
+      <h2>Vanliga frågor om spabad</h2>
+      <div class="faq">
+        {faq.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <div class="a" set:html={f.a} />
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</Base>
