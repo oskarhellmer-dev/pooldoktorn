@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { schemaGraph, breadcrumbs, webPage } from '../lib/schema';
+import { u } from '../lib/urls';
+
+const title = 'Poolkalkylatorn — volym och dosering för din pool';
+const desc = 'Räkna ut din pools vattenvolym och få uppskattad dos av chockklor och pH-minus. Gratis verktyg för svenska poolägare.';
+const path = '/kalkylator/';
+const jsonLd = schemaGraph([
+  {
+    '@type': 'WebApplication',
+    name: 'Poolkalkylatorn',
+    url: 'https://pooldoktorn.se/kalkylator/',
+    inLanguage: 'sv-SE',
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'All',
+    description: desc,
+  },
+  webPage(title, desc, path),
+  breadcrumbs([{ name: 'Hem', path: '/' }, { name: 'Kalkylator', path }]),
+]);
+---
+<Base title={title} description={desc} path={path} jsonLd={jsonLd}>
+  <div class="wrap">
+    <Breadcrumbs trail={[{ name: 'Hem', path: '/' }, { name: 'Kalkylator' }]} />
+    <article class="article">
+      <h1>Poolkalkylatorn</h1>
+      <p class="lead">Ange din pools mått och nuvarande pH. Verktyget räknar ut vattenvolym och ger ett uppskattat startvärde för chockklor och pH-minus.</p>
+      <div class="tool">
+        <div class="row"><label for="form">Poolform</label>
+          <select id="form"><option value="rect">Rektangulär</option><option value="round">Rund/oval</option></select></div>
+        <div class="row" id="r-len"><label for="len">Längd (m)</label><input id="len" type="number" value="8" step="0.1" min="1" /></div>
+        <div class="row" id="r-wid"><label for="wid">Bredd (m)</label><input id="wid" type="number" value="4" step="0.1" min="1" /></div>
+        <div class="row" id="r-dia" style="display:none"><label for="dia">Diameter (m)</label><input id="dia" type="number" value="4" step="0.1" min="1" /></div>
+        <div class="row"><label for="dep">Medeldjup (m)</label><input id="dep" type="number" value="1.5" step="0.1" min="0.3" /></div>
+        <div class="row"><label for="ph">Aktuellt pH</label><input id="ph" type="number" value="7.8" step="0.1" min="6" max="9" /></div>
+        <div class="out" id="out"></div>
+      </div>
+      <div class="note">Siffrorna är uppskattningar för att komma igång. Följ alltid doseringen på din produkt och mät vattnet mellan varje justering. Blanda aldrig kemikalier med varandra.</div>
+      <p>Behöver du bakgrunden? Läs <a href={u('/guider/ph-och-klor/')}>pH och klor — rätt nivåer</a> eller <a href={u('/guider/gront-poolvatten/')}>guiden om grönt poolvatten</a>.</p>
+      <Newsletter />
+    </article>
+  </div>
+  <script>
+    function calc() {
+      const form = document.getElementById('form') as HTMLSelectElement;
+      const val = (id: string) => Number((document.getElementById(id) as HTMLInputElement).value);
+      let vol: number;
+      if (form.value === 'round') vol = Math.PI * Math.pow(val('dia') / 2, 2) * val('dep');
+      else vol = val('len') * val('wid') * val('dep');
+      vol = Math.round(vol * 10) / 10;
+      const ph = val('ph');
+      let pm = '';
+      if (ph > 7.6) pm = `${Math.round(vol * 10)}–${Math.round(vol * 15)} g pH-minus (sänk mot 7,2–7,4)`;
+      else if (ph < 7.2) pm = `${Math.round(vol * 10)}–${Math.round(vol * 15)} g pH-plus`;
+      else pm = 'pH ligger i intervallet — ingen justering behövs.';
+      const out = document.getElementById('out')!;
+      out.innerHTML =
+        `<p><b>Vattenvolym:</b> cirka ${vol} m³</p>` +
+        `<p><b>Chockklor vid grönt/start:</b> cirka ${Math.round(vol * 15)} g snabbklor (sikta på 5–10 mg/l fritt klor).</p>` +
+        `<p><b>pH-justering:</b> ${pm}</p>`;
+    }
+    const ids = ['form', 'len', 'wid', 'dia', 'dep', 'ph'];
+    ids.forEach((id) => {
+      document.getElementById(id)?.addEventListener('input', () => {
+        const round = (document.getElementById('form') as HTMLSelectElement).value === 'round';
+        (document.getElementById('r-len') as HTMLElement).style.display = round ? 'none' : 'flex';
+        (document.getElementById('r-wid') as HTMLElement).style.display = round ? 'none' : 'flex';
+        (document.getElementById('r-dia') as HTMLElement).style.display = round ? 'flex' : 'none';
+        calc();
+      });
+    });
+    calc();
+  </script>
+</Base>

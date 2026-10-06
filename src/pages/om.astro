@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { schemaGraph, webPage, breadcrumbs } from '../lib/schema';
+const path = '/om/';
+const title = 'Om Pooldoktorn — oberoende poolguider';
+const desc = 'Vilka vi är, hur vi arbetar och varför vi inte säljer produkter själva. Oberoende guider för svenska poolägare.';
+const jsonLd = schemaGraph([webPage(title, desc, path), breadcrumbs([{ name: 'Hem', path: '/' }, { name: 'Om', path }])]);
+---
+<Base title={title} description={desc} path={path} jsonLd={jsonLd}>
+  <div class="wrap">
+    <Breadcrumbs trail={[{ name: 'Hem', path: '/' }, { name: 'Om' }]} />
+    <div class="page">
+      <h1>Om Pooldoktorn</h1>
+      <p>Pooldoktorn.se är en oberoende kunskapssajt för svenska poolägare. Vi säljer inga produkter själva — vi skriver guider om vattenvård, skötsel och köp, och länkar vidare till butiker och leverantörer när det är relevant.</p>
+      <h2>Varför oberoende?</h2>
+      <p>Eftersom vi inte äger något lager kan vi skriva ärligt om vad som funkar och inte. Vår inkomst kommer från annonser och affiliatelänkar, inte från att sälja en viss produkt.</p>
+      <h2>Så arbetar vi</h2>
+      <p>Guiderna bygger på vedertagen poolkemi och vanliga skötselrutiner. Mätvärdena är riktvärden — följ alltid leverantörens anvisningar för just din utrustning.</p>
+    </div>
+  </div>
+</Base>

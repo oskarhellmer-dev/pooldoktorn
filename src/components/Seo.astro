@@ -1,0 +1,40 @@
+---
+import { SITE } from '../consts';
+import { abs, u } from '../lib/urls';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  ogImage?: string;      // relativ bild, t.ex. /bilder/hero.jpg
+  ogType?: string;
+  jsonLd?: string;       // färdig JSON-LD-graph (sträng)
+  noindex?: boolean;
+}
+const { title, description, path, ogImage = '/bilder/hero.jpg', ogType = 'website', jsonLd, noindex = false } = Astro.props;
+const canonical = abs(path);
+const og = abs(ogImage);
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex,follow" />}
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:locale" content="sv_SE" />
+<meta property="og:image" content={og} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:alt" content={title} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={og} />
+<link rel="icon" href={u('/favicon.svg')} type="image/svg+xml" />
+<link rel="alternate" type="application/rss+xml" title={`${SITE.name} – guideflöde`} href={abs('/rss.xml')} />
+{jsonLd && <script type="application/ld+json" set:html={jsonLd} />}

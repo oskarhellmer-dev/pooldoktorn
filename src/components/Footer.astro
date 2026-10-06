@@ -1,0 +1,18 @@
+---
+import { SITE } from '../consts';
+import { u } from '../lib/urls';
+const year = new Date().getFullYear();
+---
+<footer class="site">
+  <div class="wrap foot">
+    <span>{SITE.name} — oberoende guider för pool och spa. Vi säljer inga produkter själva.<br />© {year}</span>
+    <nav aria-label="Sidfot">
+      <a href={u('/guider/')}>Guider</a>
+      <a href={u('/kopguider/')}>Köpguider</a>
+      <a href={u('/kalkylator/')}>Kalkylator</a>
+      <a href={u('/om/')}>Om</a>
+      <a href={u('/annonsdeklaration/')}>Annonsdeklaration</a>
+      <a href={u('/integritetspolicy/')}>Integritet</a>
+    </nav>
+  </div>
+</footer>

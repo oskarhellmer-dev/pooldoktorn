@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { schemaGraph, webPage, breadcrumbs } from '../lib/schema';
+const path = '/annonsdeklaration/';
+const title = 'Annonsdeklaration — Pooldoktorn';
+const desc = 'Hur Pooldoktorn finansieras: affiliatelänkar och annonser. Så påverkar det innehållet, och vad det innebär för dig som läsare — enligt marknadsföringslagen.';
+const jsonLd = schemaGraph([webPage(title, desc, path), breadcrumbs([{ name: 'Hem', path: '/' }, { name: 'Annonsdeklaration', path }])]);
+---
+<Base title={title} description={desc} path={path} jsonLd={jsonLd}>
+  <div class="wrap">
+    <Breadcrumbs trail={[{ name: 'Hem', path: '/' }, { name: 'Annonsdeklaration' }]} />
+    <div class="page">
+      <h1>Annonsdeklaration</h1>
+      <p>Pooldoktorn.se finansieras genom annonser och affiliatelänkar. Det innebär att vissa länkar till butiker och leverantörer är <strong>sponsrade eller affiliatelänkar</strong>. Handlar du via en sådan länk kan vi få en provision.</p>
+      <h2>Vad det betyder för dig</h2>
+      <ul>
+        <li>Priset blir detsamma för dig — provisionen betalas av butiken.</li>
+        <li>Vi rekommenderar inte produkter vi inte tror är relevanta bara för att få provision.</li>
+        <li>Länkar med kommersiellt syfte är märkta och satta med rel-attribut.</li>
+      </ul>
+      <p>Frågor om annonsering? Kontakta oss via adressen i sidfoten.</p>
+    </div>
+  </div>
+</Base>

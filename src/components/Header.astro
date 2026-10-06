@@ -1,0 +1,31 @@
+---
+import { SITE, NAV } from '../consts';
+import { u } from '../lib/urls';
+const current = Astro.url.pathname;
+const isActive = (href: string) => current === u(href) || (href !== '/' && current.startsWith(u(href)));
+---
+<header class="site">
+  <div class="wrap nav">
+    <a class="logo" href={u('/')}>pooldoktorn<span>.se</span></a>
+    <nav aria-label="Huvudmeny">
+      <ul>
+        {NAV.map((item) => (
+          <li><a href={u(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <button class="burger" aria-label="Meny" aria-expanded="false" data-menu>☰</button>
+  </div>
+  <div class="mobilemenu" hidden data-mobilemenu>
+    {NAV.map((item) => <a href={u(item.href)}>{item.label}</a>)}
+  </div>
+</header>
+<script>
+  const btn = document.querySelector('[data-menu]');
+  const menu = document.querySelector('[data-mobilemenu]');
+  btn?.addEventListener('click', () => {
+    const open = menu.hasAttribute('hidden');
+    menu.toggleAttribute('hidden', !open);
+    btn.setAttribute('aria-expanded', String(open));
+  });
+</script>

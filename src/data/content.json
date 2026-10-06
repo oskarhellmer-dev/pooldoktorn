@@ -1,0 +1,615 @@
+{
+ "site": {
+  "name": "Pooldoktorn",
+  "domain": "pooldoktorn.se",
+  "tagline": "Oberoende guider för pool och spa"
+ },
+ "pages": [
+  {
+   "slug": "gront-poolvatten",
+   "tag": "Guide",
+   "h1": "Grönt poolvatten – så blir vattnet klart igen",
+   "meta_title": "Grönt poolvatten – så blir det klart igen",
+   "meta_desc": "Grönt poolvatten beror på alger. Så chockklorerar du, justerar pH och filtrerar bort algerna steg för steg – ofta klart inom 24 till 48 timmar.",
+   "lead": "Vattnet har slagit om till grönt över en natt. Det ser värre ut än det är – grönt vatten är alger, och alger går att få bukt med på ett dygn om du gör rätt saker i rätt ordning.",
+   "img": "gront-poolvatten",
+   "image_prompt": "A residential backyard swimming pool with cloudy green algae water next to a clean blue pool, realistic photo, garden setting, daylight",
+   "sections": [
+    {
+     "h2": "Varför blir vattnet grönt?",
+     "html": "<p>Grönt vatten är alltid ett tecken på att algerna fått övertaget. Algsporer finns i princip alltid i vattnet, men de hålls tillbaka av tillräckligt mycket verksamt klor. Blir vattnet grönt betyder det att kloret inte längre räcker – av någon av dessa orsaker:</p><ul><li><strong>Lågt fritt klor.</strong> Kloret har förbrukats snabbare än du fyllt på.</li><li><strong>Hög cyanursyra.</strong> Cyanursyran binder kloret så att det slutar verka. Vanligt om du använt mycket puckar med stabilisator.</li><li><strong>Högt pH.</strong> Klor tappar effekt snabbt över pH 7,8 – vid pH 8,0 är bara en bråkdel kvar.</li><li><strong>Dålig cirkulation.</strong> Kort filtertid eller igensatt filter ger döda zoner där algerna får fäste.</li><li><strong>Varmt och soligt väder.</strong> 28 grader och sol är algernas bästa arbetsförhållanden.</li></ul><p>Det viktigaste är ordningen: du löser det inte genom att bara hälla i mer klor om pH eller cyanursyran ligger fel.</p>"
+    },
+    {
+     "h2": "Steg 1 – mät vattnet innan du gör något",
+     "html": "<p>Ta ett vattenprov och mät <strong>pH, fritt klor och cyanursyra</strong>. Utan de siffrorna chansar du, och chansning är precis vad som gör att folk häller i klor tre dagar i rad utan resultat.</p><p>Skriv upp värdena. Du kommer behöva dem för att veta om chockkloreringen ens kommer att bita.</p>"
+    },
+    {
+     "h2": "Steg 2 – få pH ner till 7,2–7,4",
+     "html": "<p>Klor verkar bäst i intervallet 7,2–7,4. Ligger pH över 7,6 sänker du det <em>först</em> – annars slösar du bort kloret. Använd pH-minus (natriumklorid / saltsyra-baserat) enligt dosering på förpackningen och mät igen efter cirka en timmes cirkulation.</p><div class=\"note\">Ett pH över 7,8 gör att kloret tappar en stor del av sin verkan. Fixa pH först, klor efter.</div>"
+    },
+    {
+     "h2": "Steg 3 – chockklorera ordentligt",
+     "html": "<p>Vid grönt vatten räcker det inte med normal dosering. Du behöver en <strong>chockklorering</strong>, alltså en kraftig engångsdos, och sikta på 5–10 mg/l fritt klor. Använd kalciumhypoklorit (snabbklor) eller natriumdiklor, löst upp i en hink vatten enligt anvisningen – aldrig hällt direkt på liner eller duk i koncentrerad form.</p><p>Häll lösningen fördelat runt poolen medan pumpen går. Kör pumpen <strong>dygnet runt</strong> tills vattnet är klart. Räkna med att klornivån faller snabbt första timmarna – den arbetar.</p>"
+    },
+    {
+     "h2": "Steg 4 – borsta och cirkulera",
+     "html": "<p>Borsta väggar, trappor och hörn med en poolborste. Alger sitter gärna i skuggan bakom inlopp och under trappsteg, och de lossnar inte av sig själva. Kör pumpen 24 timmar om dygnet tills vattnet är klart och du är nere på normala klornivåer, cirka 1–3 mg/l.</p>"
+    },
+    {
+     "h2": "Steg 5 – om vattnet fortfarande är mjölkigt",
+     "html": "<p>Mjölkigt, gråvitt vatten är oftast döda alger som svävar fritt och är för små för filtret. Då hjälper en <strong>flockning</strong> (flockmedel): algerna klumpar ihop sig till större partiklar som fastnar i filtret. Backspola filtret dagen efter.</p><p>Är filtret igensatt och tryckmätaren står högt – backspola innan du fortsätter, annars cirkulerar du bara runt skiten.</p>"
+    },
+    {
+     "h2": "Steg 6 – låt inte problemet komma tillbaka",
+     "html": "<p>När vattnet är klart är det lätt att slappna av. Håll i stället koll på cyanursyran: stiger den över 80 mg/l slutar kloret att verka och du får samma problem igen. Får den inte ligga rätt behöver du tömma och fylla på en del vatten.</p><ul><li>Klorera löpande och kontrollera fritt klor varannan dag på sommaren.</li><li>Håll pH i 7,2–7,6.</li><li>Kör filtret tillräckligt länge – minst en omsättning av hela vattenvolymen per dygn, gärna mer när det är varmt.</li><li>Använd algmedel förebyggande under semester och värmeböljor.</li></ul>"
+    },
+    {
+     "h2": "Vanliga misstag",
+     "html": "<ul><li><strong>Chockklorerar utan att sänka pH.</strong> Kloret orkar knappt jobba.</li><li><strong>Ger upp efter en dag.</strong> Grönt vatten tar oftast 24–48 timmar.</li><li><strong>Kör inte pumpen dygnet runt.</strong> Utan cirkulation når inte kloret algerna.</li><li><strong>Fortsätter med puckar med stabilisator.</strong> Cyanursyran blir bara högre.</li><li><strong>Blandar klor och andra kemikalier i samma hink.</strong> Det kan bilda giftig gas – blanda aldrig kemikalier med varandra.</li></ul>"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Hur länge tar det att få bort grönt poolvatten?",
+     "a": "Oftast 24–48 timmar om pH ligger rätt, chockkloreringen är tillräcklig och pumpen går dygnet runt. Mjölkigt vatten kan ta något längre eftersom de döda algerna måste filtreras eller flockas bort."
+    },
+    {
+     "q": "Kan jag bada när kloret är högt efter chockklorering?",
+     "a": "Nej. Vänta tills fritt klor är tillbaka under omkring 3 mg/l innan du badar. Vid 1–3 mg/l är vattnet normalt att bada i."
+    },
+    {
+     "q": "Spelar cyanursyran verkligen roll när vattnet är grönt?",
+     "a": "Ja. Är cyanursyran för hög (vanligt över 80 mg/l) är kloret bundet och verkar inte, oavsett hur mycket du häller i. Då måste en del vatten bytas ut."
+    }
+   ],
+   "aff": {
+    "title": "Kemikalier för chockklorering",
+    "text": "Snabbklor, pH-minus och algmedel finns hos de flesta poolbutiker. Priset blir detsamma för dig om du handlar via länken.",
+    "cta": "Se chockklor och pH-minus",
+    "url": "https://www.poolstore.se"
+   },
+   "related": [
+    "ph-och-klor",
+    "varstart-pool",
+    "basta-poolroboten"
+   ]
+  },
+  {
+   "slug": "ph-och-klor",
+   "tag": "Guide",
+   "h1": "pH och klor i poolen – rätt nivåer (tabell)",
+   "meta_title": "pH och klor i poolen – rätt nivåer och tabell",
+   "meta_desc": "Rätt pH (7,2–7,6) och fritt klor (1–3 mg/l) är grunden för klart vatten. Alla vattenvärden i en tabell och exakt vad du gör när de avviker.",
+   "lead": "De flesta poolproblem – grumligt vatten, klorlukt, irriterade ögon – kommer från två värden: pH och klor. Har du koll på dem har du koll på nästan allt.",
+   "img": "ph-och-klor",
+   "image_prompt": "Close-up of a pool water testing kit with color comparison chart and test strips on a poolside table, water test tubes, daylight",
+   "sections": [
+    {
+     "h2": "Varför pH styr nästan allt",
+     "html": "<p>pH bestämmer hur väl kloret fungerar och hur skönt vattnet känns mot hud och ögon. Vid rätt pH gör kloret sitt jobb. Vid fel pH kan du ha hur mycket klor som helst utan att vattnet blir rent – och du kan få rödögda badgäster trots att kloret är lågt.</p>"
+    },
+    {
+     "h2": "Rätt nivåer – hela tabellen",
+     "html": "<table><thead><tr><th>Värde</th><th>Bör ligga på</th><th>Om det avviker</th></tr></thead><tbody><tr><td>pH</td><td>7,2–7,6</td><td>Högt: pH-minus. Lågt: pH-plus.</td></tr><tr><td>Fritt klor</td><td>1–3 mg/l</td><td>Lågt: tillsätt klor. Högt: låt sjunka, tillsätt inget.</td></tr><tr><td>Bundet klor (kloramin)</td><td>Under 0,5 mg/l</td><td>Chockklorera och öka cirkulationen.</td></tr><tr><td>Alkalinitet (TA)</td><td>80–120 mg/l</td><td>Lågt: höj med alkalinitetshöjare. Högt: sänk pH och lufta.</td></tr><tr><td>Cyanursyra</td><td>30–50 mg/l</td><td>Högt (över 80): byt delar av vattnet.</td></tr><tr><td>Kalciumhårdhet</td><td>200–400 mg/l</td><td>Lågt: risk för utfällning. Högt: risk för kalk.</td></tr><tr><td>Salt (vid saltklorinator)</td><td>Enligt tillverkaren, ofta 3–5 g/l</td><td>Fyll på salt eller byt vatten.</td></tr></tbody></table><p>Mätvärdena är riktvärden – följ alltid din klor- och utrustningsleverantörs rekommendation, särskilt för saltklorinator och specialsystem.</p>"
+    },
+    {
+     "h2": "pH för högt – vad gör du?",
+     "html": "<p>Högt pH är det vanligaste problemet, särskilt vid varmt väder och mycket badande. Sänk med <strong>pH-minus</strong> enligt dosering för din vattenvolym, kör pumpen och mät igen efter cirka en timme. Justera i små steg – det är lätt att skjuta över.</p>"
+    },
+    {
+     "h2": "pH för lågt – vad gör du?",
+     "html": "<p>Ett lågt pH (under 7,0) ger aggressivt vatten som sliter på utrustning och känns strävt mot huden. Höj med <strong>pH-plus</strong> i små steg och mät mellan varje justering.</p>"
+    },
+    {
+     "h2": "Klor: fritt klor och bundet klor",
+     "html": "<p>Det är <strong>fritt klor</strong> som desinficerar. <strong>Bundet klor</strong> (kloraminer) är klor som redan reagerat med smuts och svett – det luktar starkt \"klor\" och irriterar ögonen, men desinficerar inte. Luktar poolen mycket klor är det paradoxalt nog ofta ett tecken på att det fria kloret är för <em>lågt</em> och att kloraminer byggts upp.</p><div class=\"note\">Klorlukt betyder oftast att du behöver chockklorera, inte att du har för mycket klor.</div>"
+    },
+    {
+     "h2": "Cyanursyran – den tysta boven",
+     "html": "<p>Använder du puckar och granulat med stabilisator stiger cyanursyran med tiden. Den skyddar kloret mot solens UV-ljus, men över cirka 80 mg/l binder den kloret så att det slutar verka. Då hjälper det inte att klorera mer – du måste byta ut en del av vattnet.</p>"
+    },
+    {
+     "h2": "Vanliga fel",
+     "html": "<ul><li>Att bara mäta klor och strunta i pH.</li><li>Det olika kemikalier i samma hink. Blanda aldrig klor, pH-justerare eller algmedel med varandra – det kan bilda giftig gas.</li><li>Att chockklorera vid för högt pH – slöseri med klor.</li><li>Att hoppa över cyanursyran hela säsongen.</li></ul>"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Vilket pH ska en pool ha?",
+     "a": "7,2–7,6. Under 7,0 blir vattnet aggressivt mot utrustning och hud, över 7,8 tappar kloret sin effekt."
+    },
+    {
+     "q": "Hur mycket fritt klor ska det vara?",
+     "a": "1–3 mg/l vid normal drift. Vid chockklorering går du högre tillfälligt och väntar tills värdet är tillbaka under cirka 3 mg/l innan bad."
+    },
+    {
+     "q": "Varför luktar poolen klor trots att kloret är lågt?",
+     "a": "Det är bundet klor (kloraminer) som luktar. Lösningen är oftast att chockklorera och öka cirkulationen, inte att sluta klorera."
+    }
+   ],
+   "aff": {
+    "title": "Testkit och vattenvårdsprodukter",
+    "text": "Ett bra testkit är det enskilt viktigaste köpet för en problemfri pool. Dropptester är mer exakta än stickor.",
+    "cta": "Se testkit",
+    "url": "https://www.poolstore.se"
+   },
+   "related": [
+    "gront-poolvatten",
+    "poolvard-vecka",
+    "varmepump-pool"
+   ]
+  },
+  {
+   "slug": "vinterstangning-pool",
+   "tag": "Guide",
+   "h1": "Vinterstängning av pool – steg för steg",
+   "meta_title": "Vinterstängning av pool – steg för steg",
+   "meta_desc": "Så vinterstänger du poolen rätt: balansera vattnet, sänk nivån, lägg i vinterklor och algmedel, plugga inlopp och täck. Undvik dyra frostskador.",
+   "lead": "En pool som stängs fel kostar tusenlappar i vår. Det är inte krångligt – men ordningen och frosten spelar roll. Här är hela proceduren.",
+   "img": "vinterstangning-pool",
+   "image_prompt": "A covered swimming pool in a Nordic garden during late autumn, protective winter cover, fallen yellow leaves, muted cool light, realistic photo",
+   "sections": [
+    {
+     "h2": "När ska poolen stängas?",
+     "html": "<p>Vinterstäng när vattentemperaturen sjunker under cirka 12–15 grader och badsäsongen är slut – i Sverige oftast september till oktober beroende på var du bor. Väntar du för länge ökar risken att algerna hinner etablera sig; stänger du för tidigt missar du fina höstdagar.</p>"
+    },
+    {
+     "h2": "Steg 1 – Rensa och balansera vattnet",
+     "html": "<p>Börja med att backspola och rengöra filtret, ta bort löv och smuts. Mät och justera sedan kemin <strong>innan</strong> du stänger:</p><ul><li>pH till 7,2–7,6.</li><li>Fritt klor tillräckligt högt – en chockklorering innan stängning hjälper.</li><li>Alkalinitet inom 80–120 mg/l.</li></ul><p>Vattnet ska vara rent och balanserat. Ett skitigt vatten som stängs blir ett algbad till våren.</p>"
+    },
+    {
+     "h2": "Steg 2 – Sänk vattennivån",
+     "html": "<p>Sänk nivån till under inloppsmunstyckena – oftast cirka 10–15 cm under bräddavloppet/skimmernivån, så att vatten inte står kvar i ledningar som kan frysa. Följ din anläggnings anvisning; pooler med särskild konstruktion kan ha andra nivåer.</p>"
+    },
+    {
+     "h2": "Steg 3 – Vinterklor och algmedel",
+     "html": "<p>Lägg i <strong>vinterklor</strong> (långsamverkande) och ett <strong>algmedel för vinterbruk</strong> enligt dosering. Vinterklor löses upp långsamt och håller vattnet friskt under månaderna utan tillsyn. Använd produkter avsedda för vinterstängning – inte vanliga puckar.</p>"
+    },
+    {
+     "h2": "Steg 4 – Frostsäkra systemet",
+     "html": "<p>Här förstör de flesta pooler av misstag. Vatten som fryser expanderar och spränger rör, pumpar och värmeväxlare:</p><ul><li>Ta bort och förvara lösa delar – lampor, stegar, inloppsmunstycken.</li><li>Blås ur ledningar och rör med tryckluft eller töm dem, så att inget vatten står kvar.</li><li>Pluggning eller frostskydd i inlopp och utlopp.</li><li>Töm pump, filter och värmepump på vatten. Förvara pumpen inomhus om möjligt.</li></ul><div class=\"warn\">Vatten som står kvar i rör eller pump och fryser kan spräcka dem. Det är den enskilt dyraste skadan vid felaktig vinterstängning.</div>"
+    },
+    {
+     "h2": "Steg 5 – Täck poolen",
+     "html": "<p>Lägg på en vintertäckning som håller ute löv, smuts och ljus – ljus är algernas bränsle. Se till att täckningen inte samlar vatten som kan trycka ner den eller läcka in smuts. Kontrollera då och då under vintern att nivån inte stigit över inloppen vid töväder.</p>"
+    },
+    {
+     "h2": "Checklista innan du går inomhus",
+     "html": "<ul><li>Filter backspolat och rengjort.</li><li>Vatten balanserat, vinterklor och algmedel i.</li><li>Nivå sänkt under inlopp.</li><li>Alla rör tömda eller frostskyddade.</li><li>Pump, filter och värmepump tömda/förvarade.</li><li>Täckning på plats.</li></ul>"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Måste jag sänka vattennivån vid vinterstängning?",
+     "a": "Ja, normalt sänker man nivån under inloppsmunstyckena så att vatten inte står kvar och fryser i ledningarna. Följ anvisningen för din anläggning."
+    },
+    {
+     "q": "Vad händer om jag inte frostsäkrar rören?",
+     "a": "Vatten som fryser expanderar och kan spräcka rör, pump och värmeväxlare. Det är den vanligaste och dyraste vinterskadan på pooler."
+    },
+    {
+     "q": "Behöver poolen vinterklor?",
+     "a": "Ja, långsamverkande vinterklor plus algmedel håller vattnet friskt under vintern utan tillsyn och gör vårstarten mycket enklare."
+    }
+   ],
+   "aff": {
+    "title": "Vintertillbehör",
+    "text": "Vinterklor, algmedel, frostskyddsplugg och vintertäckning hittar du hos poolbutikerna.",
+    "cta": "Se vintertillbehör",
+    "url": "https://www.poolstore.se"
+   },
+   "related": [
+    "varstart-pool",
+    "ph-och-klor",
+    "pooltackning-sakerhet"
+   ]
+  },
+  {
+   "slug": "varstart-pool",
+   "tag": "Guide",
+   "h1": "Vårstart av pool – checklista steg för steg",
+   "meta_title": "Vårstart av pool – checklista steg för steg",
+   "meta_desc": "Så öppnar du poolen på våren: ta av täckningen, fyll på, rena filtret, balansera kemin och chockklorera. Räddar dig från grönt vatten i juni.",
+   "lead": "Öppnar du poolen i rätt ordning är den badklar på ett par dagar. Hoppar du över stegen är det grönt vatten i juni – varje år.",
+   "img": "varstart-pool",
+   "image_prompt": "A sparkling clean blue swimming pool in a Nordic garden in spring, opened for the season, clear water, garden furniture, bright fresh daylight, realistic photo",
+   "sections": [
+    {
+     "h2": "Steg 1 – Ta av täckningen och gör rent",
+     "html": "<p>Ta av vintertäckningen och skölj rent den innan du lägger undan den. Ta bort löv och smuts från vattenytan och från botten med håv och borste. Fyll på vatten till normal nivå – mitt i skimmern är en bra tumregel.</p>"
+    },
+    {
+     "h2": "Steg 2 – Sätt ihop och rena systemet",
+     "html": "<p>Montera tillbaka inlopp, stegar och lampor. Rengör eller byt filtermedel om det behövs, och backspola. Kontrollera att pumphjul och packningar är hela. Dra igång pumpen och kontrollera flödet innan du rör kemin.</p>"
+    },
+    {
+     "h2": "Steg 3 – Balansera vattnet",
+     "html": "<p>Mät och justera i den här ordningen – varje steg påverkas av det före:</p><ol><li><strong>Alkalinitet</strong> till 80–120 mg/l först.</li><li><strong>pH</strong> till 7,2–7,6.</li><li><strong>Kalciumhårdhet</strong> till 200–400 mg/l.</li><li><strong>Cyanursyra</strong> – byt en del vatten om den ligger högt.</li></ol>"
+    },
+    {
+     "h2": "Steg 4 – Chockklorera",
+     "html": "<p>En chockklorering vid vårstart tar död på det som samlats under vintern och ger dig en ren start. Dosera efter vattenvolym, sikta på 5–10 mg/l fritt klor, och kör pumpen dygnet runt tills klornivån faller till normal och vattnet är klart.</p>"
+    },
+    {
+     "h2": "Steg 5 – Lägg upp en skötselrutin",
+     "html": "<p>När vattnet är klart är det rutinen som håller det så. Mät klor och pH varannan dag de första veckorna, sedan i ett fast veckoschema. Se vår guide för veckoschema.</p><div class=\"note\">Algmedel förebyggande under varma perioder kostar några tior och sparar dig en chockklorering.</div>"
+    },
+    {
+     "h2": "Vanliga misstag vid vårstart",
+     "html": "<ul><li>Att chockklorera innan pH och alkalinitet är rätt.</li><li>Att fylla vatten med högt järn/kalkväte utan att ta hänsyn till det – kan ge brunt vatten.</li><li>Att köra igång värmepumpen innan flödet är korrekt.</li><li>Att slarva med filterrengöringen – då blir allt annat arbete förgäves.</li></ul>"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Hur lång tid tar det att öppna poolen på våren?",
+     "a": "Själva öppnandet tar oftast en dag. Är vattnet grumligt eller grönt kan det ta några dagar innan det är helt klart och badklart."
+    },
+    {
+     "q": "I vilken ordning justerar jag vattenvärdena?",
+     "a": "Alkalinitet först, sedan pH, sedan kalciumhårdhet och sist cyanursyra. Kloret kommer efter att pH är rätt."
+    }
+   ],
+   "aff": {
+    "title": "Vårstartspaket och tillbehör",
+    "text": "Håv, borste, testkit och startkemikalier – allt för en smidig säsongsstart.",
+    "cta": "Se vårstartstillbehör",
+    "url": "https://www.poolstore.se"
+   },
+   "related": [
+    "vinterstangning-pool",
+    "ph-och-klor",
+    "poolvard-vecka"
+   ]
+  },
+  {
+   "slug": "poolfilter-guide",
+   "tag": "Guide",
+   "h1": "Poolfilter: sandfilter, patronfilter eller glasmedia?",
+   "meta_title": "Poolfilter: sand, patron eller glasmedia?",
+   "meta_desc": "Sandfilter, patronfilter eller glasmedia – så fungerar de, vad de kostar och vilket som passar din pool. Enkla råd för att slippa grumligt vatten.",
+   "lead": "Filtret är poolens hjärta. Väljer du rätt sak blir vattnet lättare att hålla rent – väljer du fel får du grumligt vatten och ständig backspolning.",
+   "img": "poolfilter-guide",
+   "image_prompt": "A pool filtration system with sand filter tank and pump beside a swimming pool, close-up, technical, clean, realistic photo",
+   "sections": [
+    {
+     "h2": "Varför filtret är viktigare än du tror",
+     "html": "<p>Kemikalier dödar bakterier och alger, men det är filtret som <em>tar bort</em> dem. Utan fungerande filtrering cirkulerar bara skiten runt. Rätt filter ger klarare vatten, mindre kemikalieåtgång och färre problem.</p>"
+    },
+    {
+     "h2": "Sandfilter",
+     "html": "<p>Klassikern. Vattnet pressas genom ett lager filtersand som fångar partiklar ner till ungefär 20 mikrometer. Filtreringen sker i två riktningar – normalt läge och backspolning för att skölja ur skiten.</p><ul><li>Billigt att köpa och driva.</li><li>Enkelt att sköta – backspola någon gång i veckan eller när trycket stiger.</li><li>Fångar inte de allra minsta partiklarna.</li></ul>"
+    },
+    {
+     "h2": "Patronfilter",
+     "html": "<p>En papperspatron fångar partiklar ner till ca 10 mikrometer – finare än sand. Du rengör patronen genom att spola av den, och byter den några gånger per säsong.</p><ul><li>Fin filtrering.</li><li>Ingen backspolning – sparar vatten.</li><li>Kräver att du spolar/byter patronen regelbundet.</li></ul>"
+    },
+    {
+     "h2": "Glasmedia",
+     "html": "<p>Ett alternativ till sand som ofta kan bytas rätt in i ett befintligt sandfilter. Ska fånga fler och mindre partiklar än sand och hålla längre mellan backspolningarna. Vanligt som uppgradering.</p>"
+    },
+    {
+     "h2": "Så väljer du",
+     "html": "<table><thead><tr><th>Filtertyp</th><th>Filtrering</th><th>Skötsel</th><th>Passar</th></tr></thead><tbody><tr><td>Sand</td><td>Grov</td><td>Backspola</td><td>De flesta, budget</td></tr><tr><td>Patron</td><td>Fin</td><td>Spola/byt patron</td><td>Mindre pooler, spa</td></tr><tr><td>Glasmedia</td><td>Finast</td><td>Backspola, sällan byte</td><td>Uppgradering av sandfilter</td></tr></tbody></table><p>Storleken är minst lika viktig som typen – ett för litet filter får jobba för hårt och tappar flöde. Följ tillverkarens rekommendation utifrån din vattenvolym.</p>"
+    },
+    {
+     "h2": "Underhåll som gör skillnad",
+     "html": "<ul><li>Backspola när tryckmätaren stigit cirka 0,5 bar över normalt.</li><li>Kontrollera och rengör pumpens förfilter/sil.</li><li>Kör pumpen tillräckligt länge – hela vattenvolymen ska omsättas minst en gång per dygn.</li><li>Byt sand/glasmedia vart femte till sjunde år ungefär.</li></ul>"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Är patronfilter bättre än sandfilter?",
+     "a": "Inte generellt. Patronfilter filtrerar finare och sparar vatten, men kräver mer handpåläggning. Sandfilter är enklare att sköta och billigare i drift."
+    },
+    {
+     "q": "Hur ofta ska jag backspola?",
+     "a": "När tryckmätaren visar cirka 0,5 bar över normaltrycket, eller enligt tillverkaren. Kör alltid en riktig backspolning tills vattnet är klart."
+    },
+    {
+     "q": "Kan jag byta till glasmedia i mitt sandfilter?",
+     "a": "Oftast ja – glasmedia kan ofta ersätta sand i befintligt filter. Kontrollera att kornstorleken passar din ventil och följ tillverkarens anvisning."
+    }
+   ],
+   "aff": {
+    "title": "Filter, pump och glasmedia",
+    "text": "Jämför filter och pump efter din vattenvolym – det är här de stora kvalitetsskillnaderna sitter.",
+    "cta": "Se filter och pumpar",
+    "url": "https://www.poolstore.se"
+   },
+   "related": [
+    "ph-och-klor",
+    "gront-poolvatten",
+    "poolvard-vecka"
+   ]
+  },
+  {
+   "slug": "poolvard-vecka",
+   "tag": "Guide",
+   "h1": "Veckoschema för poolvård – rutinen som håller vattnet klart",
+   "meta_title": "Veckoschema för poolvård – rutinen som funkar",
+   "meta_desc": "Ett enkelt veckoschema för poolvård: vad du gör varje dag, varje vecka och varje månad för klart vatten hela säsongen – utan stress och utan överdosering.",
+   "lead": "Den som sköter poolen lite varje dag slipper chockklorera tre gånger i månaden. Här är rutinen som faktiskt funkar.",
+   "img": "poolvard-vecka",
+   "image_prompt": "Pool maintenance tools on a poolside: brush, net skimmer, test kit and chlorine tablets on a table beside clear blue water, sunny, realistic photo",
+   "sections": [
+    {
+     "h2": "Dagligt – två minuter",
+     "html": "<ul><li>Fiska upp löv och skräp med håv.</li><li>Kolla att pumpen går och att vattnet rör på sig.</li><li>På varma dagar: titta till klornivån.</li></ul>"
+    },
+    {
+     "h2": "Varje vecka – tio minuter",
+     "html": "<ul><li>Mät <strong>pH och fritt klor</strong>. Justera.</li><li>Mät <strong>alkalinitet</strong> vid behov och håll den stabil.</li><li>Backspola filtret om trycket stigit.</li><li>Borsta väggar och trappor.</li><li>Tillsätt veckodos klor enligt dosering.</li></ul>"
+    },
+    {
+     "h2": "Varje månad",
+     "html": "<ul><li>Kontrollera <strong>cyanursyran</strong> om du använder stabiliserat klor.</li><li>Rengör skimmerkorg och förfilter.</li><li>Kolla packningar, ventiler och att inget läcker.</li><li>Vid varmt väder: överväg förebyggande algmedel.</li></ul>"
+    },
+    {
+     "h2": "Säsong – vår och höst",
+     "html": "<p>Vid säsongsstart kör du vårstartschecklistan, och vid säsongsslut vinterstängningen. Det är de två tillfällena som avgör hur mycket problem du får resten av året.</p>"
+    },
+    {
+     "h2": "Regler som sparar pengar och problem",
+     "html": "<ul><li>Mät innan du doserar – gissa aldrig.</li><li>Justera i små steg och mät emellan.</li><li>Blanda aldrig kemikalier med varandra.</li><li>Håll pH i mitten av intervallet hellre än på gränsen.</li><li>Klorera hellre lite och ofta än mycket och sällan.</li></ul>"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Hur ofta ska jag mäta poolvattnet?",
+     "a": "Mät fritt klor och pH varannan dag vid normal användning, och dagligen när det är varmt och många badar. Alkalinitet och cyanursyra räcker det att kolla någon gång i veckan till månaden."
+    },
+    {
+     "q": "Hur länge ska pumpen gå per dygn?",
+     "a": "Minst så länge att hela vattenvolymen omsätts minst en gång per dygn – ofta 6–12 timmar beroende på pool och pump. Vid varmt väder eller grumligt vatten: längre."
+    }
+   ],
+   "aff": {
+    "title": "Grundutrustning för rutinen",
+    "text": "Håv, borste, testkit och veckoklor – allt du behöver för att hålla rutinen.",
+    "cta": "Se pooltillbehör",
+    "url": "https://www.poolstore.se"
+   },
+   "related": [
+    "ph-och-klor",
+    "vinterstangning-pool",
+    "varstart-pool"
+   ]
+  },
+  {
+   "slug": "basta-poolroboten",
+   "tag": "Köpguide",
+   "h1": "Bästa poolroboten 2026 – så väljer du rätt",
+   "meta_title": "Bästa poolroboten 2026 – guide och tips",
+   "meta_desc": "Så väljer du rätt poolrobot: botten, väggar eller vattenlinje, sladd eller batteri, och vilken typ som passar din pool. Undvik de vanligaste köpfällorna.",
+   "lead": "En poolrobot är den enskilt bästa investeringen för att slippa stå med slamsugaren varje vecka. Men det finns stor skillnad mellan modellerna – och mellan vad pooler faktiskt behöver.",
+   "img": "basta-poolroboten",
+   "image_prompt": "A robotic pool cleaner with tracks cleaning the floor of a clear blue swimming pool, underwater view, realistic photo, detailed",
+   "sections": [
+    {
+     "h2": "Varför en poolrobot?",
+     "html": "<p>Manuell slamsugning tar tid och lämnar alltid något kvar. En robot kör själv, tar botten och ofta väggar och vattenlinje, och håller skräp borta ur filtret. Den som köper robot slutar i praktiken att slamsuga.</p>"
+    },
+    {
+     "h2": "Vad ska den städa?",
+     "html": "<ul><li><strong>Endast botten</strong> – billigast, räcker för enkla pooler med lite skräp.</li><li><strong>Botten och väggar</strong> – vanligaste valet, klarar hörn och bräddavlopp.</li><li><strong>Botten, väggar och vattenlinje</strong> – klarar fett och smuts vid vattenlinjen, dyrast.</li></ul>"
+    },
+    {
+     "h2": "Mycket skräp runt poolen?",
+     "html": "<p>Har du mycket träd runt poolen, eller löv på hösten, betalar en modell som klarar grovt skräp sig snabbt — då fastnar bladen i korgen i stället för att täppa igen filtret.</p>"
+    },
+    {
+     "h2": "Kategori 1 – Robot med sladd (ström) och eget filter",
+     "html": "<p>Drivs av en sladd till ett uttag och har ett eget filter inbyggt – den är alltså inte kopplad till poolens pump. Kraftfull, kan köra länge, klarar mycket skräp. Nackdelen är sladden som ska hanteras.</p>"
+    },
+    {
+     "h2": "Kategori 2 – Robot med batteri",
+     "html": "<p>Ingen sladd alls – laddas och läggs i poolen. Smidig och säker. Kör vanligtvis en till två timmar per laddning, vilket räcker för de flesta normalpooler, men klarar kortare pass än sladdmodellerna.</p>"
+    },
+    {
+     "h2": "Kategori 3 – Sugande robot kopplad till pumpen",
+     "html": "<p>Drivs av poolens egen pump via en slang och samlar skräp i en påse. Billigare i inköp, men kräver att poolens pump går och klarar mindre skräp än en fristående robot med eget filter.</p>"
+    },
+    {
+     "h2": "Så väljer du rätt",
+     "html": "<table><thead><tr><th>Behov</th><th>Rekommenderad typ</th></tr></thead><tbody><tr><td>Liten pool, mest sand</td><td>Batterirobot, endast botten</td></tr><tr><td>Normal pool, löv</td><td>Sladdrobot, botten + väggar</td></tr><tr><td>Mycket träd, grovt skräp</td><td>Sladdrobot med stor filterkorg</td></tr><tr><td>Vill slippa sladd</td><td>Batterirobot, botten + väggar</td></tr></tbody></table>"
+    },
+    {
+     "h2": "Vanliga köpfällor",
+     "html": "<ul><li><strong>För liten för poolen.</strong> Kolla att modellen är avsedd för din storlek och form.</li><li><strong>Klassar inte formen.</strong> Runda pooler och pooler med trappor kräver att roboten klarar dem.</li><li><strong>Glömmer driftkostnaden.</strong> Sladdrobotar drar el; batterirobotar kräver laddning.</li><li><strong>Filter som är krångligt att tömma.</strong> Ett lätt filter som sitter bra är värt mer än en extra funktion.</li></ul><p>Läs alltid specifikationen för just din poolstorlek och form innan du bestämmer dig.</p>"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Är en batterirobot eller sladdrobot bäst?",
+     "a": "Batterirobot är smidigare utan sladd och passar de flesta normalpooler. Sladdrobot är kraftfullare, kör längre och klarar mer skräp – bättre vid mycket löv."
+    },
+    {
+     "q": "Behöver en poolrobot poolens pump?",
+     "a": "En fristående robot med eget filter gör det inte. Sugande robotar som kopplas till poolens pump kräver att pumpen går."
+    },
+    {
+     "q": "Räcker en bottenrobot?",
+     "a": "Ofta ja, om du mest har skräp på botten. Väggar och vattenlinje samlar fett och smuts som en bottenrobot inte når."
+    }
+   ],
+   "aff": {
+    "title": "Jämför poolrobotar",
+    "text": "Jämför modeller utifrån din poolstorlek, form och hur mycket skräp du har.",
+    "cta": "Se poolrobotar",
+    "url": "https://www.poolstore.se"
+   },
+   "related": [
+    "poolfilter-guide",
+    "poolvard-vecka",
+    "varmepump-pool"
+   ]
+  },
+  {
+   "slug": "varmepump-pool",
+   "tag": "Köpguide",
+   "h1": "Värmepump till pool – så väljer du rätt storlek",
+   "meta_title": "Värmepump till pool – rätt storlek och tips",
+   "meta_desc": "Så räknar du ut vilken effekt din pool behöver, vad COP betyder och varför rätt storlek spelar större roll än märket. Undvik den vanligaste köpfällan.",
+   "lead": "En värmepump förlänger säsongen med månader och gör poolen användbar även svala dagar. Men köper du för liten effekt blir den aldrig varm – och det är det vanligaste felet.",
+   "img": "varmepump-pool",
+   "image_prompt": "A pool heat pump unit installed beside a swimming pool in a garden, modern outdoor installation, realistic photo, daylight",
+   "sections": [
+    {
+     "h2": "Varför rätt effekt är avgörande",
+     "html": "<p>En värmepump som är för klen orkar inte hålla temperaturen när nätterna blir kalla eller vattnet svalnar – och då spelar det ingen roll hur bra märket är. Rätt effekt och rätt flöde är hela spelet.</p>"
+    },
+    {
+     "h2": "Så räknar du ut effektbehovet",
+     "html": "<p>En vanlig tumregel är att du behöver cirka <strong>0,25–0,35 kW per kubikmeter</strong> pool för att kunna höja temperaturen i rimlig takt, mer om poolen är otäckt och utsatt för vind. Ett exempel:</p><ul><li>Pool på 40 m³ → cirka <strong>10–14 kW</strong> värmepump.</li><li>Pool på 20 m³ → cirka <strong>5–7 kW</strong>.</li></ul><p>Vill du kunna höja snabbt, eller badan ofta, väljer du i övre delen av intervallet. En övertäckt pool behöver mindre effekt än en utsatt.</p><div class=\"note\">Täckning är den billigaste värmebespararen som finns. En bra täckning kan minska värmebehovet kraftigt och gör att en mindre pump räcker.</div>"
+    },
+    {
+     "h2": "COP – vad siffran betyder",
+     "html": "<p>COP är värmefaktorn: hur många kW värme pumpen ger per kW el den drar. COP 5 betyder att 1 kW el ger 5 kW värme. Ju högre COP, desto billigare drift – men COP sjunker när luften blir kall, så jämför vid samma förutsättningar.</p>"
+    },
+    {
+     "h2": "Placering och installation",
+     "html": "<ul><li>Ställ pumpen utomhus med god luftcirkulation och rätt avstånd enligt manualen.</li><li>Undvik att blåsa kalluften in i poolens eget uppvärmningsområde.</li><li>Korrekt flöde över värmeväxlaren är avgörande – följ tillverkarens flödeskrav.</li><li>Koppla in den i poolens cirkulation så att filtrerat vatten passerar pumpen.</li></ul>"
+    },
+    {
+     "h2": "Räkna på driften",
+     "html": "<p>Driftkostnaden beror på elpris, COP och hur varmt du vill ha det. En värmepump går strömsnålt jämfört med elvärmare, men går längre tid. Täckning dygnet runt och rätt temperatur gör större skillnad på elräkningen än märket på pumpen.</p>"
+    },
+    {
+     "h2": "Vanliga köpfällor",
+     "html": "<ul><li><strong>För liten effekt</strong> – vanligast. Räknas hem men orkar inte.</li><li><strong>Jämför bara pris</strong>, inte COP och ljudnivå.</li><li><strong>Ingen täckning</strong> – då försvinner värmen på natten.</li><li><strong>Ignorerar ljudnivån</strong> – den låter och grannar kan höra den.</li></ul>"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Hur många kW värmepump behöver min pool?",
+     "a": "Räkna cirka 0,25–0,35 kW per kubikmeter pool. En pool på 40 m³ landar typiskt på 10–14 kW. Övertäckt pool kan klara sig i nedre delen, utsatt pool i övre."
+    },
+    {
+     "q": "Vad är COP på en poolvärmepump?",
+     "a": "COP är värmefaktorn – hur många kW värme du får per kW el. COP 5 innebär 5 kW värme per kW el. Högre COP ger billigare drift."
+    },
+    {
+     "q": "Behöver jag täckning till värmepumpen?",
+     "a": "Ja, en täckning är avgörande. Utan den försvinner en stor del av värmen nattetid och pumpen får jobba i onödan."
+    }
+   ],
+   "aff": {
+    "title": "Jämför poolvärmepumpar",
+    "text": "Jämför effekt, COP och ljudnivå utifrån din poolvolym och om poolen är täckt.",
+    "cta": "Se poolvärmepumpar",
+    "url": "https://www.poolstore.se"
+   },
+   "related": [
+    "pooltackning-sakerhet",
+    "poolfilter-guide",
+    "basta-poolroboten"
+   ]
+  },
+  {
+   "slug": "saltklorinator",
+   "tag": "Köpguide",
+   "h1": "Saltklorinator – så funkar det och lönar det sig?",
+   "meta_title": "Saltklorinator – så funkar det och lönar sig?",
+   "meta_desc": "En saltklorinator omvandlar salt till klor automatiskt. Så funkar den, vad den kostar i drift, fördelar och nackdelar – och för vilka pooler den passar.",
+   "lead": "Med en saltklorinator slipper du puckar och granulat. Saltet ligger i vattnet och systemet gör kloret själv. Bekvämt – men det passar inte alla pooler.",
+   "img": "saltklorinator",
+   "image_prompt": "A salt chlorine generator cell and control unit installed on pool equipment, close-up, technical, clean, realistic photo",
+   "sections": [
+    {
+     "h2": "Så fungerar en saltklorinator",
+     "html": "<p>Du tillsätter salt till vattnet (ofta 3–5 g/l, enligt tillverkaren). Vattnet passerar en <strong>cell med elektroder</strong> där en elektrisk ström omvandlar saltet till verksamt klor. Kloret gör sitt jobb och blir salt igen – kretsloppet fortsätter. Du fyller bara på salt, vanligtvis någon gång per säsong.</p>"
+    },
+    {
+     "h2": "Fördelar",
+     "html": "<ul><li>Du slipper hantera puckar och granulat löpande.</li><li>Jämn klornivå – mindre toppar och dalar.</li><li>Mjukare vatten att bada i för många.</li><li>Mindre klorlukt i luften.</li></ul>"
+    },
+    {
+     "h2": "Nackdelar",
+     "html": "<ul><li>Högre inköpspris än puckar.</li><li>Cellerna slits och behöver bytas med några års mellanrum.</li><li>Kräver att saltnivån hålls rätt – annars produceras inget klor.</li><li>Högt salt kan påverka vissa material och ogillas av vissa tillverkare.</li><li>pH tenderar att stiga och behöver hållas nere.</li></ul>"
+    },
+    {
+     "h2": "Passar det din pool?",
+     "html": "<table><thead><tr><th>Situation</th><th>Saltklorinator</th></tr></thead><tbody><tr><td>Nyb bad, vill slippa puckar</td><td>Bra val</td></tr><tr><td>Sten/betong runt poolen</td><td>Tänk på saltets påverkan</td></tr><tr><td>Redan hårt skötselproblem med cyanursyra</td><td>Kan hjälpa</td></tr><tr><td>Vill ha lägsta möjliga inköpspris</td><td>Kanske inte värt det</td></tr></tbody></table>"
+    },
+    {
+     "h2": "Skötsel",
+     "html": "<ul><li>Håll saltnivån enligt tillverkaren – mät ibland.</li><li>Håll pH i 7,2–7,6 eftersom saltklorering ofta driver pH uppåt.</li><li>Rengör cellen från kalkbeläggning om den signalerar fel.</li><li>Kontrollera cyanursyran – den påverkas inte positivt av salt över tid.</li></ul>"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Känns saltklorering som havsvatten?",
+     "a": "Nej, salthalten (ofta 3–5 g/l) är mycket lägre än havets cirka 35 g/l. De flesta märker knappt saltet."
+    },
+    {
+     "q": "Lönar en saltklorinator sig ekonomiskt?",
+     "a": "Den har högre inköp än puckar, men lägre löpande kemikaliekostnad. Det är främst bekvämligheten och den jämna klornivån folk betalar för."
+    },
+    {
+     "q": "Behöver jag fortfarande klorera manuellt?",
+     "a": "Vid normal drift sköter saltklorinatorn kloret. Vid chockklorering, kraftig belastning eller fel på systemet kan du behöva tillsätta klor manuellt."
+    }
+   ],
+   "aff": {
+    "title": "Jämför saltklorinatorer",
+    "text": "Storlek på cellen ska matcha din poolvolym – en för liten cell slits snabbt.",
+    "cta": "Se saltklorinatorer",
+    "url": "https://www.poolstore.se"
+   },
+   "related": [
+    "ph-och-klor",
+    "poolvard-vecka",
+    "varmepump-pool"
+   ]
+  },
+  {
+   "slug": "pooltackning-sakerhet",
+   "tag": "Guide",
+   "h1": "Pooltäckning och säkerhet – det du behöver veta",
+   "meta_title": "Pooltäckning och säkerhet – guide",
+   "meta_desc": "Täckning håller värmen, hindrar skräp och sparar pengar. Så väljer du rätt täckning, plus vad du måste tänka på för säkerheten kring en pool.",
+   "lead": "Rätt täckning betalar sig själv i lägre elräkning och mindre skräp. Samtidigt är säkerheten kring en pool ingen detalj – särskilt med barn i närheten.",
+   "img": "pooltackning-sakerhet",
+   "image_prompt": "A swimming pool covered with a thermal bubble cover in a garden, safety and energy saving, realistic photo, daylight",
+   "sections": [
+    {
+     "h2": "Varför täckning är en av de bästa investeringarna",
+     "html": "<ul><li><strong>Värme.</strong> En täckning hindrar värmen från att försvinna nattetid – den gör att en mindre värmepump räcker.</li><li><strong>Mindre skräp.</strong> Löv och smuts stannar på täckningen i stället för i vattnet.</li><li><strong>Mindre avdunstning.</strong> Du sparar vatten och kemikalier.</li><li><strong>Mindre ljus.</strong> Begränsar algernas tillväxt.</li></ul>"
+    },
+    {
+     "h2": "Typer av täckning",
+     "html": "<table><thead><tr><th>Typ</th><th>Funktion</th><th>Bäst för</th></tr></thead><tbody><tr><td>Blåstäcke / solfilm</td><td>Värme + mindre avdunstning</td><td>Vardaglig värmebesparing</td></tr><tr><td>Lamelltäcke</td><td>Värme, säkerhet, enkel att skjuta undan</td><td>Året-runt-användning</td></tr><tr><td>Säkerhetstäckning</td><td>Bär förmåga, hindrar fall i</td><td>Barn och husdjur</td></tr><tr><td>Vintertäckning</td><td>Skyddar över vintern</td><td>Säsongsstängning</td></tr></tbody></table>"
+    },
+    {
+     "h2": "Säkerhet kring poolen",
+     "html": "<p>En pool är en attraktion för barn. Var ärlig mot dig själv om risken och vidta åtgärder:</p><ul><li><strong>Barnsäkra.</strong> Staket eller låsbar grindar runt poolen om små barn finns i närheten.</li><li><strong>Larm.</strong> Pool- eller täckningslarm, och dörrlarm vid huspool.</li><li><strong>Uppsikt.</strong> Ingen badar ensam – särskilt inte barn.</li><li><strong>Säkerhetstäckning.</strong> En täckning som bär vikt hindrar ett fall i, till skillnad från en tunn solfilm.</li><li><strong>Regler.</strong> Kontrollera vad som gäller i din kommun och för din försäkring.</li></ul><div class=\"warn\">En tunn solfilm hindrar inte ett barn från att falla i. Ska täckningen skydda mot fall krävs en täckning som är godkänd för det.</div>"
+    },
+    {
+     "h2": "Skötsel av täckningen",
+     "html": "<ul><li>Skölj av täckningen regelbundet så smuts inte fastnar.</li><li>Rulla/vik den rätt så den inte veckas och slits.</li><li>Förvara skyddat över vintern.</li></ul>"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Sparar en pooltäckning verkligen pengar?",
+     "a": "Ja. Den minskar värmeförlusten nattetid och därmed värmekostnaden, minskar avdunstning och håller ute skräp – vilket sänker både el- och kemikaliekostnad."
+    },
+    {
+     "q": "Räcker en solfilm som säkerhet?",
+     "a": "Nej. En tunn solfilm är för värme och skräp, inte för att hindra fall. Behöver du skydd mot fall krävs en täckning godkänd för det."
+    }
+   ],
+   "aff": {
+    "title": "Pooltäckning och säkerhet",
+    "text": "Välj täckning efter om du främst vill spara värme eller säkra poolen mot fall.",
+    "cta": "Se pooltäckningar",
+    "url": "https://www.poolstore.se"
+   },
+   "related": [
+    "varmepump-pool",
+    "vinterstangning-pool",
+    "poolvard-vecka"
+   ]
+  }
+ ]
+}

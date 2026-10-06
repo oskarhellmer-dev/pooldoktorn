@@ -1,0 +1,21 @@
+---
+import { u } from '../lib/urls';
+interface Props { related: { slug: string; h1: string; tag: string; lead: string; href: string }[] }
+const { related } = Astro.props;
+---
+{related?.length > 0 && (
+  <section class="sec">
+    <h2>Läs vidare</h2>
+    <div class="grid">
+      {related.map((r) => (
+        <a class="card" href={u(r.href)}>
+          <div class="body">
+            <span class="tag">{r.tag}</span>
+            <h3>{r.h1}</h3>
+            <p>{r.lead.slice(0, 110)}…</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+)}

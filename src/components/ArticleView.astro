@@ -1,0 +1,41 @@
+---
+import { u } from '../lib/urls';
+import Toc from './Toc.astro';
+import Faq from './Faq.astro';
+import AffiliateBox from './AffiliateBox.astro';
+import Newsletter from './Newsletter.astro';
+
+interface Props { page: any; modified?: string }
+const { page, modified = new Date().toISOString().slice(0, 10) } = Astro.props;
+
+const slugify = (s: string) =>
+  s.toLowerCase()
+    .replace(/[åä]/g, 'a').replace(/ö/g, 'o').replace(/é/g, 'e')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+
+const sections = (page.sections as { h2: string; html: string }[]).map((s) => ({ ...s, id: slugify(s.h2) }));
+const srcset = (img: string) =>
+  `${u(`/bilder/${img}-400.webp`)} 400w, ${u(`/bilder/${img}-800.webp`)} 800w, ${u(`/bilder/${img}-1200.webp`)} 1200w`;
+---
+<article class="article">
+  <span class="tag">{page.tag}</span>
+  <h1>{page.h1}</h1>
+  <p class="lead">{page.lead}</p>
+  <p class="meta">Uppdaterad {modified}</p>
+  <img
+    src={u(`/bilder/${page.img}-800.webp`)}
+    srcset={srcset(page.img)}
+    sizes="(max-width:860px) 100vw, 760px"
+    width="1200" height="675" loading="eager" fetchpriority="high"
+    alt={page.h1} />
+  <Toc items={sections.map((s) => ({ h2: s.h2, id: s.id }))} />
+  {sections.map((s) => (
+    <>
+      <h2 id={s.id}>{s.h2}</h2>
+      <Fragment set:html={s.html} />
+    </>
+  ))}
+  <AffiliateBox aff={page.aff} />
+  <Faq faq={page.faq} />
+  <Newsletter />
+</article>

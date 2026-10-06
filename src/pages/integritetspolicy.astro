@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { schemaGraph, webPage, breadcrumbs } from '../lib/schema';
+const path = '/integritetspolicy/';
+const title = 'Integritetspolicy — Pooldoktorn';
+const desc = 'Så hanterar Pooldoktorn personuppgifter, cookies och annonser. Läs om vilka uppgifter vi behandlar och dina rättigheter enligt GDPR.';
+const jsonLd = schemaGraph([webPage(title, desc, path), breadcrumbs([{ name: 'Hem', path: '/' }, { name: 'Integritetspolicy', path }])]);
+---
+<Base title={title} description={desc} path={path} jsonLd={jsonLd}>
+  <div class="wrap">
+    <Breadcrumbs trail={[{ name: 'Hem', path: '/' }, { name: 'Integritetspolicy' }]} />
+    <div class="page">
+      <h1>Integritetspolicy</h1>
+      <p>Pooldoktorn.se värnar om din integritet. Den här sidan beskriver vilka uppgifter vi behandlar och varför.</p>
+      <h2>Vilka uppgifter</h2>
+      <p>Vi samlar inte in personuppgifter förutom den e-postadress du själv lämnar om du prenumererar på Poolbrevet. Då används den enbart för att skicka nyhetsbrevet och du kan avregistrera dig när som helst.</p>
+      <h2>Cookies och annonser</h2>
+      <p>Sajten kan använda cookies för statistik och annonsvisning, inklusive tredjepartsannonser. Du kan styra cookies i din webbläsare.</p>
+      <h2>Dina rättigheter</h2>
+      <p>Du har rätt att få information om, rätta eller radera uppgifter vi behandlar om dig. Kontakta oss via adressen i sidfoten.</p>
+    </div>
+  </div>
+</Base>

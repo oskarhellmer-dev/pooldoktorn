@@ -1,0 +1,83 @@
+---
+import { guider, kopguider } from '../data/content';
+import Base from '../layouts/Base.astro';
+import { SITE } from '../consts';
+import { website, webPage, schemaGraph } from '../lib/schema';
+import { u } from '../lib/urls';
+
+const title = `${SITE.name} — skötsel och köpguider för din pool`;
+const jsonLd = schemaGraph([website(), webPage(title, SITE.description, '/')]);
+---
+<Base title={title} description={SITE.description} path="/" jsonLd={jsonLd} ogImage="/bilder/hero.jpg">
+  <section class="hero">
+    <div class="wrap">
+      <h1>Skötsel och köpguider för din pool — utan krångel</h1>
+      <p>Oberoende guider för dig med pool eller spa: vattenkemi, vårstart, vinterstängning och ärliga köpguider. Vi säljer inget själva — vi visar bara vad som funkar.</p>
+      <a class="cta" href={u('/guider/')}>Se alla guider →</a>
+    </div>
+  </section>
+  <div class="disc"><div class="wrap">{SITE.affiliateDisclosure}</div></div>
+
+  <div class="wrap">
+    <section class="sec">
+      <h2>Populära guider</h2>
+      <div class="sub">Det folk faktiskt söker hjälp med</div>
+      <div class="grid">
+        {guider.slice(0, 6).map((p) => (
+          <a class="card" href={u(`/guider/${p.slug}/`)}>
+            <img class="thumb" src={u(`/bilder/${p.img}-800.webp`)}
+              srcset={`${u(`/bilder/${p.img}-400.webp`)} 400w, ${u(`/bilder/${p.img}-800.webp`)} 800w`}
+              sizes="(max-width:860px) 100vw, 360px" width="1200" height="675" loading="lazy" alt={p.h1} />
+            <div class="body">
+              <span class="tag">{p.tag}</span>
+              <h3>{p.h1}</h3>
+              <p>{p.lead.slice(0, 110)}…</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>Köpguider</h2>
+      <div class="sub">Utrustning som passar din pool — utan säljsnack</div>
+      <div class="grid">
+        {kopguider.map((p) => (
+          <a class="card" href={u(`/kopguider/${p.slug}/`)}>
+            <img class="thumb" src={u(`/bilder/${p.img}-800.webp`)}
+              srcset={`${u(`/bilder/${p.img}-400.webp`)} 400w, ${u(`/bilder/${p.img}-800.webp`)} 800w`}
+              sizes="(max-width:860px) 100vw, 360px" width="1200" height="675" loading="lazy" alt={p.h1} />
+            <div class="body">
+              <span class="tag">{p.tag}</span>
+              <h3>{p.h1}</h3>
+              <p>{p.lead.slice(0, 110)}…</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>Verktyg</h2>
+      <div class="sub">Gratis — räkna ut vad din pool behöver</div>
+      <div class="grid two">
+        <a class="card" href={u('/kalkylator/')}>
+          <img class="thumb" src={u('/bilder/hero-800.webp')} width="1200" height="675" loading="lazy" alt="Poolkalkylatorn" />
+          <div class="body">
+            <span class="tag">Verktyg</span>
+            <h3>Poolkalkylatorn — hur mycket klor och pH-minus behöver din pool?</h3>
+            <p>Ange volym och aktuella värden och få doseringsförslag direkt.</p>
+          </div>
+        </a>
+        <div class="news" style="margin:0">
+          <h3>Poolbrevet</h3>
+          <p>Säsongstips och påminnelser — rakt i inkorgen, bara när det är relevant.</p>
+          <form onsubmit="return false">
+            <input type="email" placeholder="din@epost.se" aria-label="E-post" />
+            <button type="submit">Prenumerera</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</Base>

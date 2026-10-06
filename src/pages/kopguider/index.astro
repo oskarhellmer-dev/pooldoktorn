@@ -1,0 +1,38 @@
+---
+import { kopguider as items } from '../../data/content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { collectionPage, breadcrumbs, schemaGraph } from '../../lib/schema';
+import { u } from '../../lib/urls';
+
+const path = '/kopguider/';
+const title = 'Köpguider för pool – robotar, värmepumpar och utrustning';
+const desc = 'Ärliga köpguider för poolutrustning: poolrobotar, värmepumpar, saltklorinatorer och filter. Så väljer du rätt storlek och undviker de vanligaste fällorna.';
+const jsonLd = schemaGraph([
+  collectionPage(title, desc, path, items.map((i) => ({ name: i.h1, url: `${path}${i.slug}/` }))),
+  breadcrumbs([{ name: 'Hem', path: '/' }, { name: 'Köpguider', path }]),
+]);
+---
+<Base title={title} description={desc} path={path} jsonLd={jsonLd} ogImage="/bilder/basta-poolroboten-1200.webp">
+  <div class="wrap">
+    <Breadcrumbs trail={[{ name: 'Hem', path: '/' }, { name: 'Köpguider' }]} />
+    <section class="sec">
+      <h1 style="font-size:32px;letter-spacing:-.8px;margin-top:22px">Köpguider</h1>
+      <p class="sub">Utrustning som faktiskt passar din pool — utan säljsnack.</p>
+      <div class="grid">
+        {items.map((p) => (
+          <a class="card" href={u(`/kopguider/${p.slug}/`)}>
+            <img class="thumb" src={u(`/bilder/${p.img}-800.webp`)}
+              srcset={`${u(`/bilder/${p.img}-400.webp`)} 400w, ${u(`/bilder/${p.img}-800.webp`)} 800w`}
+              sizes="(max-width:860px) 100vw, 360px" width="1200" height="675" loading="lazy" alt={p.h1} />
+            <div class="body">
+              <span class="tag">{p.tag}</span>
+              <h3>{p.h1}</h3>
+              <p>{p.lead.slice(0, 110)}…</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</Base>

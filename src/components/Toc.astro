@@ -1,0 +1,12 @@
+---
+interface Props { items: { h2: string; id: string }[] }
+const { items } = Astro.props;
+---
+{items.length > 2 && (
+  <nav class="toc" aria-label="Innehåll">
+    <strong>Innehåll</strong>
+    <ol>
+      {items.map((it) => <li><a href={`#${it.id}`}>{it.h2}</a></li>)}
+    </ol>
+  </nav>
+)}

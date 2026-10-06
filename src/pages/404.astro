@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import { schemaGraph, webPage } from '../lib/schema';
+import { u } from '../lib/urls';
+const path = '/404.html';
+const jsonLd = schemaGraph([webPage('Sidan hittades inte', 'Sidan kunde inte hittas.', '/404.html')]);
+---
+<Base title="Sidan hittades inte — Pooldoktorn" description="Sidan kunde inte hittas." path={path} jsonLd={jsonLd} noindex>
+  <div class="wrap">
+    <div class="page">
+      <h1>Sidan hittades inte</h1>
+      <p>Länken kan ha flyttats. Gå tillbaka till <a href={u('/')}>startsidan</a>, läs en av våra
+        <a href={u('/guider/')}>guider</a> eller testa <a href={u('/kalkylator/')}>poolkalkylatorn</a>.</p>
+    </div>
+  </div>
+</Base>

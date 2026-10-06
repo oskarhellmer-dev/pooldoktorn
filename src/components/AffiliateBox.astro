@@ -1,0 +1,11 @@
+---
+interface Props { aff: { title: string; text: string; cta: string; url: string } }
+const { aff } = Astro.props;
+---
+{aff && (
+  <aside class="aff" aria-label="Annonslänk">
+    <h3>{aff.title}</h3>
+    <p>{aff.text}</p>
+    <a class="btn" href={aff.url} rel="sponsored nofollow noopener" target="_blank">{aff.cta}</a>
+  </aside>
+)}
