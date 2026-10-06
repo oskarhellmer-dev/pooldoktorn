@@ -9,7 +9,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{background:var(--bg);color:var(--ink);
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   line-height:1.6;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 a{color:var(--brand)}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
 .skip{position:absolute;left:-9999px}
@@ -45,7 +45,7 @@ header.site{background:#fff;border-bottom:1px solid var(--line);position:sticky;
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
   display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
 .card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(6,47,61,.09)}
-.card .thumb{aspect-ratio:16/9;object-fit:cover;background:linear-gradient(135deg,#d6eef6,#b8e2f0)}
+.card .thumb{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:linear-gradient(135deg,#d6eef6,#b8e2f0)}
 .card .body{padding:16px 18px 20px}
 .card h3{font-size:16.5px;line-height:1.32;letter-spacing:-.2px}
 .card p{font-size:13.5px;color:var(--muted);margin-top:7px}
