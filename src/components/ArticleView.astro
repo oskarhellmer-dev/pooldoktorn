@@ -1,5 +1,5 @@
 ---
-import { u } from '../lib/urls';
+import { u, slugify } from '../lib/urls';
 import Toc from './Toc.astro';
 import Faq from './Faq.astro';
 import AffiliateBox from './AffiliateBox.astro';
@@ -7,11 +7,6 @@ import Newsletter from './Newsletter.astro';
 
 interface Props { page: any; modified?: string }
 const { page, modified = new Date().toISOString().slice(0, 10) } = Astro.props;
-
-const slugify = (s: string) =>
-  s.toLowerCase()
-    .replace(/[åä]/g, 'a').replace(/ö/g, 'o').replace(/é/g, 'e')
-    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
 const sections = (page.sections as { h2: string; html: string }[]).map((s) => ({ ...s, id: slugify(s.h2) }));
 const srcset = (img: string) =>

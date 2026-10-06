@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Newsletter from '../components/Newsletter.astro';
 import { schemaGraph, breadcrumbs, webPage } from '../lib/schema';
-import { u } from '../lib/urls';
+import { u, abs } from '../lib/urls';
 
 const title = 'Poolkalkylatorn — volym och dosering för din pool';
 const desc = 'Räkna ut din pools vattenvolym och få uppskattad dos av chockklor och pH-minus. Gratis verktyg för svenska poolägare.';
@@ -12,7 +12,7 @@ const jsonLd = schemaGraph([
   {
     '@type': 'WebApplication',
     name: 'Poolkalkylatorn',
-    url: 'https://pooldoktorn.se/kalkylator/',
+    url: abs(path),
     inLanguage: 'sv-SE',
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'All',
@@ -39,6 +39,27 @@ const jsonLd = schemaGraph([
         <div class="out" id="out"></div>
       </div>
       <div class="note">Siffrorna är uppskattningar för att komma igång. Följ alltid doseringen på din produkt och mät vattnet mellan varje justering. Blanda aldrig kemikalier med varandra.</div>
+
+      <h2 id="sa-raknar-du">Så räknar du ut din poolvolym</h2>
+      <p>All dosering av poolkemikalier utgår från vattenvolymen, och volymen räknas i kubikmeter (m³) — där 1 m³ motsvarar 1 000 liter. Har du volymen rätt blir doseringen rätt; har du den fel kan du både överdosera och underdosera.</p>
+      <ul>
+        <li><strong>Rektangulär pool:</strong> längd × bredd × medeldjup. En pool på 8 × 4 m med 1,5 m djup ger 8 × 4 × 1,5 = 48 m³, alltså 48 000 liter.</li>
+        <li><strong>Rund pool:</strong> diameter × diameter × 0,785 × medeldjup. En rund pool med 4 m diameter och 1,2 m djup ger 4 × 4 × 0,785 × 1,2 ≈ 15 m³.</li>
+        <li><strong>Oval pool:</strong> mät som en rektangel och dra av för de rundade hörnen — eller använd längd × bredd × medeldjup och justera ned med 10–15 %.</li>
+      </ul>
+      <p><strong>Medeldjup</strong> får du genom att lägga ihop djupet vid den grunda och den djupa änden och dela med två. Har din pool en separat djupdel eller trappa, mät upp den ungefärliga fördelningen och uppskatta därefter.</p>
+
+      <h2 id="sa-laser-du-resultatet">Så tolkar du resultatet</h2>
+      <p>Verktyget visar volymen och ger ett <em>startvärde</em> — inte en exakt doseringsinstruktion. Använd siffrorna som en riktlinje:</p>
+      <ul>
+        <li><strong>Chockklor</strong> används vid grönt eller grumligt vatten och vid uppstart. Sikta på 5–10 mg/l fritt klor, vänta 8–12 timmar och mät igen innan du justerar vidare.</li>
+        <li><strong>pH-minus</strong> sänker ett för högt pH. Justera i steg, cirkulera i minst 2–4 timmar och mät om — sikta på pH 7,2–7,4.</li>
+        <li><strong>pH-plus</strong> höjer ett för lågt pH på samma sätt: små steg, god cirkulation, ny mätning.</li>
+      </ul>
+
+      <h2 id="sakerhet">Säkerhet vid dosering</h2>
+      <p>Tillsätt alltid kemikalier i vattnet — aldrig vatten i kemikalien. Blanda aldrig klor och pH-justerare direkt med varandra, och häll aldrig i två produkter samtidigt. Använd handskar och ögonskydd, dosera med pumpen igång och med god ventilation. Vid osäkerhet: mindre mängd, längre cirkulation och mät igen.</p>
+
       <p>Behöver du bakgrunden? Läs <a href={u('/guider/ph-och-klor/')}>pH och klor — rätt nivåer</a> eller <a href={u('/guider/gront-poolvatten/')}>guiden om grönt poolvatten</a>.</p>
       <Newsletter />
     </article>

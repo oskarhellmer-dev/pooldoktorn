@@ -1,22 +1,45 @@
 ---
 import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import { schemaGraph, webPage, breadcrumbs } from '../lib/schema';
+import { schemaGraph, webPage, breadcrumbs, orgProfile } from '../lib/schema';
+import { u } from '../lib/urls';
 const path = '/om/';
-const title = 'Om Pooldoktorn — oberoende poolguider';
-const desc = 'Vilka vi är, hur vi arbetar och varför vi inte säljer produkter själva. Oberoende guider för svenska poolägare.';
-const jsonLd = schemaGraph([webPage(title, desc, path), breadcrumbs([{ name: 'Hem', path: '/' }, { name: 'Om', path }])]);
+const title = 'Om Pooldoktorn — oberoende poolguider och redaktionella principer';
+const desc = 'Vilka vi är, hur guiderna tas fram, hur vi tjänar pengar och hur du kontaktar oss. Oberoende kunskapssajt för svenska poolägare — vi säljer inget själva.';
+const jsonLd = schemaGraph([
+  webPage(title, desc, path),
+  breadcrumbs([{ name: 'Hem', path: '/' }, { name: 'Om', path }]),
+  orgProfile(),
+]);
 ---
 <Base title={title} description={desc} path={path} jsonLd={jsonLd}>
   <div class="wrap">
     <Breadcrumbs trail={[{ name: 'Hem', path: '/' }, { name: 'Om' }]} />
     <div class="page">
       <h1>Om Pooldoktorn</h1>
-      <p>Pooldoktorn.se är en oberoende kunskapssajt för svenska poolägare. Vi säljer inga produkter själva — vi skriver guider om vattenvård, skötsel och köp, och länkar vidare till butiker och leverantörer när det är relevant.</p>
+      <p class="lead">Pooldoktorn är en oberoende kunskapssajt för svenska pool- och spaägare. Vi säljer inga produkter själva — vi skriver guider om vattenvård, underhåll och köp, och hänvisar vidare till butiker och leverantörer när det är relevant.</p>
+
       <h2>Varför oberoende?</h2>
-      <p>Eftersom vi inte äger något lager kan vi skriva ärligt om vad som funkar och inte. Vår inkomst kommer från annonser och affiliatelänkar, inte från att sälja en viss produkt.</p>
-      <h2>Så arbetar vi</h2>
-      <p>Guiderna bygger på vedertagen poolkemi och vanliga skötselrutiner. Mätvärdena är riktvärden — följ alltid leverantörens anvisningar för just din utrustning.</p>
+      <p>Eftersom vi inte äger något lager, ingen butik och inga egna produktvarumärken kan vi skriva om vad som faktiskt fungerar — inte bara om det vi vill sälja. Vår inkomst kommer från annonser och affiliatelänkar, aldrig från att lyfta fram en viss produkt mot betalning. Läs mer på sidan <a href={u('/annonsdeklaration/')}>annonsdeklaration</a>.</p>
+
+      <h2>Så tar vi fram innehållet</h2>
+      <p>Varje guide byggs enligt samma arbetsmetod:</p>
+      <ul>
+        <li><strong>Vedertagen poolkemi och branschpraxis</strong> — riktvärden för pH, klor, alkalinitet och cyanursyra utgår från etablerade rekommendationer för svenska pooler och spabad.</li>
+        <li><strong>Leverantörens anvisningar väger tyngst</strong> — dosering och skötsel varierar mellan utrustning och fabrikat. Vid minsta tvekan gäller alltid anvisningen för just din pump, ditt filter och dina kemikalier.</li>
+        <li><strong>Korskontroll mot flera källor</strong> — vi jämför produktdata mot tillverkarens datablad och stämmer av att angivna mått, effekter och priser är rimliga innan de skrivs in.</li>
+        <li><strong>Uppdatering</strong> — varje guide har ett uppdateringsdatum. Ändras rekommendationer eller produktsortiment revideras texten.</li>
+      </ul>
+      <p>Vi skriver för att lösa ett konkret problem — grönt vatten, lågt tryck, inför vinterstängning eller inför ett köp — inte för att fylla sidor. Hittar du ett fel får du gärna höra av dig, så rättar vi det.</p>
+
+      <h2>Hur vi tjänar pengar</h2>
+      <p>Pooldoktorn finansieras på tre sätt: affiliateprovision när du handlar via en länk, visningsannonser, samt i framtiden egna digitala guider. Affiliatelänkar markerar vi alltid, och de påverkar inte priset du betalar. Vi lovar aldrig bort en rekommendation i utbyte mot ersättning.</p>
+
+      <h2>Ansvarsfriskrivning</h2>
+      <p>Guiderna är allmän information, inte garanterad rådgivning för din specifika anläggning. Pool- och spabadskemi kan vara farlig om den hanteras fel — blanda aldrig kemikalier med varandra, följ doseringen på förpackningen och använd skyddsutrustning. Pooldoktorn ansvarar inte för skador som uppstår till följd av att informationen används utan hänsyn till leverantörens anvisningar.</p>
+
+      <h2>Kontakt</h2>
+      <p>Frågor, rättelser eller samarbeten: <a href="mailto:hej@pooldoktorn.se">hej@pooldoktorn.se</a>. Vi läser allt och svarar så snart vi kan.</p>
     </div>
   </div>
 </Base>

@@ -19,6 +19,16 @@ const jsonLd = schemaGraph([
     <section class="sec">
       <h1 style="font-size:32px;letter-spacing:-.8px;margin-top:22px">Köpguider</h1>
       <p class="sub">Utrustning som faktiskt passar din pool — utan säljsnack.</p>
+      <div class="prose" style="max-width:760px;margin:8px 0 28px">
+        <p>Att köpa poolutrustning är sällan svårt för att produkterna är dåliga — det är svårt för att de måste <em>matcha din pool</em>. En poolrobot som är för liten för en 50 m³-pool gör ingen nytta, och en värmepump som är dimensionerad för inomhuspool räcker inte när hösten kommer. I våra köpguider går vi igenom vad som avgör valet innan vi ens nämner märken.</p>
+        <p>Tre saker att tänka på oavsett vad du köper:</p>
+        <ul>
+          <li><strong>Utrustning &ne; pool.</strong> Börja alltid med din volym i m³, din vattentyp (klor eller salt) och hur stor andel av året poolen är i drift. Det styr robot, filter och värmepump mer än något annat.</li>
+          <li><strong>Manuellt eller automatiskt.</strong> Robot framför manuell rengöring sparar mest tid; automatisk dosering sparar mest pengar. Fråga dig hur mycket tid du faktiskt vill lägga per vecka.</li>
+          <li><strong>Total kostnad, inte inköpspris.</strong> Filterpatroner, kemikalier och elkostnad över en säsong överstiger ofta själva inköpspriset. Räkna med helheten.</li>
+        </ul>
+        <p>Vi länkar vidare till butiker genom affiliatelänkar — priset blir detsamma för dig, och vi får en liten provision. Det är hela vår inkomst, och därför kan vi också skriva när något inte är värt pengarna.</p>
+      </div>
       <div class="grid">
         {items.map((p) => (
           <a class="card" href={u(`/kopguider/${p.slug}/`)}>

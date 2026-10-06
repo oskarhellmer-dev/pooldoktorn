@@ -30,7 +30,7 @@ const nodes: any[] = [
   ]),
 ];
 if (page.faq?.length) nodes.push(faqPage(page.faq));
-if (steps.length >= 3) nodes.push(howTo(page.h1, page.meta_desc, page.img, steps));
+if (steps.length >= 3) nodes.push(howTo(page.h1, page.meta_desc, page.img, steps, path));
 const jsonLd = schemaGraph(nodes);
 ---
 <Base

@@ -1,5 +1,5 @@
 import { SITE } from '../consts';
-import { abs } from './urls';
+import { abs, slugify } from './urls';
 
 type Ld = Record<string, any>;
 
@@ -13,6 +13,23 @@ const org = () => ({
 export const schemaGraph = (nodes: Ld[]): string =>
   JSON.stringify({ '@context': 'https://schema.org', '@graph': nodes }, null, 0);
 
+/** Förstärkt organisation för E-E-A-T: kontaktpunkt, språk, område. */
+export const orgProfile = (): Ld => ({
+  '@type': 'Organization',
+  name: SITE.name,
+  url: abs('/'),
+  logo: { '@type': 'ImageObject', url: abs('/favicon.svg') },
+  description: SITE.description,
+  areaServed: { '@type': 'Country', name: 'Sverige' },
+  knowsLanguage: 'sv-SE',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer support',
+    email: 'hej@pooldoktorn.se',
+    availableLanguage: 'Swedish',
+  },
+});
+
 export const website = (): Ld => ({
   '@type': 'WebSite',
   name: SITE.name,
@@ -20,11 +37,6 @@ export const website = (): Ld => ({
   inLanguage: 'sv-SE',
   description: SITE.description,
   publisher: org(),
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: { '@type': 'EntryPoint', urlTemplate: abs('/sok/?q={search_term_string}') },
-    'query-input': 'required name=search_term_string',
-  },
 });
 
 export const webPage = (title: string, desc: string, path: string): Ld => ({
@@ -82,7 +94,7 @@ export const faqPage = (faq: { q: string; a: string }[]): Ld => ({
 });
 
 export const howTo = (
-  name: string, desc: string, img: string, steps: { name: string; text: string }[]
+  name: string, desc: string, img: string, steps: { name: string; text: string }[], path: string
 ): Ld => ({
   '@type': 'HowTo',
   name,
@@ -94,7 +106,7 @@ export const howTo = (
     position: i + 1,
     name: s.name,
     text: s.text.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(),
-    url: `${abs('/')}#`, // sätts av anroparen vid behov
+    url: `${abs(path)}#${slugify(s.name)}`,
   })),
 });
 
