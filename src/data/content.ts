@@ -2,6 +2,7 @@
 // interna länkar mellan sidor (stärker intern länkning = SEO).
 import base from './content.json';
 import { EXTRA_GUIDER } from './extra-guider';
+import { EXTRA_GUIDER2 } from './extra-guider2';
 import { EXTRA_KOPGUIDER } from './extra-kopguider';
 import { EXTRA_BYGGE } from './extra-bygge';
 
@@ -44,6 +45,7 @@ const normFaq = (f: any): FaqItem[] =>
 const all: Page[] = [
   ...(base.pages as unknown as Page[]),
   ...(EXTRA_GUIDER as unknown as Page[]),
+  ...(EXTRA_GUIDER2 as unknown as Page[]),
   ...(EXTRA_KOPGUIDER as unknown as Page[]),
   ...(EXTRA_BYGGE as unknown as Page[]),
 ].map((p: any) => ({ ...p, sections: normSections(p.sections), faq: normFaq(p.faq) }));

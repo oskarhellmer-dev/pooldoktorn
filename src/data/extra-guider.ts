@@ -55,10 +55,10 @@ export const EXTRA_GUIDER = [
   {
     slug: 'grumligt-poolvatten',
     tag: 'Guide',
-    h1: 'Grumligt poolvatten – varför och vad du gör',
-    meta_title: 'Grumligt poolvatten – orsaker och åtgärd',
+    h1: 'Grumligt vatten i poolen – varför och vad du gör',
+    meta_title: 'Grumligt vatten i poolen – orsaker och åtgärd',
     meta_desc:
-      'Mjölkigt eller grumligt poolvatten beror sällan på samma sak. Här är orsakerna, hur du skiljer dem åt och vad du gör – steg för steg.',
+      'Grumligt eller mjölkigt vatten i poolen beror sällan på samma sak. Här är orsakerna, hur du skiljer dem åt och vad du gör – steg för steg.',
     lead: 'Grumligt vatten är inte samma problem som grönt vatten. Det är oftast döda alger, fel kemi eller ett filter som inte hinner med. Rätt åtgärd beror på orsaken.',
     img: 'grumligt-poolvatten',
     image_prompt:
