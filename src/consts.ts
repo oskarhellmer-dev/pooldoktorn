@@ -17,6 +17,7 @@ export const NAV = [
   { label: 'Vattenvård', href: '/guider/gront-poolvatten/' },
   { label: 'Vinter', href: '/guider/vinterstangning-pool/' },
   { label: 'Köpguider', href: '/kopguider/' },
+  { label: 'Poolbygge', href: '/poolbygge/' },
   { label: 'Kalkylator', href: '/kalkylator/' },
   { label: 'Pooljournal', href: '/pooljournal/' },
 ];

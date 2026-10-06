@@ -1,0 +1,43 @@
+---
+import { bygge as items } from '../../data/content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { collectionPage, breadcrumbs, schemaGraph } from '../../lib/schema';
+import { u } from '../../lib/urls';
+
+const path = '/poolbygge/';
+const title = 'Poolbygge – planera, bygg och äg din pool';
+const desc = 'Allt om att bygga pool: planera projektet, räkna på kostnaden, ordna bygganmälan och välja liner, trappa och skydd. Oberoende guider för dig som ska bygga pool.';
+const jsonLd = schemaGraph([
+  collectionPage(title, desc, path, items.map((i) => ({ name: i.h1, url: `${path}${i.slug}/` }))),
+  breadcrumbs([{ name: 'Hem', path: '/' }, { name: 'Poolbygge', path }]),
+]);
+---
+<Base title={title} description={desc} path={path} jsonLd={jsonLd} ogImage="/bilder/att-kopa-pool-1200.webp">
+  <div class="wrap">
+    <Breadcrumbs trail={[{ name: 'Hem', path: '/' }, { name: 'Poolbygge' }]} />
+    <section class="sec">
+      <h1 style="font-size:32px;letter-spacing:-.8px;margin-top:22px">Poolbygge</h1>
+      <p class="sub">Från första skiss till färdig pool – och livet som poolägare därefter.</p>
+      <div class="prose" style="max-width:760px;margin:8px 0 28px">
+        <p>Att bygga pool är ett byggprojekt, inte ett köp av en produkt. Det mesta som går fel – förseningar, spräckt budget och en pool som används mindre än tänkt – kan härledas till beslut som fattades i fel ordning. Här har vi samlat guiderna som hjälper dig göra dem i rätt ordning.</p>
+        <p>Oavsett om du funderar på att köpa pool, planerar ett bygge i höst eller redan har en pool och vill sänka driftskostnaden, hittar du utgångspunkterna här. Börja gärna med <a href={u('/poolbygge/att-kopa-pool/')}>att köpa pool</a> om du står inför ditt första köp, eller <a href={u('/poolbygge/energismarta-losningar/')}>energismarta lösningar</a> om du vill få ner kostnaden på en befintlig pool.</p>
+        <p>Vår inställning är densamma som i resten av sajten: oberoende och utan säljsnack. Vi säljer ingen pool själva – vi skriver om vad som faktiskt spelar roll. Har du redan en pool hittar du skötsel och vattenvård under <a href={u('/guider/')}>guiderna</a> och <a href={u('/kopguider/')}>köpguiderna</a>.</p>
+      </div>
+      <div class="grid">
+        {items.map((p) => (
+          <a class="card" href={u(`/poolbygge/${p.slug}/`)}>
+            <img class="thumb" src={u(`/bilder/${p.img}-800.webp`)}
+              srcset={`${u(`/bilder/${p.img}-400.webp`)} 400w, ${u(`/bilder/${p.img}-800.webp`)} 800w`}
+              sizes="(max-width:860px) 100vw, 360px" width="1200" height="675" loading="lazy" alt={p.h1} />
+            <div class="body">
+              <span class="tag">{p.tag}</span>
+              <h3>{p.h1}</h3>
+              <p>{p.lead.slice(0, 110)}…</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</Base>

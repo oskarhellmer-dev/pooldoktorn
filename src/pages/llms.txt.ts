@@ -16,8 +16,12 @@ export const GET: APIRoute = ({ site }) => {
     '## Köpguider',
     ...pages.filter((p) => p.tag === 'Köpguide').map((p) => `- [${p.h1}](${abs(`/kopguider/${p.slug}/`)}): ${p.meta_desc}`),
     '',
+    '## Poolbygge',
+    ...pages.filter((p) => p.tag === 'Bygge').map((p) => `- [${p.h1}](${abs(`/poolbygge/${p.slug}/`)}): ${p.meta_desc}`),
+    '',
     '## Verktyg',
     `- [Poolkalkylatorn](${abs('/kalkylator/')}): räkna ut vattenvolym och dosering.`,
+    `- [Pooljournalen](${abs('/pooljournal/')}): logga pH, klor och vattenvärden och följ dem över tid.`,
     '',
   ];
   return new Response(lines.join('\n'), { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });

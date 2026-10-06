@@ -3,12 +3,13 @@
 import base from './content.json';
 import { EXTRA_GUIDER } from './extra-guider';
 import { EXTRA_KOPGUIDER } from './extra-kopguider';
+import { EXTRA_BYGGE } from './extra-bygge';
 
 export interface FaqItem { q: string; a: string }
 export interface Aff { title: string; text: string; cta: string; url: string }
 export interface Page {
   slug: string;
-  tag: 'Guide' | 'Köpguide';
+  tag: 'Guide' | 'Köpguide' | 'Bygge';
   h1: string;
   meta_title: string;
   meta_desc: string;
@@ -44,6 +45,7 @@ const all: Page[] = [
   ...(base.pages as unknown as Page[]),
   ...(EXTRA_GUIDER as unknown as Page[]),
   ...(EXTRA_KOPGUIDER as unknown as Page[]),
+  ...(EXTRA_BYGGE as unknown as Page[]),
 ].map((p: any) => ({ ...p, sections: normSections(p.sections), faq: normFaq(p.faq) }));
 
 export const pages: Page[] = all.map((p) => {
@@ -55,9 +57,12 @@ export const pages: Page[] = all.map((p) => {
 
 export const guider = pages.filter((p) => p.tag === 'Guide');
 export const kopguider = pages.filter((p) => p.tag === 'Köpguide');
+export const bygge = pages.filter((p) => p.tag === 'Bygge');
+
+const sectionOf = (tag: Page['tag']) => (tag === 'Guide' ? 'guider' : tag === 'Köpguide' ? 'kopguider' : 'poolbygge');
 
 export const bySlug = (slug: string) => pages.find((p) => p.slug === slug);
 export const href = (slug: string) => {
   const p = bySlug(slug);
-  return p ? `${p.tag === 'Guide' ? '/guider' : '/kopguider'}/${p.slug}/` : '/';
+  return p ? `/${sectionOf(p.tag)}/${p.slug}/` : '/';
 };
