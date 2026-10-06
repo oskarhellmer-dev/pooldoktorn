@@ -10,6 +10,7 @@ const STATIC = [
   '/kopguider/',
   '/poolbygge/',
   '/spabad/',
+  '/recensioner/',
   '/kalkylator/',
   '/pooljournal/',
   '/om/',
@@ -19,7 +20,11 @@ const STATIC = [
 
 export const GET: APIRoute = () => {
   const sectionOf = (tag: string) =>
-    tag === 'Guide' ? 'guider' : tag === 'Köpguide' ? 'kopguider' : tag === 'Bygge' ? 'poolbygge' : 'spabad';
+    tag === 'Guide' ? 'guider'
+    : tag === 'Köpguide' ? 'kopguider'
+    : tag === 'Bygge' ? 'poolbygge'
+    : tag === 'Spa' ? 'spabad'
+    : 'recensioner';
   const urls = [
     ...STATIC,
     ...pages.map((p) => `/${sectionOf(p.tag)}/${p.slug}/`),

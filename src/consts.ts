@@ -19,6 +19,7 @@ export const NAV = [
   { label: 'Köpguider', href: '/kopguider/' },
   { label: 'Poolbygge', href: '/poolbygge/' },
   { label: 'Spabad', href: '/spabad/' },
+  { label: 'Recensioner', href: '/recensioner/' },
   { label: 'Kalkylator', href: '/kalkylator/' },
   { label: 'Pooljournal', href: '/pooljournal/' },
 ];

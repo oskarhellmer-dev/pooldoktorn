@@ -6,12 +6,13 @@ import { EXTRA_GUIDER2 } from './extra-guider2';
 import { EXTRA_KOPGUIDER } from './extra-kopguider';
 import { EXTRA_BYGGE } from './extra-bygge';
 import { EXTRA_SPA } from './extra-spa';
+import { EXTRA_RECENSIONER } from './extra-recensioner';
 
 export interface FaqItem { q: string; a: string }
 export interface Aff { title: string; text: string; cta: string; url: string }
 export interface Page {
   slug: string;
-  tag: 'Guide' | 'Köpguide' | 'Bygge' | 'Spa';
+  tag: 'Guide' | 'Köpguide' | 'Bygge' | 'Spa' | 'Recension';
   h1: string;
   meta_title: string;
   meta_desc: string;
@@ -55,6 +56,7 @@ const all: Page[] = [
   ...(EXTRA_KOPGUIDER as unknown as Page[]),
   ...(EXTRA_BYGGE as unknown as Page[]),
   ...(EXTRA_SPA as unknown as Page[]),
+  ...(EXTRA_RECENSIONER as unknown as Page[]),
 ].map((p: any) => ({ ...p, sections: normSections(p.sections), faq: normFaq(p.faq) }));
 
 export const pages: Page[] = all.map((p) => {
@@ -68,9 +70,14 @@ export const guider = pages.filter((p) => p.tag === 'Guide');
 export const kopguider = pages.filter((p) => p.tag === 'Köpguide');
 export const bygge = pages.filter((p) => p.tag === 'Bygge');
 export const spa = pages.filter((p) => p.tag === 'Spa');
+export const recensioner = pages.filter((p) => p.tag === 'Recension');
 
 const sectionOf = (tag: Page['tag']) =>
-  tag === 'Guide' ? 'guider' : tag === 'Köpguide' ? 'kopguider' : tag === 'Bygge' ? 'poolbygge' : 'spabad';
+  tag === 'Guide' ? 'guider'
+  : tag === 'Köpguide' ? 'kopguider'
+  : tag === 'Bygge' ? 'poolbygge'
+  : tag === 'Spa' ? 'spabad'
+  : 'recensioner';
 
 export const bySlug = (slug: string) => pages.find((p) => p.slug === slug);
 export const href = (slug: string) => {

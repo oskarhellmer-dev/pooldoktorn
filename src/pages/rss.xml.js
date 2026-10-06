@@ -7,6 +7,7 @@ const SECTION = {
   'Köpguide': '/kopguider',
   Bygge: '/poolbygge',
   Spa: '/spabad',
+  Recension: '/recensioner',
 };
 
 export function GET(context) {

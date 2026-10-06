@@ -1,0 +1,63 @@
+---
+import { recensioner as items } from '../../data/content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { collectionPage, breadcrumbs, faqPage, schemaGraph } from '../../lib/schema';
+import { u } from '../../lib/urls';
+
+const path = '/recensioner/';
+const title = 'Poolrobotar – recensioner av populära modeller';
+const desc = 'Oberoende recensioner av populära poolrobotar: Dolphin, WYBOT, AIPER, BWT med flera. Styrkor, svagheter och vem varje modell passar – utan säljsnack.';
+const faq = [
+  { q: 'Har ni testat robotarna själva?', a: 'Nej. Vi labbtestar inte robotarna. Varje recension väger samman tillverkarens och återförsäljarnas specifikationer med vad oberoende testare och ägare rapporterar – och vi är tydliga med var gränserna för vår kunskap går.' },
+  { q: 'Vilken poolrobot är bäst?', a: 'Det beror på din pool och dina behov. Vill du ha helhetsbilden rekommenderar vi vår <a href="/kopguider/basta-poolroboten/">guide till bästa poolroboten</a>, och sedan en enskild recension för den modell du överväger.' },
+  { q: 'Klarar alla poolrobotar väggar och vattenlinje?', a: 'Nej. Enkla och billiga modeller städar bara botten. Väggklättring och vattenlinjefunktion finns främst på dyrare modeller – vi anger exakt vad varje robot klarar i respektive recension.' },
+];
+const jsonLd = schemaGraph([
+  collectionPage(title, desc, path, items.map((i) => ({ name: i.h1, url: `${path}${i.slug}/` }))),
+  breadcrumbs([{ name: 'Hem', path: '/' }, { name: 'Recensioner', path }]),
+  faqPage(faq),
+]);
+---
+<Base title={title} description={desc} path={path} jsonLd={jsonLd} ogImage="/bilder/dolphin-s300i-1200.webp">
+  <div class="wrap">
+    <Breadcrumbs trail={[{ name: 'Hem', path: '/' }, { name: 'Recensioner' }]} />
+    <section class="sec">
+      <h1 style="font-size:32px;letter-spacing:-.8px;margin-top:22px">Recensioner av poolrobotar</h1>
+      <p class="sub">En sida per robot – styrkor, svagheter och vem den passar.</p>
+      <div class="prose" style="max-width:760px;margin:8px 0 28px">
+        <p>Att välja poolrobot handlar sällan om att hitta den som är "bäst" i största allmänhet – utan den som passar din pool, dina ytor och din budget. Här har vi samlat recensioner av de mest köpta modellerna, en sida per robot, så att du kan jämföra på djupet i stället för att lita på en rubrik.</p>
+        <p>Varje recension följer samma struktur: snabb översikt, vad som är bra, vad som är mindre bra, för vem den passar och en teknisk detalj som förklarar varför skillnaden spelar roll. Vi väger samman specifikationer med vad testare och ägare säger.</p>
+        <p>Vill du ha helhetsbilden först? Börja med <a href={u('/kopguider/basta-poolroboten/')}>guiden till bästa poolroboten</a>, med topp 10 och en djup teknisk genomgång av navigation, filtrering och drift.</p>
+      </div>
+      <p class="disc-inline" style="font-size:13px;color:#5b6b73;max-width:760px;margin:0 0 24px">
+        Vi labbtestar inte robotarna själva. Bedömningarna bygger på tillverkarnas och återförsäljarnas specifikationer samt vad oberoende testare och ägare rapporterar.
+      </p>
+      <div class="grid">
+        {items.map((p) => (
+          <a class="card" href={u(`/recensioner/${p.slug}/`)}>
+            <img class="thumb" src={u(`/bilder/${p.img}-800.webp`)}
+              srcset={`${u(`/bilder/${p.img}-400.webp`)} 400w, ${u(`/bilder/${p.img}-800.webp`)} 800w`}
+              sizes="(max-width:860px) 100vw, 360px" width="1200" height="675" loading="lazy" alt={p.h1} />
+            <div class="body">
+              <span class="tag">{p.tag}</span>
+              <h3>{p.h1}</h3>
+              <p>{p.lead.slice(0, 110)}…</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+    <div class="article" style="margin-top:44px">
+      <h2>Vanliga frågor om recensionerna</h2>
+      <div class="faq">
+        {faq.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <div class="a" set:html={f.a} />
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</Base>
