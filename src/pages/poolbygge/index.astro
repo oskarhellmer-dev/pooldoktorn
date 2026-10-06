@@ -2,15 +2,21 @@
 import { bygge as items } from '../../data/content';
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import { collectionPage, breadcrumbs, schemaGraph } from '../../lib/schema';
+import { collectionPage, breadcrumbs, faqPage, schemaGraph } from '../../lib/schema';
 import { u } from '../../lib/urls';
 
 const path = '/poolbygge/';
 const title = 'Poolbygge – planera, bygg och äg din pool';
 const desc = 'Allt om att bygga pool: planera projektet, räkna på kostnaden, ordna bygganmälan och välja liner, trappa och skydd. Oberoende guider för dig som ska bygga pool.';
+const faq = [
+  { q: 'Krävs bygglov för att bygga pool?', a: 'Oftast räcker en bygganmälan, men reglerna varierar mellan kommuner och inom strandskyddade områden. Läs <a href="/poolbygge/bygganmalan-och-bygglov/">guiden om bygganmälan och bygglov</a> och stäm alltid av med din kommun.' },
+  { q: 'Vad kostar det att bygga pool?', a: 'Inget fast pris finns – byggsätt, storlek, markförhållanden och kringarbete styr. Se <a href="/poolbygge/vad-kostar-det-att-bygga-pool/">kostnadsguiden</a> för faktorerna som avgör totalkostnaden.' },
+  { q: 'När på året är det bäst att bygga pool?', a: 'Många bygger på våren för att bada samma sommar. Att <a href="/poolbygge/bygga-pool-pa-hosten/">bygga på hösten</a> kan ge kortare kö och bättre pris, men är känsligare för väder.' },
+];
 const jsonLd = schemaGraph([
   collectionPage(title, desc, path, items.map((i) => ({ name: i.h1, url: `${path}${i.slug}/` }))),
   breadcrumbs([{ name: 'Hem', path: '/' }, { name: 'Poolbygge', path }]),
+  faqPage(faq),
 ]);
 ---
 <Base title={title} description={desc} path={path} jsonLd={jsonLd} ogImage="/bilder/att-kopa-pool-1200.webp">
@@ -39,5 +45,16 @@ const jsonLd = schemaGraph([
         ))}
       </div>
     </section>
+    <div class="article" style="margin-top:44px">
+      <h2>Vanliga frågor om poolbygge</h2>
+      <div class="faq">
+        {faq.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <div class="a" set:html={f.a} />
+          </details>
+        ))}
+      </div>
+    </div>
   </div>
 </Base>

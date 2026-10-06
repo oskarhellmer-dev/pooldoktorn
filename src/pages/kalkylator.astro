@@ -2,12 +2,17 @@
 import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Newsletter from '../components/Newsletter.astro';
-import { schemaGraph, breadcrumbs, webPage } from '../lib/schema';
+import { schemaGraph, breadcrumbs, webPage, faqPage } from '../lib/schema';
 import { u, abs } from '../lib/urls';
 
 const title = 'Poolkalkylatorn — volym och dosering för din pool';
 const desc = 'Räkna ut din pools vattenvolym och få uppskattad dos av chockklor och pH-minus. Gratis verktyg för svenska poolägare.';
 const path = '/kalkylator/';
+const faq = [
+  { q: 'Hur räknar jag ut min poolvolym?', a: 'Rektangulär pool: längd × bredd × medeldjup. Rund pool: diameter × diameter × 0,785 × medeldjup. Medeldjupet är djupet i grunda änden plus djupa änden delat med två.' },
+  { q: 'Är doseringarna exakta?', a: 'Nej, de är startvärden för att komma igång. Följ alltid doseringen på din produkt, cirkulera och mät vattnet mellan varje justering.' },
+  { q: 'Vilket pH ska jag sikta på?', a: 'Sikta på pH 7,2–7,6, helst nära 7,2 eftersom klorets effekt är som bäst där.' },
+];
 const jsonLd = schemaGraph([
   {
     '@type': 'WebApplication',
@@ -20,6 +25,7 @@ const jsonLd = schemaGraph([
   },
   webPage(title, desc, path),
   breadcrumbs([{ name: 'Hem', path: '/' }, { name: 'Kalkylator', path }]),
+  faqPage(faq),
 ]);
 ---
 <Base title={title} description={desc} path={path} jsonLd={jsonLd}>
@@ -61,6 +67,16 @@ const jsonLd = schemaGraph([
       <p>Tillsätt alltid kemikalier i vattnet — aldrig vatten i kemikalien. Blanda aldrig klor och pH-justerare direkt med varandra, och häll aldrig i två produkter samtidigt. Använd handskar och ögonskydd, dosera med pumpen igång och med god ventilation. Vid osäkerhet: mindre mängd, längre cirkulation och mät igen.</p>
 
       <p>Behöver du bakgrunden? Läs <a href={u('/guider/ph-och-klor/')}>pH och klor — rätt nivåer</a> eller <a href={u('/guider/gront-poolvatten/')}>guiden om grönt poolvatten</a>. Vill du följa värdena över tid i stället för att räkna varje gång, använd <a href={u('/pooljournal/')}>pooljournalen</a>.</p>
+
+      <h2 id="vanliga-fragor">Vanliga frågor om kalkylatorn</h2>
+      <div class="faq">
+        {faq.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <div class="a">{f.a}</div>
+          </details>
+        ))}
+      </div>
       <Newsletter />
     </article>
   </div>

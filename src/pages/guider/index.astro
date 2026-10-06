@@ -2,15 +2,21 @@
 import { guider as items } from '../../data/content';
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import { collectionPage, breadcrumbs, schemaGraph } from '../../lib/schema';
+import { collectionPage, breadcrumbs, faqPage, schemaGraph } from '../../lib/schema';
 import { u } from '../../lib/urls';
 
 const path = '/guider/';
 const title = 'Poolguider – vattenvård, skötsel och säsong';
-const desc = 'Alla våra guider för pool och spa: vattenkemi, grönt vatten, vårstart, vinterstängning, filter och skötselrutiner. Oberoende och uppdaterade.';
+const desc = 'Alla guider för pool och spa: vattenkemi, grönt vatten, vårstart, vinterstängning, filter och skötselrutiner. Oberoende och uppdaterade.';
+const faq = [
+  { q: 'Vad ska jag göra först om poolvattnet är grönt?', a: 'Mät pH och sänk det till 7,2–7,4, chockklorera sedan och kör cirkulationen dygnet runt. Läs steg-för-steg i <a href="/guider/chockklorering/">guiden om chockklorering</a>.' },
+  { q: 'Hur ofta bör jag mäta pH och klor?', a: 'En gång i veckan räcker vid normal drift. Vid högsäsong, mycket badande eller efter regn kan det vara värt att mäta oftare.' },
+  { q: 'Vad är skillnaden mellan grönt och grumligt vatten?', a: 'Grönt vatten är levande alger som kräver chockklorering. Grumligt eller mjölkigt vatten är oftast döda alger eller utfällningar och handlar mer om filtrering och flockning.' },
+];
 const jsonLd = schemaGraph([
   collectionPage(title, desc, path, items.map((i) => ({ name: i.h1, url: `${path}${i.slug}/` }))),
   breadcrumbs([{ name: 'Hem', path: '/' }, { name: 'Guider', path }]),
+  faqPage(faq),
 ]);
 ---
 <Base title={title} description={desc} path={path} jsonLd={jsonLd} ogImage="/bilder/ph-och-klor-1200.webp">
@@ -34,5 +40,16 @@ const jsonLd = schemaGraph([
         ))}
       </div>
     </section>
+    <div class="article" style="margin-top:44px">
+      <h2>Vanliga frågor om poolskötsel</h2>
+      <div class="faq">
+        {faq.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <div class="a" set:html={f.a} />
+          </details>
+        ))}
+      </div>
+    </div>
   </div>
 </Base>

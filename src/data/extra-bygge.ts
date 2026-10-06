@@ -7,7 +7,7 @@ export const EXTRA_BYGGE = [
     h1: 'Att köpa pool – komplett guide inför köpet',
     meta_title: 'Att köpa pool – guide inför poolköpet',
     meta_desc:
-      'Plats, storlek, byggsätt och driftkostnad avgör om poolköpet blir lyckat. Här är allt du bör bestämma innan du skriver på – och frågorna du ställer till leverantören.',
+      'Plats, storlek, byggsätt och driftkostnad avgör om poolköpet blir lyckat. Här är allt du bör bestämma innan du skriver på – och frågorna du ställer till säljaren.',
     lead: 'Ett poolköp blir sällan dyrt för att poolen är fel – utan för att besluten kring den fattades i fel ordning. Bestäm plats och storlek först, byggsätt sen, och priset sist. Då faller resten på plats.',
     img: 'att-kopa-pool',
     image_prompt:
@@ -60,7 +60,7 @@ export const EXTRA_BYGGE = [
     h1: 'Från dröm till verklighet – så planerar du ditt poolprojekt',
     meta_title: 'Från dröm till verklighet – planera poolbygget',
     meta_desc:
-      'En tydlig tidslinje från första skissen till färdig pool: budget, tillstånd, upphandling och vad som händer under bygget. Så undviker du förseningar och överraskningar.',
+      'En tydlig tidslinje från första skissen till färdig pool: budget, tillstånd och upphandling. Så undviker du förseningar och överraskningar i projektet.',
     lead: 'De flesta poolprojekt som drar över tid och budget har inte otur – de har hoppat över ett steg i planeringen. Här är ordningen som gör projektet förutsägbart, från idé till första bad.',
     img: 'fran-drom-till-verklighet',
     image_prompt:
