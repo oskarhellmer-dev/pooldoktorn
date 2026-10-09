@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oskarhellmer-dev.github.io/pooldoktorn/sitemap.xml
+Sitemap: https://oskarhellmer-dev.github.io/pooldoktorn/sitemap-index.xml
