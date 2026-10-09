@@ -489,7 +489,7 @@ export const EXTRA_SPA = [
       ['Åtkomst till tekniken – det vanligaste misstaget',
         '<p>Det enskilt vanligaste misstaget är att bygga in badet så att tekniken blir oåtkomlig. Räkna med fritt utrymme runt alla sidor och se till att maskinluckan kan öppnas. Utan åtkomst kan service inte utföras utan extrakostnad.</p>'],
       ['Insynsskydd och rumslighet',
-        '<p>Insynsskydd i form av spaljé, plantering eller plank skapar privat känsla och ger samtidigt lä för vinden, vilket hjälper energiförbrukningen. Placera skyddet så att det inte blockerar åtkomst eller ventilation.</p>'],
+        '<p>Insynsskydd i form av spaljé, plantering eller plank skapar privat känsla och ger samtidigt lä för vinden, vilket hjälper energiförbrukningen. Placera skyddet så att det inte blockerar åtkomst eller ventilation. Vill du kombinera växter och material runt badet på ett sätt som håller i svenskt klimat kan en trädgårdsarkitekt spara både tid och misstag – se till exempel <a href="https://oasdesign.se" rel="noopener">OAS Garden &amp; Design</a>.</p>'],
       ['Belysning och detaljer',
         '<p>Belysning runt badet gör stor skillnad för kvällsupplevelsen – indirekt ljus i däck eller plantering är ofta snyggare än stark lampa. En trappa eller ett litet sidobord för handdukar och dryck höjer komforten. Sätt din egen prägel, men håll det tåligt mot fukt.</p>'],
       ['Material som håller',
