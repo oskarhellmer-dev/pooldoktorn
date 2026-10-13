@@ -347,7 +347,7 @@ export const EXTRA_GUIDER2 = [
         + '<li>Utrymme att skjuta ihop taket på.</li>'
         + '<li>Snölast och vind i din del av landet.</li></ul>'],
       ['Effekt på driftkostnad',
-        '<p>Genom att minska värmeförlust och avdunstning sänker taket både energi- och kemikalieåtgång. Läs <a href="/poolbygge/energismarta-losningar/">energismarta lösningar</a> och <a href="/poolbygge/poolskydd/">poolskydd</a> för helheten.</p>'],
+        '<p>Genom att minska värmeförlust och avdunstning sänker taket både energi- och kemikalieåtgång. Läs <a href="/poolbygge/energismarta-losningar/">energismarta lösningar</a> och <a href="/poolbygge/poolskydd/">poolskydd</a> för helheten. Vill du sätta siffror på vad pool och pooltak kostar finns en <a href="https://aluna.se/vad-kostar-en-pool-och-ett-pooltak-en-komplett-prisguide/" rel="noopener">komplett prisguide hos Aluna</a>.</p>'],
       ['Säkerhet',
         '<p>Ett ordentligt pooltak kan bidra till säkerheten, men kontrollera vad modellen klarar. Kombinera gärna med staket och grind, särskilt med små barn – se <a href="/guider/barnpool/">guiden för barnfamiljer</a>.</p>'],
     ],

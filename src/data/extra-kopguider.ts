@@ -67,7 +67,7 @@ export const EXTRA_KOPGUIDER = [
       ['Storlek och plats',
         '<p>Mät platsen, räkna med avstånd för service och tänk på el, vatten och dränering. Ett spabad fyller du med trädgårdsslang och tömmer med pump – planera för det innan du beställer.</p>'],
       ['Isolering och driftkostnad',
-        '<p>Isolering är den viktigaste faktorn för elräkningen. Lock med god isolering, tätt kabinett och bra värmeisolering gör stor skillnad över ett år. Fråga efter driftkostnad för typfallet, inte bara inköpspris.</p>'],
+        '<p>Isolering är den viktigaste faktorn för elräkningen. Lock med god isolering, tätt kabinett och bra värmeisolering gör stor skillnad över ett år. Fråga efter driftkostnad för typfallet, inte bara inköpspris. För mer inspiration och vardagserfarenheter kring bad året runt kan du också titta på <a href="https://spabadsbloggen.se/" rel="noopener">Spabadsbloggen</a>.</p>'],
       ['Vattenvård i spabad',
         '<ul><li>Klor eller brom – brom fungerar bättre i varmt vatten.</li>'
         + '<li>pH 7,2–7,6, fritt klor/brom enligt tillverkaren.</li>'
