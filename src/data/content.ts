@@ -7,6 +7,7 @@ import { EXTRA_KOPGUIDER } from './extra-kopguider';
 import { EXTRA_BYGGE } from './extra-bygge';
 import { EXTRA_SPA } from './extra-spa';
 import { EXTRA_RECENSIONER } from './extra-recensioner';
+import { EXTRA_BATCH1 } from './extra-batch1';
 
 export interface FaqItem { q: string; a: string }
 export interface Aff { title: string; text: string; cta: string; url: string }
@@ -27,11 +28,14 @@ export interface Page {
 
 // Extra interna länkar: befintlig sida -> nya sidor den bör länka till.
 const RELATED_ADDITIONS: Record<string, string[]> = {
-  'gront-poolvatten': ['chockklorering', 'grumligt-poolvatten', 'algmedel-pool'],
-  'ph-och-klor': ['algmedel-pool', 'grumligt-poolvatten', 'chockklorering'],
-  'vinterstangning-pool': ['algmedel-pool'],
-  'varstart-pool': ['chockklorering', 'smart-pool-automation'],
-  'poolfilter-guide': ['grumligt-poolvatten', 'basta-poolrengoraren', 'basta-poolroboten'],
+  // Batch 1 – kopplar in nya vattenvårdsguider i internlänkningen
+  'gront-poolvatten': ['chockklorering', 'grumligt-poolvatten', 'algmedel-pool', 'cyanursyra-pool', 'mjolkigt-vatten-pool'],
+  'ph-och-klor': ['algmedel-pool', 'grumligt-poolvatten', 'chockklorering', 'cyanursyra-pool', 'veckoklor', 'snabbklor'],
+  'vinterstangning-pool': ['algmedel-pool', 'alger-efter-vintern'],
+  'varstart-pool': ['chockklorering', 'smart-pool-automation', 'alger-efter-vintern'],
+  'poolfilter-guide': ['grumligt-poolvatten', 'basta-poolrengoraren', 'basta-poolroboten', 'backspolning-pool', 'mjolkigt-vatten-pool'],
+  'chockklorering': ['snabbklor', 'mjolkigt-vatten-pool', 'cyanursyra-pool', 'alger-efter-vintern'],
+  'grumligt-poolvatten': ['mjolkigt-vatten-pool', 'backspolning-pool'],
   'poolvard-vecka': ['smart-pool-automation', 'basta-poolrengoraren', 'basta-poolroboten'],
   'pooltackning-sakerhet': ['poolbelysning'],
   'basta-poolroboten': ['basta-poolrengoraren'],
@@ -57,6 +61,7 @@ const all: Page[] = [
   ...(EXTRA_BYGGE as unknown as Page[]),
   ...(EXTRA_SPA as unknown as Page[]),
   ...(EXTRA_RECENSIONER as unknown as Page[]),
+  ...(EXTRA_BATCH1 as unknown as Page[]),
 ].map((p: any) => ({ ...p, sections: normSections(p.sections), faq: normFaq(p.faq) }));
 
 export const pages: Page[] = all.map((p) => {
