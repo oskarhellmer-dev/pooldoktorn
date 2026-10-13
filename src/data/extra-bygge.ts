@@ -483,7 +483,7 @@ export const EXTRA_BYGGE = [
       ['Tänk på sol, skugga och insyn',
         '<p>Studera hur skuggan rör sig under en dag: träd, husväggar och häckar påverkar hur mycket sol ytan får och hur tidigt på säsongen poolen värms. Tänk också på insyn från grannar och gata.</p>'],
       ['3D-verktyg och modeller',
-        '<p>Med enkla 3D-program eller en app för trädgårdsplanering kan du bygga upp trädgården i skala och prova poolens storlek, form och färg. Utgå från dina egna mått på tomten och huset så blir bilden realistisk.</p>'],
+        '<p>Med enkla 3D-program eller en app för trädgårdsplanering kan du bygga upp trädgården i skala och prova poolens storlek, form och färg. Utgå från dina egna mått på tomten och huset så blir bilden realistisk. Vill du ha ett färdigt förslag där pool, växter och nivåer hänger ihop kan en trädgårdsarkitekt rita och visualisera helheten – till exempel <a href="https://www.framtidatradgardar.se/" rel="noopener">Framtida Trädgårdar</a>.</p>'],
       ['AR – pool i din egen trädgård',
         '<p>Med förstärkt verklighet (AR) kan du via mobilen placera en virtuell pool i din faktiska trädgård och se hur den ser ut i rätt perspektiv. Det ger en bra uppfattning om proportioner och läge, även om tekniken inte ersätter exakta mått.</p>'],
       ['Testa innan du bestämmer',
