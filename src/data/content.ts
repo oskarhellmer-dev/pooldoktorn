@@ -8,6 +8,7 @@ import { EXTRA_BYGGE } from './extra-bygge';
 import { EXTRA_SPA } from './extra-spa';
 import { EXTRA_RECENSIONER } from './extra-recensioner';
 import { EXTRA_BATCH1 } from './extra-batch1';
+import { EXTRA_BATCH2 } from './extra-batch2';
 
 export interface FaqItem { q: string; a: string }
 export interface Aff { title: string; text: string; cta: string; url: string }
@@ -33,19 +34,23 @@ const RELATED_ADDITIONS: Record<string, string[]> = {
   'ph-och-klor': ['algmedel-pool', 'grumligt-poolvatten', 'chockklorering', 'cyanursyra-pool', 'veckoklor', 'snabbklor'],
   'vinterstangning-pool': ['algmedel-pool', 'alger-efter-vintern'],
   'varstart-pool': ['chockklorering', 'smart-pool-automation', 'alger-efter-vintern'],
-  'poolfilter-guide': ['grumligt-poolvatten', 'basta-poolrengoraren', 'basta-poolroboten', 'backspolning-pool', 'mjolkigt-vatten-pool'],
+  'poolfilter-guide': ['grumligt-poolvatten', 'basta-poolrengoraren', 'basta-poolroboten', 'backspolning-pool', 'mjolkigt-vatten-pool', 'sandfilterpump'],
   'chockklorering': ['snabbklor', 'mjolkigt-vatten-pool', 'cyanursyra-pool', 'alger-efter-vintern'],
   'grumligt-poolvatten': ['mjolkigt-vatten-pool', 'backspolning-pool'],
   'poolvard-vecka': ['smart-pool-automation', 'basta-poolrengoraren', 'basta-poolroboten'],
-  'pooltackning-sakerhet': ['poolbelysning'],
-  'basta-poolroboten': ['basta-poolrengoraren'],
+  'pooltackning-sakerhet': ['poolbelysning', 'poolstege'],
+  'basta-poolroboten': ['basta-poolrengoraren', 'pooldammsugare'],
   'varmepump-pool': ['smart-pool-automation'],
   'saltklorinator': ['smart-pool-automation'],
+  // Batch 2 – köpguider & guider in i internlänkningen
+  'poolpump': ['sandfilterpump', 'poolfilter-guide'],
+  'glasfiberpool': ['poolliner'],
+  'barnpool': ['poolstege'],
 };
 
 // Korslänkning spabad <-> befintlig spabad-köpguide
 const SPA_LINKS: Record<string, string[]> = {
-  'spabad-kopguide': ['spabad-komplett-guide', 'spabad-energiforbrukning', 'spabad-vattenbalans'],
+  'spabad-kopguide': ['spabad-komplett-guide', 'spabad-energiforbrukning', 'spabad-vattenbalans', 'spabad-uppblasbart', 'swimspa'],
 };
 
 const normSections = (s: any): { h2: string; html: string }[] =>
@@ -62,6 +67,7 @@ const all: Page[] = [
   ...(EXTRA_SPA as unknown as Page[]),
   ...(EXTRA_RECENSIONER as unknown as Page[]),
   ...(EXTRA_BATCH1 as unknown as Page[]),
+  ...(EXTRA_BATCH2 as unknown as Page[]),
 ].map((p: any) => ({ ...p, sections: normSections(p.sections), faq: normFaq(p.faq) }));
 
 export const pages: Page[] = all.map((p) => {
