@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pooldoktorn.se/pooldoktorn/sitemap.xml
+Sitemap: https://pooldoktorn.se/pooldoktorn/sitemap-index.xml
