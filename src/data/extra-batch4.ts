@@ -32,7 +32,7 @@ export const EXTRA_BATCH4 = [
         '<p>Priset varierar kraftigt med dimension och längd. Som riktmärke (2026): mjuk PVC-slang 32 mm säljs i spannet <strong>cirka 68–1 390 kr</strong> beroende på längd, 40 mm och 50 mm kostar runt <strong>78 kr per meter</strong> (25-metersrulle cirka 1 690–1 745 kr) och 63 mm cirka 140 kr per meter. En klassisk 32 mm-slang till ovanmarkspool finns från omkring 333 kr för 6,6 meter och är ofta delbar var 1,1 meter.</p>'
         + '<p>Köp hellre lite för långt än för kort – slangen ska kunna böjas utan att sträckas.</p>'],
       ['Skötsel och vanliga misstag',
-        '<ul><li>Grävd slang <em>måste</em> isoleras, annars riskerar den att frysa sönder.</li>'
+        '<ul><li>Grävd slang <strong>måste</strong> isoleras, annars riskerar den att frysa sönder.</li>'
         + '<li>Undvik skarpa böjar – de stryper flödet och ökar pumpmotståndet.</li>'
         + '<li>En torrsprucken eller stel slang ska bytas innan den läcker.</li>'
         + '<li>Håll koll på klämmorna – en lös klämma är en vanlig orsak till luft i systemet.</li></ul>'

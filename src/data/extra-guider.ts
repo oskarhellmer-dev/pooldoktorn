@@ -21,7 +21,7 @@ export const EXTRA_GUIDER = [
       ['Steg 1 – Mät först',
         '<p>Kontrollera <strong>pH, fritt klor och cyanursyra</strong> innan du häller i något. Chlor verkar bara bra när pH ligger i 7,2–7,4. Är cyanursyran hög (över 80 mg/l) är kloret bundet och chockkloreringen biter inte – då måste en del vatten bytas.</p>'],
       ['Steg 2 – Sänk pH till 7,2–7,4',
-        '<p>Justera pH <em>före</em> chocken. Vid högre pH tappar kloret effekt och du behöver mer för samma resultat.</p>'],
+        '<p>Justera pH <strong>före</strong> chocken. Vid högre pH tappar kloret effekt och du behöver mer för samma resultat.</p>'],
       ['Steg 3 – Dosera chocken',
         '<p>Sikta på 5–10 mg/l fritt klor. Använd snabbklor (kalciumhypoklorit) eller natriumdiklor och lös upp granulatet i en hink vatten <strong>enligt förpackningens dosering</strong> – häll aldrig koncentrerat pulver direkt på liner eller duk.</p>'
         + '<div class="warn">Blanda aldrig klor med pH-justerare eller algmedel i samma hink. Det kan bilda giftig klorgas.</div>'],

@@ -146,7 +146,7 @@ const jsonLd = schemaGraph([
       <h2 id="vad-betyder">Vad betyder värdena egentligen?</h2>
       <p><strong>pH</strong> mäter surhet på en skala 0–14 där 7 är neutralt. Poolvatten ska vara svagt basiskt, 7,2–7,6. Under 7,2 blir vattnet frätande mot utrustning och obehagligt för ögonen; över 7,8 tappar kloret sin effekt och kalk kan fälla ut.</p>
       <p><strong>Fritt klor</strong> är den aktiva desinfektionen. Är halten under 1 ppm får bakterier och alger fäste. Är den långt över 3 ppm är det slösaktigt och retar hud — låt den sjunka naturligt.</p>
-      <p><strong>Bundet klor</strong>, skillnaden mellan totalt och fritt klor, är det som luktar "klor". Paradoxalt nog betyder klorlukt oftast att det finns för lite <em>fritt</em> klor, inte för mycket.</p>
+      <p><strong>Bundet klor</strong>, skillnaden mellan totalt och fritt klor, är det som luktar "klor". Paradoxalt nog betyder klorlukt oftast att det finns för lite <strong>fritt</strong> klor, inte för mycket.</p>
       <p><strong>Alkalinitet</strong> är vattnets buffertförmåga. Ligger den rätt stannar pH på plats; är den låg far pH upp och ner vid minsta tillsats, och är den hög är pH svårt att rubba nedåt.</p>
       <p><strong>Cyanursyra</strong> skyddar kloret mot solljus men bryts inte ner av sig själv. Byggs halten över 50 ppm blir kloret ineffektivt trots att du mäter ett fint värde — enda lösningen är att byta en del av vattnet.</p>
 
@@ -163,14 +163,14 @@ const jsonLd = schemaGraph([
       <p>Behöver du fördjupning: <a href={u('/guider/ph-och-klor/')}>pH och klor</a>, <a href={u('/guider/gront-poolvatten/')}>grönt poolvatten</a> och <a href={u('/kalkylator/')}>poolkalkylatorn</a>.</p>
 
       <h2 id="vanliga-fragor">Vanliga frågor</h2>
-      <div class="faq">
+      <dl class="faqgrid">
         {faq.map((f) => (
-          <details>
-            <summary>{f.q}</summary>
-            <div class="a">{f.a}</div>
-          </details>
+          <div class="item">
+            <dt>{f.q}</dt>
+            <dd>{f.a}</dd>
+          </div>
         ))}
-      </div>
+      </dl>
 
       <Newsletter />
     </article>

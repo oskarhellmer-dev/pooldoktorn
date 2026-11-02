@@ -23,14 +23,14 @@ const jsonLd = schemaGraph([
   <div class="wrap">
     <Breadcrumbs trail={[{ name: 'Hem', path: '/' }, { name: 'Recensioner' }]} />
     <section class="sec">
-      <h1 style="font-size:32px;letter-spacing:-.8px;margin-top:22px">Recensioner av poolrobotar</h1>
+      <h1 class="hub-h1">Recensioner av poolrobotar</h1>
       <p class="sub">En sida per robot – styrkor, svagheter och vem den passar.</p>
-      <div class="prose" style="max-width:760px;margin:8px 0 28px">
+      <div class="prose hub-lead">
         <p>Att välja poolrobot handlar sällan om att hitta den som är "bäst" i största allmänhet – utan den som passar din pool, dina ytor och din budget. Här har vi samlat recensioner av de mest köpta modellerna, en sida per robot, så att du kan jämföra på djupet i stället för att lita på en rubrik.</p>
         <p>Varje recension följer samma struktur: snabb översikt, vad som är bra, vad som är mindre bra, för vem den passar och en teknisk detalj som förklarar varför skillnaden spelar roll. Vi väger samman specifikationer med vad testare och ägare säger.</p>
         <p>Vill du ha helhetsbilden först? Börja med <a href={u('/kopguider/basta-poolroboten/')}>guiden till bästa poolroboten</a>, med topp 10 och en djup teknisk genomgång av navigation, filtrering och drift.</p>
       </div>
-      <p class="disc-inline" style="font-size:13px;color:#5b6b73;max-width:760px;margin:0 0 24px">
+      <p class="disc-inline">
         Vi labbtestar inte robotarna själva. Bedömningarna bygger på tillverkarnas och återförsäljarnas specifikationer samt vad oberoende testare och ägare rapporterar.
       </p>
       <div class="grid">
@@ -48,16 +48,16 @@ const jsonLd = schemaGraph([
         ))}
       </div>
     </section>
-    <div class="article" style="margin-top:44px">
+    <div class="article hub-article">
       <h2>Vanliga frågor om recensionerna</h2>
-      <div class="faq">
+      <dl class="faqgrid">
         {faq.map((f) => (
-          <details>
-            <summary>{f.q}</summary>
-            <div class="a" set:html={f.a} />
-          </details>
+          <div class="item">
+            <dt>{f.q}</dt>
+            <dd set:html={f.a} />
+          </div>
         ))}
-      </div>
+      </dl>
     </div>
   </div>
 </Base>

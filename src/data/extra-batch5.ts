@@ -20,7 +20,7 @@ export const EXTRA_BATCH5 = [
     sections: [
       ['Vad ingår i ett poolpaket?',
         '<p>Ett komplett poolpaket innehåller normalt <strong>poolstommen</strong> (till exempel thermoblock eller leca-block), en <strong>liner eller duk</strong>, ett <strong>bräddavlopp eller skimmer</strong>, <strong>inloppsmunstycken</strong> och ett <strong>reningsverk</strong> med sandfilter och cirkulationspump. I de flesta paket följer också <strong>kopplingar och rör</strong>, en <strong>stege</strong> och grundläggande <strong>belysning</strong> med.</p>'
-        + '<p>Uppvärmning, pooltak eller automatiskt poolskydd är däremot nästan alltid <em>tillval</em>, precis som poolrobot och automatisk dosering. Just för att gränsen mellan "ingår" och "tillval" varierar så mycket mellan leverantörer är det där de stora prisskillnaderna gömmer sig – jämför alltid innehållslistorna rad för rad, inte bara slutpriset.</p>'],
+        + '<p>Uppvärmning, pooltak eller automatiskt poolskydd är däremot nästan alltid <strong>tillval</strong>, precis som poolrobot och automatisk dosering. Just för att gränsen mellan "ingår" och "tillval" varierar så mycket mellan leverantörer är det där de stora prisskillnaderna gömmer sig – jämför alltid innehållslistorna rad för rad, inte bara slutpriset.</p>'],
       ['Storlekar – vad passar din tomt?',
         '<p>De vanligaste paketstorlekarna för villapool ligger mellan <strong>3 × 6 m och 5 × 10 m</strong>, med mellanstorlekarna 3,5 × 6,5 m, 3,5 × 7 m och 4 × 8 m som de populäraste. En pool på 4 × 8 m med 1,5 m djup rymmer ungefär <strong>48 m³</strong> vatten, och en vanlig villapool rör sig generellt mellan 15 och 100 m³.</p>'
         + '<p>Storleken styr allt nedströms: större volym kräver kraftigare pump och filter, en större värmepump och ger högre driftkostnad. Välj efter hur ni faktiskt badar – simträning kräver längd, barnfamiljer vill ha en grund del och trappa. Läs mer om hur du tänker kring valet i vår guide om <a href="/poolbygge/att-kopa-pool/">att köpa pool</a>.</p>'],
@@ -32,7 +32,7 @@ export const EXTRA_BATCH5 = [
         + '<li><strong>Design:</strong> poolsarg, trappa och inbyggd belysning som lyfter helhetsintrycket.</li></ul>'],
       ['Vad kostar ett poolpaket?',
         '<p>Ett poolpaket prissätts som ett byggprojekt, inte som en vara – och därför anger seriösa leverantörer oftast <strong>offert eller prisintervall</strong> i stället för en fast klumpsumma. Två pooler i samma storlek kan skilja sig kraftigt beroende på markförhållanden, tillgänglighet för maskiner och hur mycket kringarbete som ingår.</p>'
-        + '<p>Räkna med att stomme och reningsverk är den <em>minsta</em> delen av totalkostnaden. Grävning, återställning av trädgården, el, uppvärmning och poolskydd är där budgeten avgörs. Se hela bilden i <a href="/poolbygge/vad-kostar-det-att-bygga-pool/">vad det kostar att bygga pool</a>.</p>'],
+        + '<p>Räkna med att stomme och reningsverk är den <strong>minsta</strong> delen av totalkostnaden. Grävning, återställning av trädgården, el, uppvärmning och poolskydd är där budgeten avgörs. Se hela bilden i <a href="/poolbygge/vad-kostar-det-att-bygga-pool/">vad det kostar att bygga pool</a>.</p>'],
       ['Så jämför du två poolpaket',
         '<ul><li><strong>Ingår eller tillval?</strong> Be om en komplett innehållslista och pricka av vad som saknas.</li>'
         + '<li><strong>Pump och filter:</strong> är pumpen varvtalsstyrd och är filtret dimensionerat för volymen?</li>'
@@ -41,7 +41,7 @@ export const EXTRA_BATCH5 = [
         + '<li><strong>Leverans och montage:</strong> ingår bygghjälp, eller är det bara material?</li>'
         + '<li><strong>Garantier:</strong> hur långa är de på stomme, duk och teknik?</li></ul>'],
       ['Vanliga misstag vid poolpaketköp',
-        '<p>Det vanligaste misstaget är att underskatta allt <em>runt</em> poolen och i efterhand behöva köpa till poolskydd, värmepump och belysning styckvis till högre pris. Ett annat är att välja ett underdimensionerat reningsverk för att hålla nere paketpriset – då går pumpen hårdare, filtret blir igensatt fortare och driftkostnaden ökar.</p>'
+        '<p>Det vanligaste misstaget är att underskatta allt <strong>runt</strong> poolen och i efterhand behöva köpa till poolskydd, värmepump och belysning styckvis till högre pris. Ett annat är att välja ett underdimensionerat reningsverk för att hålla nere paketpriset – då går pumpen hårdare, filtret blir igensatt fortare och driftkostnaden ökar.</p>'
         + '<p>Planera även in elen tidigt, så att du slipper gräva om trädgården när värmepumpen ska kopplas in. Läs gärna våra guider om <a href="/guider/cirkulationspump-pool/">cirkulationspump</a> och <a href="/guider/poolsarg/">poolsarg</a> innan du bestämmer nivå.</p>'],
     ],
     faq: [
@@ -69,7 +69,7 @@ export const EXTRA_BATCH5 = [
     sections: [
       ['Vad bräddavloppet gör',
         '<p>Bräddavloppet – ofta kallat <strong>skimmer</strong> – är poolens ytavlopp. Vattnet rinner över en klafflucka (weir) in i en korg som fångar löv, hår och skräp, och sugs därifrån vidare till pumpen. Den står för en stor del av cirkulationen: ungefär ytskiktet, där det mesta smutsen ligger, leds direkt till filtret i stället för att cirkulera runt.</p>'
-        + '<p>Nästan allt skräp flyter på ytan, så ytavloppet fångar det <em>innan</em> det sjunker. Utan ett fungerande bräddavlopp får bottensugningen och filtret göra ett mycket tyngre jobb.</p>'],
+        + '<p>Nästan allt skräp flyter på ytan, så ytavloppet fångar det <strong>innan</strong> det sjunker. Utan ett fungerande bräddavlopp får bottensugningen och filtret göra ett mycket tyngre jobb.</p>'],
       ['Skimmer eller överfyllnadsavlopp?',
         '<p>Det finns två olika saker som ibland blandas ihop. En <strong>inbyggd skimmer</strong> suger ytvatten konstant medan pumpen går, och är standard i de flesta villa- och linerpooler. Ett <strong>överfyllnadsavlopp</strong> är i stället en säkerhetsdetalj som leder bort vatten om poolen blir överfull av regn.</p>'
         + '<p>Vissa pooler kompletteras dessutom med ett <strong>bottenavlopp</strong> för att suga från det djupaste lagret. Tillsammans ger ytavlopp och bottenavlopp en jämn cirkulation genom hela volymen – läs mer om flödet i vår guide om <a href="/guider/cirkulationspump-pool/">cirkulationspump</a>.</p>'],
@@ -116,7 +116,7 @@ export const EXTRA_BATCH5 = [
     sections: [
       ['Vad cirkulationspumpen gör',
         '<p>Pumpen skapar det flöde som driver hela reningsverket. Den suger vatten via skimmer/bräddavlopp och bottenavlopp, pressar det genom sandfiltret och blåser ut det renade vattnet genom inloppsmunstyckena. <strong>Flödet</strong> avgör hur många gånger per dygn hela vattenvolymen passerar reningsverket – och det är den siffran som styr hur rent vattnet blir.</p>'
-        + '<p>Skillnaden mot en filterpump är mest en namnfraga: en cirkulationspump <em>är</em> den pump som cirkulerar vattnet, och i de flesta pooler sitter pumpen ihop med sandfiltret i samma reningsverk. Läs också om <a href="/guider/poolfilter-guide/">poolfilter</a>.</p>'],
+        + '<p>Skillnaden mot en filterpump är mest en namnfraga: en cirkulationspump <strong>är</strong> den pump som cirkulerar vattnet, och i de flesta pooler sitter pumpen ihop med sandfiltret i samma reningsverk. Läs också om <a href="/guider/poolfilter-guide/">poolfilter</a>.</p>'],
       ['Rätt flöde och drifttid',
         '<p>En vanlig tumregel är att hela vattenvolymen ska omsättas <strong>två till tre gånger per dygn</strong>. En pool på 40 m³ behöver alltså ett flöde som klarar cirka 80–120 m³ under dygnet, vilket de flesta pumpar klarar genom att gå <strong>6–10 timmar per dag</strong>.</p>'
         + '<p>Räkna hellre efter volym och temperatur än fasta klocktimmar: varmare vatten och hög badbelastning kräver längre drifttid. Detaljerade siffror finns i vår guide om <a href="/guider/poolpump/">poolpump</a>.</p>'],
@@ -165,7 +165,7 @@ export const EXTRA_BATCH5 = [
         + '<p>Mät fritt klor minst varannan dag under säsong och i ett fast veckoschema däremellan – se <a href="/guider/poolvard-vecka/">veckoschemat för poolvård</a>.</p>'],
       ['Bundet klor – kloraminerna',
         '<p><strong>Bundet klor</strong>, eller kloraminer, är klor som redan reagerat med svett, urin och smuts. Det desinficerar inte längre men luktar starkt "klor" och irriterar ögon och hud. Värdet ska ligga <strong>under 0,5 mg/l</strong>.</p>'
-        + '<p>Paradoxalt nog är den klassiska simhallslukten oftast ett tecken på att det <em>fria</em> kloret är för lågt och att kloraminer byggts upp. Lösningen är inte att sluta klorera, utan att <a href="/guider/chockklorering/">chockklorera</a> och öka cirkulationen.</p>'],
+        + '<p>Paradoxalt nog är den klassiska simhallslukten oftast ett tecken på att det <strong>fria</strong> kloret är för lågt och att kloraminer byggts upp. Lösningen är inte att sluta klorera, utan att <a href="/guider/chockklorering/">chockklorera</a> och öka cirkulationen.</p>'],
       ['Så mäter du klorvärdet',
         '<p>Det finns tre vanliga metoder:</p>'
         + '<ul><li><strong>Testset med tabletter</strong> (DPD 1 för fritt klor): tillförlitligt och prisvärt. Fyll behållaren, lägg i tabletterna, skaka cirka 20 sekunder och jämför färgen mot skalan.</li>'
@@ -215,7 +215,7 @@ export const EXTRA_BATCH5 = [
         + '<li><strong>Metaller i systemet</strong> – korrosion i rör eller värmeväxlare kan också bidra.</li></ul>'
         + '<p>Notera gärna när missfärgningen kommer: direkt vid klorering pekar tydligt mot metaller i vattnet. Se även våra misstag att undvika i <a href="/guider/varstart-pool/">vårstart av pool</a>.</p>'],
       ['Steg för steg – så får du bort brunt vatten',
-        '<p>Behandla alltid metallerna <em>innan</em> du chockklorerar, annars fäller du ut dem igen.</p>'
+        '<p>Behandla alltid metallerna <strong>innan</strong> du chockklorerar, annars fäller du ut dem igen.</p>'
         + '<ul><li><strong>1. Mät och bind metallerna.</strong> Tillsätt ett <strong>metallbindande medel</strong> (sequestrant) enligt dosering på förpackningen. Det håller metallerna lösta så att filtret kan fånga dem.</li>'
         + '<li><strong>2. Cirkulera dygnet runt.</strong> Kör pumpen kontinuerligt medan behandlingen verkar.</li>'
         + '<li><strong>3. Låt filtret jobba.</strong> Partiklarna fastnar i sandfiltret – <a href="/guider/backspola-pool/">backspola</a> när trycket stigit.</li>'
@@ -321,7 +321,7 @@ export const EXTRA_BATCH5 = [
         '<p>Sargen ska ligga <strong>något över vattenytan</strong> så att vattnet rinner tillbaka i poolen och inte ut på trädäcket. Ofta används en liten överhöjning mot linern, med en kantsten som sticker fram en bit över poolkanten. Standardbredden ligger vanligtvis runt 30 cm, men bredare sarg ger en lugnare, mer arkitektonisk känsla och bättre plats att gå på.</p>'
         + '<p>Mät höjdskillnaden mot poolens överkant och det omgivande däcket innan du beställer, så att sargen hamnar i liv med rätt nivå. Se även <a href="/guider/terasspool-och-ovanmarkspool/">terasspool och ovanmarkspool</a>.</p>'],
       ['Färg och form – matcha helheten',
-        '<p>Ett bra tips är att välja sarg efter <em>helheten</em>: matcha stenen mot färgen på poolduken och det intilliggande trädäcket eller stenläggningen för ett enhetligt intryck. Mörkare stensarg ger en stram, modern känsla och en tydlig vattenlinje, medan ljusa naturtoner ger ett mjukare, klassiskare uttryck.</p>'
+        '<p>Ett bra tips är att välja sarg efter <strong>helheten</strong>: matcha stenen mot färgen på poolduken och det intilliggande trädäcket eller stenläggningen för ett enhetligt intryck. Mörkare stensarg ger en stram, modern känsla och en tydlig vattenlinje, medan ljusa naturtoner ger ett mjukare, klassiskare uttryck.</p>'
         + '<p>Formen kan vara rak eller rundad vid hörn – rundade hörn är skönare att gå förbi och kan minska risken att fastna med en tå i ett skarpt hörn.</p>'],
       ['Montering',
         '<ul><li><strong>Montagesats:</strong> för nedgrävda pooler finns monteringskit dimensionerade för till exempel upp till <strong>5 × 10 m</strong> – ett med fog och ett utan fog.</li>'

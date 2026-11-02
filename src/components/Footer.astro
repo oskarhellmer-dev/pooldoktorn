@@ -2,21 +2,35 @@
 import { SITE } from '../consts';
 import { u } from '../lib/urls';
 const year = new Date().getFullYear();
+const main = [
+  ['/guider/', 'Guider'],
+  ['/kopguider/', 'Köpguider'],
+  ['/poolbygge/', 'Poolbygge'],
+  ['/spabad/', 'Spabad'],
+  ['/recensioner/', 'Recensioner'],
+  ['/kalkylator/', 'Kalkylator'],
+  ['/pooljournal/', 'Pooljournal'],
+];
+const legal = [
+  ['/om/', 'Om'],
+  ['/annonsdeklaration/', 'Annonsdeklaration'],
+  ['/integritetspolicy/', 'Integritetspolicy'],
+];
 ---
 <footer class="site">
   <div class="wrap foot">
-    <span>{SITE.name} — oberoende guider för pool och spa. Vi säljer inga produkter själva.<br />Byggd av <a href="https://varmlandswebb.se" rel="noopener">varmlandswebb.se</a> · © {year}</span>
+    <div class="brand">
+      <strong>{SITE.name} — oberoende guider för pool och spa</strong>
+      <span>Vi säljer inga produkter själva. Vissa länkar är affiliatelänkar — handlar du via dem kan vi få en liten provision, utan att priset ändras för dig.</span>
+      <span class="fine">Byggd av <a href="https://varmlandswebb.se" rel="noopener">varmlandswebb.se</a> · © {year}</span>
+    </div>
     <nav aria-label="Sidfot">
-      <a href={u('/guider/')}>Guider</a>
-      <a href={u('/kopguider/')}>Köpguider</a>
-      <a href={u('/poolbygge/')}>Poolbygge</a>
-      <a href={u('/spabad/')}>Spabad</a>
-      <a href={u('/recensioner/')}>Recensioner</a>
-      <a href={u('/kalkylator/')}>Kalkylator</a>
-      <a href={u('/pooljournal/')}>Pooljournal</a>
-      <a href={u('/om/')}>Om</a>
-      <a href={u('/annonsdeklaration/')}>Annonsdeklaration</a>
-      <a href={u('/integritetspolicy/')}>Integritet</a>
+      <div class="grp">
+        {main.map(([href, label]) => <a href={u(href)}>{label}</a>)}
+      </div>
+      <div class="grp law">
+        {legal.map(([href, label]) => <a href={u(href)}>{label}</a>)}
+      </div>
     </nav>
   </div>
 </footer>

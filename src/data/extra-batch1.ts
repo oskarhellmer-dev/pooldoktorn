@@ -16,7 +16,7 @@ export const EXTRA_BATCH1 = [
       ['Vad är cyanursyra?',
         '<p>Cyanursyra (stabilisator) tillsätts för att skydda kloret mot UV-ljus. Utan den bryts fritt klor ner av solljus på några timmar. Problemet: cyanursyran <strong>försvinner inte</strong> av sig själv. Den anrikas i vattnet och binder mer och mer av kloret.</p>'],
       ['Varför ett för högt värde är farligt',
-        '<p>Cyanursyran binder kloret i en form som kallas <em>bundet klor</em> – klor som finns kvar men inte längre desinficerar. Ett högt värde gör därför att du häller i mer och mer klor utan effekt, samtidigt som vattnet kan bli grumligt eller grönt.</p>'
+        '<p>Cyanursyran binder kloret i en form som kallas <strong>bundet klor</strong> – klor som finns kvar men inte längre desinficerar. Ett högt värde gör därför att du häller i mer och mer klor utan effekt, samtidigt som vattnet kan bli grumligt eller grönt.</p>'
         + '<div class="warn">Använder du puckar och veckoklor med stabilisator byggs cyanursyran upp varje vecka. Det är den vanligaste orsaken till "klor som slutat funka".</div>'],
       ['Rekommenderade nivåer',
         '<ul><li>Utomhuspool: 30–50 mg/l.</li>'
@@ -29,7 +29,7 @@ export const EXTRA_BATCH1 = [
         + '<li>Mät igen och upprepa vid behov.</li></ul>'
         + '<p>Efter ett delvattenbyte är pH ofta påverkat – kontrollera och justera <a href="guider/ph-och-klor/">pH</a> före nästa klorering.</p>'],
       ['Så undviker du problemet',
-        '<p>Växla mellan klor <em>utan</em> stabilisator (t.ex. kalciumhypoklorit eller flytande klor) och puckar. Mät cyanursyran några gånger per säsong – inte bara fritt klor – så upptäcker du problemet innan kloret slutar verka.</p>'],
+        '<p>Växla mellan klor <strong>utan</strong> stabilisator (t.ex. kalciumhypoklorit eller flytande klor) och puckar. Mät cyanursyran några gånger per säsong – inte bara fritt klor – så upptäcker du problemet innan kloret slutar verka.</p>'],
     ],
     faq: [
       ['Hur ofta ska jag mäta cyanursyra?', 'Några gånger per säsong, och alltid om kloret slutar verka trots att du fyllt på. Använder du puckar med stabilisator bör du mäta oftare.'],
@@ -60,10 +60,10 @@ export const EXTRA_BATCH1 = [
         + '<p>Ett riktmärke är varje eller varannan vecka under säsong – men mätaren avgör.</p>'],
       ['Så backspolar du steg för steg',
         '<ul><li>Stäng pumpen.</li>'
-        + '<li>Vrid ventilen till <em>Backwash</em>.</li>'
+        + '<li>Vrid ventilen till <strong>Backwash</strong>.</li>'
         + '<li>Starta pumpen och spola tills vattnet i siktglaset är klart (vanligtvis 1–3 minuter).</li>'
-        + '<li>Stäng pumpen, vrid till <em>Rinse</em> i cirka 15 sekunder för att lägga sanden till rätta.</li>'
-        + '<li>Stäng pumpen, vrid till <em>Filter</em>, starta igen.</li></ul>'
+        + '<li>Stäng pumpen, vrid till <strong>Rinse</strong> i cirka 15 sekunder för att lägga sanden till rätta.</li>'
+        + '<li>Stäng pumpen, vrid till <strong>Filter</strong>, starta igen.</li></ul>'
         + '<div class="note">Vrid aldrig ventilen medan pumpen går – det sliter sönder packningarna.</div>'],
       ['Efter backspolning',
         '<p>Kontrollera att trycket är tillbaka på normalt. Vattennivån sjunker när du backspolar – fyll på om det behövs. Backspolning spolar också ut en del vatten och klor, så mät värdena efteråt vid behov.</p>'],
@@ -129,7 +129,7 @@ export const EXTRA_BATCH1 = [
         + '<li>Kontroll av fritt klor några gånger i veckan – inte bara en gång.</li></ul>'],
       ['Så använder du veckoklor rätt',
         '<ul><li>Håll pH i 7,2–7,4 – annars verkar kloret sämre.</li>'
-        + '<li>Variera med klor <em>utan</em> stabilisator för att bromsa cyanursyran.</li>'
+        + '<li>Variera med klor <strong>utan</strong> stabilisator för att bromsa cyanursyran.</li>'
         + '<li>Mät cyanursyran några gånger per säsong.</li></ul>'],
     ],
     faq: [
@@ -187,7 +187,7 @@ export const EXTRA_BATCH1 = [
       ['Steg 1 – rensa och chocka',
         '<p>Fiska upp löv och skräp först. Borsta väggar och botten så algerna lossnar, och kör en <a href="guider/chockklorering/">chockklorering</a>. Vid grönt vatten räcker inte normal dos – sikta på 5–10 mg/l fritt klor och kör pumpen dygnet runt.</p>'],
       ['Steg 2 – håll pH rätt',
-        '<p>Kloret verkar bara bra vid pH 7,2–7,4. Ligger pH högt efter vintern – sänk det <em>före</em> chocken. Läs mer i vår <a href="guider/ph-och-klor/">pH- och klorguide</a>.</p>'],
+        '<p>Kloret verkar bara bra vid pH 7,2–7,4. Ligger pH högt efter vintern – sänk det <strong>före</strong> chocken. Läs mer i vår <a href="guider/ph-och-klor/">pH- och klorguide</a>.</p>'],
       ['Steg 3 – filtrera och flocka',
         '<p>Är vattnet grått och mjölkigt efter chocken är det döda alger som svävar fritt. En flockning klumpar ihop dem så filtret får bort dem. Backspola filtret dagen efter.</p>'],
       ['Steg 4 – förhindra återfall',

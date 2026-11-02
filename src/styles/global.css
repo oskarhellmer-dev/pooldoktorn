@@ -1,136 +1,289 @@
-:root{
-  --ink:#12262e; --ink2:#3b5a66; --muted:#5b7a86;
-  --brand:#0a7ea4; --brand-d:#086788; --deep:#062f3d;
-  --bg:#f7fafb; --card:#fff; --line:#e3edf1; --soft:#e8f5fa;
-  --max:1120px;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{background:var(--bg);color:var(--ink);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  line-height:1.6;-webkit-font-smoothing:antialiased}
-img{max-width:100%;height:auto;display:block}
-a{color:var(--brand)}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-.skip{position:absolute;left:-9999px}
-.skip:focus{left:8px;top:8px;background:#fff;padding:10px 14px;border-radius:8px;z-index:100}
+/* ============================================================
+   Pooldoktorn – designsystem (redesign enligt
+   "redesign-existing-projects"). Behåller blå varumärkesidentitet.
+   Allt värde kommer från tokens nedan. Inga ad-hoc-tal i reglerna.
+   ============================================================ */
 
-/* header */
-header.site{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
-.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:20px}
-.logo{font-weight:800;font-size:21px;color:var(--brand);letter-spacing:-.5px;text-decoration:none}
-.logo span{color:var(--ink)}
-.nav nav ul{display:flex;gap:24px;list-style:none;font-size:15px;font-weight:600}
-.nav nav a{color:var(--ink2);text-decoration:none}
-.nav nav a:hover,.nav nav a[aria-current=page]{color:var(--brand)}
-.burger{display:none;background:none;border:1px solid var(--line);border-radius:8px;font-size:18px;padding:6px 11px;cursor:pointer}
+:root{
+  /* --- typsnitt --- */
+  --font-sans:'Geist',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-mono:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  /* --- färg (en accent = blått varumärke; desaturerat under 80%) --- */
+  --ink:#0e2027;        /* rubriker / stark text   */
+  --ink2:#35525d;       /* sekundär text           */
+  --muted:#547280;      /* dämpad text (WCAG 4.5+) */
+  --brand:#0d7794;      /* accent                  */
+  --brand-d:#0a6178;    /* accent hover/aktiv      */
+  --deep:#072a36;       /* mörk yta (hero/footer)  */
+  --bg:#eef3f6;         /* sidbakgrund             */
+  --surface:#ffffff;    /* kortyta                 */
+  --line:#dde8ed;       /* avdelare                */
+  --soft:#e6f2f7;       /* svag ton, badges        */
+  --warn:#b23c36;       /* semantisk varning       */
+
+  /* --- typografisk skala (Tailwind) --- */
+  --fs-xs:.75rem;   --lh-xs:1rem;
+  --fs-sm:.875rem;  --lh-sm:1.25rem;
+  --fs-base:1rem;   --lh-base:1.5rem;
+  --fs-lg:1.125rem; --lh-lg:1.75rem;
+  --fs-xl:1.25rem;  --lh-xl:1.75rem;
+  --fs-2xl:1.5rem;  --lh-2xl:2rem;
+  --fs-3xl:1.875rem;--lh-3xl:2.25rem;
+  --fs-4xl:2.25rem; --lh-4xl:2.5rem;
+  --fs-5xl:3rem;    --lh-5xl:1.05;
+  --tracking-tight:-.02em;
+  --tracking-label:.06em;
+
+  /* --- spacing-skala --- */
+  --s1:2px; --s2:4px; --s3:8px; --s4:12px; --s5:16px; --s6:24px;
+  --s7:32px; --s8:40px; --s9:48px; --s10:64px; --s11:80px; --s12:96px;
+
+  /* --- radie (endast skalan) --- */
+  --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px; --r-pill:9999px;
+
+  /* --- rörelse --- */
+  --ease:cubic-bezier(.22,1,.36,1);
+  --dur-move:500ms; --dur-color:300ms;
+
+  --max:1200px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:var(--font-sans);
+  font-size:var(--fs-base);line-height:var(--lh-base);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--brand-d);text-decoration-thickness:1px;text-underline-offset:2px}
+
+/* tydliga fokus-ringar (WCAG 2.4.7) */
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,
+select:focus-visible,[tabindex]:focus-visible{
+  outline:3px solid var(--brand);outline-offset:2px;border-radius:var(--r-sm)}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--s6)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:var(--s5);top:var(--s5);background:var(--surface);padding:var(--s4) var(--s5);border-radius:var(--r-sm);z-index:100}
+
+/* ---------------- header: flytande, genomskinlig, blurrad ---------------- */
+header.site{position:sticky;top:var(--s4);z-index:50;padding:0 var(--s6)}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;gap:var(--s6);
+  max-width:var(--max);margin:0 auto;height:64px;padding:0 var(--s3) 0 var(--s6);
+  background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-radius:var(--r-pill);
+  box-shadow:0 1px 0 rgba(7,42,54,.04),0 10px 30px -12px rgba(7,42,54,.18);
+}
+.logo{font-weight:700;font-size:var(--fs-lg);color:var(--ink);letter-spacing:var(--tracking-tight);text-decoration:none}
+.logo span{color:var(--brand)}
+.nav nav ul{display:flex;gap:var(--s6);list-style:none;font-size:var(--fs-sm);font-weight:500}
+.nav nav a{color:var(--ink2);text-decoration:none;transition:color var(--dur-color) var(--ease)}
+.nav nav a:hover,.nav nav a[aria-current=page]{color:var(--brand-d)}
+.nav nav a[aria-current=page]{font-weight:600}
+.burger{display:none;background:var(--soft);border:0;border-radius:var(--r-sm);padding:var(--s3);cursor:pointer;transition:background var(--dur-color) var(--ease)}
+.burger:hover{background:#d8eaf2}
+.burger:active{transform:scale(.95)}
+.burger .bars{display:block;width:20px;height:14px;position:relative}
+.burger .bars i{position:absolute;left:0;right:0;height:2px;background:var(--ink);border-radius:2px;transition:transform var(--dur-color) var(--ease),opacity var(--dur-color) var(--ease)}
+.burger .bars i:nth-child(1){top:0}
+.burger .bars i:nth-child(2){top:6px}
+.burger .bars i:nth-child(3){top:12px}
+.burger[aria-expanded="true"] .bars i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] .bars i:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] .bars i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 .mobilemenu{display:none}
 .mobilemenu[hidden]{display:none!important}
 
-/* hero */
-.hero{background:linear-gradient(135deg,var(--brand),#0e9bd1);color:#fff;padding:56px 0}
-.hero h1{font-size:40px;line-height:1.1;letter-spacing:-1px;max-width:780px}
-.hero p{font-size:18px;opacity:.94;margin-top:16px;max-width:640px}
-.hero .cta{display:inline-block;margin-top:22px;background:#fff;color:var(--brand);font-weight:700;
-  text-decoration:none;padding:13px 24px;border-radius:10px}
+/* ---------------- hero: platt yta + bild för djup (ingen gradient) -------- */
+.hero{position:relative;background:var(--deep);color:#fff;overflow:hidden;padding:var(--s11) 0 calc(var(--s11) + var(--s5))}
+.hero .heroimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,42,54,.35),rgba(7,42,54,.75))}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font-size:var(--fs-5xl);line-height:var(--lh-5xl);letter-spacing:var(--tracking-tight);max-width:16ch;font-weight:600}
+.hero p{font-size:var(--fs-lg);line-height:var(--lh-lg);max-width:60ch;margin-top:var(--s5);color:#d6e6ec}
+.hero .cta{display:inline-block;margin-top:var(--s7);background:var(--surface);color:var(--brand-d);font-weight:600;
+  font-size:var(--fs-base);padding:var(--s4) var(--s6);border-radius:var(--r-md);text-decoration:none;
+  transition:transform var(--dur-color) var(--ease),box-shadow var(--dur-color) var(--ease)}
+.hero .cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px -10px rgba(0,0,0,.5)}
+.hero .cta:active{transform:translateY(0)}
 
-/* disclosure */
-.disc{background:#fff8e6;border-bottom:1px solid #f0e2b8;font-size:13px;color:#7a6320;padding:9px 0}
+/* ---------------- affiliate-disclosure ---------------- */
+.disc{background:#f4f7ea;font-size:var(--fs-xs);line-height:var(--lh-xs);color:#54612c;padding:var(--s3) 0;text-align:center}
+.disc .wrap{padding-top:0;padding-bottom:0}
 
-/* sections + cards */
-.sec{padding:44px 0 4px}
-.sec h2{font-size:25px;letter-spacing:-.5px;margin-bottom:6px}
-.sec .sub{color:var(--muted);font-size:15px;margin-bottom:22px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+/* ---------------- sektioner ---------------- */
+.sec{padding:var(--s11) 0 0}
+.sec h2{font-size:var(--fs-3xl);line-height:var(--lh-3xl);letter-spacing:var(--tracking-tight);font-weight:600}
+.sec .sub{color:var(--muted);font-size:var(--fs-base);max-width:60ch;margin-top:var(--s2)}
+.sec > .grid{margin-top:var(--s7)}
+/* rubrik + text inkapslade i .sec > * – håll ihop */
+.sec h2 + .sub{margin-top:var(--s3)}
+
+/* ---------------- rutnät: asymmetriskt (första kortet breddat) ------------ */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s6)}
 .grid.two{grid-template-columns:repeat(2,1fr)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
-.card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(6,47,61,.09)}
-.card .thumb{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:linear-gradient(135deg,#d6eef6,#b8e2f0)}
-.card .body{padding:16px 18px 20px}
-.card h3{font-size:16.5px;line-height:1.32;letter-spacing:-.2px}
-.card p{font-size:13.5px;color:var(--muted);margin-top:7px}
-.tag{display:inline-block;margin-top:12px;font-size:11px;font-weight:700;text-transform:uppercase;
-  letter-spacing:.7px;color:var(--brand);background:var(--soft);padding:4px 9px;border-radius:20px}
+@media(min-width:901px){
+  .grid > .card:first-child:has(.thumb){grid-column:1/-1;display:grid;grid-template-columns:1.05fr 1fr}
+  .grid > .card:first-child:has(.thumb) .thumb{height:100%;aspect-ratio:auto}
+  .grid > .card:first-child:has(.thumb) .body{align-self:center;padding:var(--s7) var(--s8)}
+  .grid > .card:first-child:has(.thumb) h3{font-size:var(--fs-2xl);line-height:var(--lh-2xl)}
+  .grid > .card:first-child:has(.thumb) p{font-size:var(--fs-base)}
+}
 
-/* article */
-.article{background:#fff;border:1px solid var(--line);border-radius:16px;padding:38px 42px;margin-top:20px}
-.crumbs{font-size:13px;color:var(--muted);margin:22px 0 0}
+/* ---------------- kort: yta, ingen ram. Elevation endast vid hover ------- */
+.card{
+  background:var(--surface);border-radius:var(--r-lg);overflow:hidden;
+  display:flex;flex-direction:column;text-decoration:none;color:inherit;
+  transition:transform var(--dur-move) var(--ease),box-shadow var(--dur-move) var(--ease);
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(7,42,54,.35)}
+.card:active{transform:translateY(-1px)}
+.card .thumb{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--soft)}
+.card .body{padding:var(--s6);display:flex;flex-direction:column;flex:1}
+.card h3{font-size:var(--fs-xl);line-height:var(--lh-xl);font-weight:600;margin-top:var(--s3);letter-spacing:var(--tracking-tight)}
+.card p{font-size:var(--fs-sm);line-height:var(--lh-sm);color:var(--muted);margin-top:var(--s2)}
+/* badge: kvadratisk, inte piller */
+.tag{
+  align-self:flex-start;font-family:var(--font-mono);
+  font-size:var(--fs-xs);line-height:var(--lh-xs);font-weight:500;
+  text-transform:uppercase;letter-spacing:var(--tracking-label);
+  color:var(--brand-d);background:var(--soft);padding:var(--s1) var(--s3);border-radius:var(--r-sm)
+}
+
+/* ---------------- artikel ---------------- */
+.article{background:var(--surface);border-radius:var(--r-xl);padding:var(--s10) var(--s11);margin-top:var(--s7)}
+.crumbs{font-size:var(--fs-sm);color:var(--muted);margin:var(--s6) 0 0}
 .crumbs a{color:var(--muted);text-decoration:none}
-.crumbs a:hover{color:var(--brand)}
-.article h1{font-size:34px;line-height:1.15;letter-spacing:-.8px;margin-bottom:6px}
-.article .meta{color:var(--muted);font-size:14px;margin-bottom:20px}
-.article h2{font-size:23px;letter-spacing:-.4px;margin:34px 0 12px}
-.article h3{font-size:18px;margin:24px 0 8px}
-.article p{margin:12px 0}
-.article ul,.article ol{margin:12px 0 12px 22px}
-.article li{margin:6px 0}
-.article img{border-radius:12px;margin:22px 0}
-.article table{border-collapse:collapse;width:100%;margin:18px 0;font-size:14.5px}
-.article th,.article td{border:1px solid var(--line);padding:9px 12px;text-align:left}
-.article th{background:var(--soft);font-weight:700}
-.lead{font-size:18px;color:var(--ink2);margin-bottom:8px}
-.note{background:var(--soft);border-left:4px solid var(--brand);padding:14px 18px;border-radius:8px;margin:18px 0;font-size:15px}
-.warn{background:#fff1f0;border-left:4px solid #d9534f;padding:14px 18px;border-radius:8px;margin:18px 0;font-size:15px}
+.crumbs a:hover{color:var(--brand-d)}
+.article h1{font-size:var(--fs-4xl);line-height:var(--lh-4xl);letter-spacing:var(--tracking-tight);font-weight:600;margin-top:var(--s4)}
+.article .meta{font-family:var(--font-mono);color:var(--muted);font-size:var(--fs-sm);margin-top:var(--s3)}
+.article h2{font-size:var(--fs-2xl);line-height:var(--lh-2xl);letter-spacing:var(--tracking-tight);font-weight:600;margin:var(--s9) 0 var(--s4)}
+.article h3{font-size:var(--fs-lg);line-height:var(--lh-lg);font-weight:600;margin:var(--s7) 0 var(--s3)}
+.article p{max-width:68ch;margin:var(--s4) 0}
+.article ul,.article ol{max-width:68ch;margin:var(--s4) 0 var(--s4) var(--s6)}
+.article li{margin:var(--s2) 0}
+.article img{border-radius:var(--r-lg);margin:var(--s7) 0}
+.article table{border-collapse:collapse;width:100%;margin:var(--s6) 0;font-size:var(--fs-sm);font-variant-numeric:tabular-nums}
+.article th,.article td{border:1px solid var(--line);padding:var(--s3) var(--s4);text-align:left}
+.article th{background:var(--soft);font-weight:600}
+.article strong{font-weight:600}
+.lead{font-size:var(--fs-lg);line-height:var(--lh-lg);color:var(--ink2);max-width:64ch;margin-top:var(--s4)}
+/* notisrutor: ram runt om */
+.note{background:var(--soft);border:1px solid #c9e2ec;border-radius:var(--r-md);padding:var(--s5) var(--s6);margin:var(--s6) 0;font-size:var(--fs-base);max-width:68ch}
+.warn{background:#fdf1f0;border:1px solid #efd0cd;border-radius:var(--r-md);padding:var(--s5) var(--s6);margin:var(--s6) 0;font-size:var(--fs-base);max-width:68ch}
+.warn strong{color:var(--warn)}
 
-/* TOC */
-.toc{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:22px 0}
-.toc strong{display:block;margin-bottom:8px;font-size:14px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
-.toc ol{margin-left:18px}
-.toc li{margin:4px 0;font-size:15px}
+/* ---------------- innehållsförteckning ---------------- */
+.toc{background:var(--soft);border-radius:var(--r-md);padding:var(--s6);margin:var(--s6) 0}
+.toc strong{display:block;margin-bottom:var(--s4);font-family:var(--font-mono);font-size:var(--fs-xs);font-weight:500;text-transform:uppercase;letter-spacing:var(--tracking-label);color:var(--muted)}
+.toc ol{margin-left:var(--s6)}
+.toc li{margin:var(--s2) 0;font-size:var(--fs-base)}
+.toc a{text-decoration:none}
+.toc a:hover{text-decoration:underline}
 
-/* affiliate */
-.aff{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:26px 0}
-.aff h3{font-size:17px;margin-bottom:4px}
-.aff p{font-size:14px;color:var(--muted);margin:0 0 14px}
-.aff .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font-weight:700;
-  font-size:14.5px;padding:12px 22px;border-radius:10px}
+/* ---------------- affiliate-box ---------------- */
+.aff{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s6) var(--s7);margin:var(--s7) 0}
+.aff h3{font-size:var(--fs-lg);font-weight:600}
+.aff p{font-size:var(--fs-sm);color:var(--muted);margin:var(--s2) 0 var(--s5)}
+.aff .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font-weight:600;
+  font-size:var(--fs-base);padding:var(--s3) var(--s6);border-radius:var(--r-md);
+  transition:background var(--dur-color) var(--ease),transform var(--dur-color) var(--ease)}
 .aff .btn:hover{background:var(--brand-d)}
+.aff .btn:active{transform:translateY(1px)}
 
-/* faq */
-.faq{margin-top:30px}
-.faq details{border:1px solid var(--line);border-radius:10px;margin-bottom:10px;background:#fff}
-.faq summary{cursor:pointer;padding:14px 18px;font-weight:600;font-size:16px}
-.faq details[open] summary{color:var(--brand)}
-.faq .a{padding:0 18px 16px;color:var(--ink2);font-size:15px}
+/* ---------------- FAQ: sida-vid-sida-lista (inte accordion) -------------- */
+.faq{margin-top:var(--s9)}
+.faq h2{font-size:var(--fs-2xl);line-height:var(--lh-2xl);letter-spacing:var(--tracking-tight);font-weight:600}
+.faq .faqgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s6) var(--s10);margin-top:var(--s7)}
+.faq .item{border-top:1px solid var(--line);padding-top:var(--s5)}
+.faq .item dt{font-weight:600;font-size:var(--fs-base)}
+.faq .item dd{color:var(--ink2);font-size:var(--fs-base);margin-top:var(--s2)}
+.faq .item dd a{color:var(--brand-d)}
+@media(max-width:700px){.faq .faqgrid{grid-template-columns:1fr;gap:var(--s6)}}
 
-/* newsletter */
-.news{background:var(--deep);color:#fff;border-radius:14px;padding:26px;margin:36px 0 0}
-.news h3{color:#fff;font-size:20px}
-.news p{color:#a8c6d1;font-size:14px;margin-top:8px}
-.news form{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
-.news input{flex:1;min-width:200px;padding:13px;border-radius:9px;border:0;font-size:15px}
-.news button{background:var(--brand);color:#fff;border:0;padding:13px 22px;border-radius:9px;font-weight:700;font-size:15px;cursor:pointer}
+/* ---------------- nyhetsbrev ---------------- */
+.news{background:var(--deep);color:#fff;border-radius:var(--r-lg);padding:var(--s7);display:flex;flex-direction:column;justify-content:center}
+.news h3{color:#fff;font-size:var(--fs-xl);font-weight:600}
+.news p{color:#b9d2da;font-size:var(--fs-sm);margin-top:var(--s2)}
+.news form{display:flex;gap:var(--s3);margin-top:var(--s6);flex-wrap:wrap}
+.news input{flex:1;min-width:180px;padding:var(--s3) var(--s4);border-radius:var(--r-md);border:1px solid transparent;font-size:var(--fs-base);font-family:inherit}
+.news input:invalid:not(:placeholder-shown){border-color:var(--warn)}
+.news button{background:var(--brand);color:#fff;border:0;padding:var(--s3) var(--s5);border-radius:var(--r-md);font-weight:600;font-size:var(--fs-base);cursor:pointer;transition:background var(--dur-color) var(--ease)}
+.news button:hover{background:var(--brand-d)}
+.news button:active{transform:translateY(1px)}
+.news .msg{font-size:var(--fs-sm);margin-top:var(--s3);color:#b9d2da}
+.news .msg[data-ok="1"]{color:#9be6bc}
 
-/* tools */
-.tool{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;margin:24px 0}
-.tool .row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--soft);font-size:15px;gap:14px}
+/* ---------------- verktyg (kalkylator/journal) ---------------- */
+.tool{background:var(--surface);border-radius:var(--r-lg);padding:var(--s7);margin:var(--s6) 0}
+.tool .row{display:flex;justify-content:space-between;align-items:center;padding:var(--s3) 0;border-bottom:1px solid var(--line);font-size:var(--fs-base);gap:var(--s5)}
+.tool .row:last-of-type{border-bottom:0}
 .tool .row label{color:var(--ink2)}
-.tool .row input,.tool .row select{padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:15px;width:140px}
-.tool .out{margin-top:16px;font-size:15px}
-.tool .out b{color:var(--brand)}
+.tool .row input,.tool .row select{padding:var(--s3) var(--s4);border:1px solid var(--line);border-radius:var(--r-sm);font-size:var(--fs-base);width:150px;font-family:inherit}
+.tool .out{margin-top:var(--s6);font-size:var(--fs-base);font-variant-numeric:tabular-nums}
+.tool .out b{color:var(--brand-d)}
 
-/* simple pages */
-.page{background:#fff;border:1px solid var(--line);border-radius:16px;padding:38px 42px;margin:28px 0}
-.page h1{font-size:30px;letter-spacing:-.6px;margin-bottom:14px}
-.page h2{font-size:20px;margin:26px 0 8px}
+/* ---------------- enkla sidor ---------------- */
+.page{background:var(--surface);border-radius:var(--r-xl);padding:var(--s10) var(--s11);margin:var(--s8) 0}
+.page h1{font-size:var(--fs-3xl);line-height:var(--lh-3xl);letter-spacing:var(--tracking-tight);font-weight:600;margin-bottom:var(--s5)}
+.page h2{font-size:var(--fs-xl);line-height:var(--lh-xl);font-weight:600;margin:var(--s7) 0 var(--s3)}
 
-footer.site{background:var(--deep);color:#a8c6d1;margin-top:56px;padding:34px 0;font-size:14px}
-footer.site a{color:#a8c6d1;text-decoration:none}
+/* ---------------- hub-sidor (guider/köpguider/etc) ---------------- */
+.hub-h1{font-size:var(--fs-3xl);line-height:var(--lh-3xl);letter-spacing:var(--tracking-tight);font-weight:600;margin-top:var(--s6)}
+.prose{max-width:70ch}
+.hub-lead{margin:var(--s3) 0 var(--s7)}
+.article.hub-article{margin-top:var(--s8)}
+.disc-inline{font-size:var(--fs-sm);line-height:var(--lh-sm);color:var(--muted);max-width:70ch;margin:0 0 var(--s6)}
+.tool .row[hidden]{display:none!important}
+
+/* ---------------- footer: färre länkar, tydliga grupper ---------------- */
+footer.site{background:var(--deep);color:#9fbcc5;margin-top:var(--s11);padding:var(--s9) 0;font-size:var(--fs-sm)}
+footer.site a{color:#9fbcc5;text-decoration:none;transition:color var(--dur-color) var(--ease)}
 footer.site a:hover{color:#fff}
-.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.foot nav{display:flex;gap:18px;flex-wrap:wrap}
+.foot{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--s8);flex-wrap:wrap}
+.foot .brand{max-width:44ch;display:flex;flex-direction:column;gap:var(--s3)}
+.foot .brand strong{color:#fff;font-size:var(--fs-base);font-weight:600}
+.foot .brand .fine{font-size:var(--fs-xs);opacity:.75;margin-top:var(--s2)}
+.foot nav{display:flex;flex-direction:column;gap:var(--s5)}
+.foot nav .grp{display:flex;flex-wrap:wrap;gap:var(--s5)}
+.foot nav .grp.law{font-size:var(--fs-xs);opacity:.72}
 
-@media(max-width:860px){
+/* ---------------- scroll-reveal (endast när JS finns: html.js) ----------- */
+html.js .sec,html.js .article,html.js .page{opacity:0;transform:translateY(18px)}
+html.js .sec.in,html.js .article.in,html.js .page.in{opacity:1;transform:none;transition:opacity .7s var(--ease),transform .7s var(--ease)}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  html.js .sec,html.js .article,html.js .page{opacity:1;transform:none}
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
+/* ---------------- responsivt ---------------- */
+@media(max-width:960px){
   .nav nav ul{display:none}
   .burger{display:block}
-  .mobilemenu{display:flex;flex-direction:column;gap:2px;padding:8px 24px 16px}
-  .mobilemenu a{padding:10px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ink2);font-weight:600}
-  .grid,.grid.two{grid-template-columns:1fr 1fr}
-  .article,.page{padding:26px 20px}
-  .hero h1{font-size:30px}
+  .mobilemenu{display:flex;flex-direction:column;padding:var(--s3) var(--s5) var(--s5);max-width:var(--max);margin:var(--s3) auto 0;
+    background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:var(--r-lg);
+    box-shadow:0 20px 40px -20px rgba(7,42,54,.35)}
+  .mobilemenu a{padding:var(--s4) 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ink2);font-weight:600}
+  .mobilemenu a:first-child{border-top:0}
+  .mobilemenu a[aria-current=page]{color:var(--brand-d)}
+  .article,.page{padding:var(--s7) var(--s6)}
+  .hero{padding:var(--s10) 0}
+  .hero h1{font-size:var(--fs-4xl);line-height:var(--lh-4xl);max-width:20ch}
+  .sec{padding:var(--s10) 0 0}
 }
-@media(max-width:560px){
+@media(max-width:620px){
   .grid,.grid.two{grid-template-columns:1fr}
-  .article h1{font-size:26px}
+  .hero h1{font-size:var(--fs-3xl);line-height:var(--lh-3xl)}
+  header.site{padding:0 var(--s4);top:var(--s3)}
+  .nav{height:56px;padding:0 var(--s2) 0 var(--s5)}
+  .article h1{font-size:var(--fs-3xl)}
+  .sec h2{font-size:var(--fs-2xl)}
 }

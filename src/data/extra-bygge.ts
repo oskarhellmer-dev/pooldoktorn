@@ -116,7 +116,7 @@ export const EXTRA_BYGGE = [
       ['Marken och tomtens förutsättningar',
         '<p>Berg, hög grundvattennivå, trång infart eller ledningar i vägen kan fördyra kraftigt. Ett platsbesök som kartlägger detta tidigt kan spara stora summor jämfört med att upptäcka problemet med grävmaskinen på plats.</p>'],
       ['Kringarbete – den dolda posten',
-        '<p>Det som byggs <em>runt</em> poolen glöms ofta bort i budgeten: marksten eller trall, staket och säkerhetsgrind, belysning, dränering, återställning av gräsmatta och ibland ny el till pumphuset. Lägg ihop dessa innan du jämför – de kan utgöra en betydande del av totalkostnaden.</p>'],
+        '<p>Det som byggs <strong>runt</strong> poolen glöms ofta bort i budgeten: marksten eller trall, staket och säkerhetsgrind, belysning, dränering, återställning av gräsmatta och ibland ny el till pumphuset. Lägg ihop dessa innan du jämför – de kan utgöra en betydande del av totalkostnaden.</p>'],
       ['Driftkostnaden löper varje år',
         '<p>Utöver investeringen kommer el till pump och värme, kemikalier, vattenpåfyllning och byte av slitdelar. Med <a href="/poolbygge/energismarta-losningar/">energismarta lösningar</a>, en rätt dimensionerad <a href="/kopguider/varmepump-pool/">värmepump</a> och ett <a href="/poolbygge/poolskydd/">skydd</a> hålls den nere.</p>'],
     ],

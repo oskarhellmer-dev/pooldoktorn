@@ -1,8 +1,9 @@
 <div class="news">
   <h3>Poolbrevet</h3>
   <p>Säsongstips, påminnelser och ärliga guider — bara när det är relevant för säsongen.</p>
-  <form onsubmit="return false">
-    <input type="email" name="email" placeholder="din@epost.se" aria-label="E-post" />
+  <form class="js-news" novalidate>
+    <input type="email" name="email" placeholder="din@epost.se" aria-label="E-post" required autocomplete="email" />
     <button type="submit">Prenumerera</button>
   </form>
+  <p class="msg" role="status" aria-live="polite" data-msg></p>
 </div>

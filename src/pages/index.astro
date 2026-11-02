@@ -22,10 +22,11 @@ const jsonLd = schemaGraph([
 ---
 <Base title={title} description={SITE.description} path="/" jsonLd={jsonLd} ogImage="/bilder/hero.jpg">
   <section class="hero">
+    <img class="heroimg" src={u('/bilder/hero-1200.webp')} alt="" width="1200" height="675" loading="eager" fetchpriority="high" aria-hidden="true" />
     <div class="wrap">
       <h1>Skötsel och köpguider för din pool — utan krångel</h1>
       <p>Oberoende guider för dig med pool eller spa: vattenkemi, vårstart, vinterstängning och ärliga köpguider. Vi säljer inget själva — vi visar bara vad som funkar.</p>
-      <a class="cta" href={u('/guider/')}>Se alla guider →</a>
+      <a class="cta" href={u('/guider/')}>Se alla guider</a>
     </div>
   </section>
   <div class="disc"><div class="wrap">{SITE.affiliateDisclosure}</div></div>
@@ -131,13 +132,14 @@ const jsonLd = schemaGraph([
             <p>Få direkt återkoppling mot riktvärdena och följ utvecklingen över säsongen.</p>
           </div>
         </a>
-        <div class="news" style="margin:0">
+        <div class="news">
           <h3>Poolbrevet</h3>
           <p>Säsongstips och påminnelser — rakt i inkorgen, bara när det är relevant.</p>
-          <form onsubmit="return false">
-            <input type="email" placeholder="din@epost.se" aria-label="E-post" />
+          <form class="js-news" novalidate>
+            <input type="email" name="email" placeholder="din@epost.se" aria-label="E-post" required autocomplete="email" />
             <button type="submit">Prenumerera</button>
           </form>
+          <p class="msg" role="status" aria-live="polite" data-msg></p>
         </div>
       </div>
     </section>
@@ -146,12 +148,14 @@ const jsonLd = schemaGraph([
       <h2>Vanliga frågor</h2>
       <div class="sub">Snabba svar på det poolägare oftast undrar</div>
       <div class="faq">
-        {faq.map((f) => (
-          <details>
-            <summary>{f.q}</summary>
-            <div class="a" set:html={f.a} />
-          </details>
-        ))}
+        <dl class="faqgrid">
+          {faq.map((f) => (
+            <div class="item">
+              <dt>{f.q}</dt>
+              <dd set:html={f.a} />
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   </div>

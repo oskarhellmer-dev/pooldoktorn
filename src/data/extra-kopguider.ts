@@ -203,7 +203,7 @@ export const EXTRA_KOPGUIDER = [
         + '<ul><li><strong>Hjul (2WD/4WD).</strong> Hjul fungerar bra på slät botten. Fyrhjulsdrift ger bättre fäste och förmåga att ta sig upp på väggar.</li>'
         + '<li><strong>Larvband.</strong> Ger mest grepp och används ofta i väggklättrande modeller, särskilt på liner.</li>'
         + '<li><strong>Borstar.</strong> PVC-borstar passar liner, gummiborstar passar betong och kakel. Kombinationsborstar klarar båda. Slitna borstar tappar sugförmåga – de är en slitdel.</li></ul>'
-        + '<p>Kärnan i klättringen är ofta att roboten vänder på sin egen sugkraft så att den <em>suger sig fast</em> mot väggen medan drivningen matar uppåt. Det är därför en väggklättrande robot kan kosta betydligt mer än en golvmodell.</p>'],
+        + '<p>Kärnan i klättringen är ofta att roboten vänder på sin egen sugkraft så att den <strong>suger sig fast</strong> mot väggen medan drivningen matar uppåt. Det är därför en väggklättrande robot kan kosta betydligt mer än en golvmodell.</p>'],
       ['Teknik: filtrering – mikron, korg och påse',
         '<p>Filtret är den del många underskattar. Grov filtrering fångar löv men lämnar kvar det disiga finkornet som gör vattnet grumligt. Fin filtrering fångar partiklar som är så små att de knappt syns.</p>'
         + '<ul><li><strong>Filterkorg.</strong> Vanligast. Lätt att lyfta ur och spola ren. Finns i grov och fin variant.</li>'
@@ -213,14 +213,14 @@ export const EXTRA_KOPGUIDER = [
         + '<p>En tumregel: ju finare filtermedia och ju större behållare, desto färre rengöringar och klarare vatten. Se också vår <a href="/guider/poolfilter-guide/">guide om poolfilter</a> för hur sandfilter, patronfilter och glas skiljer sig.</p>'],
       ['Teknik: sladd eller batteri',
         '<p>Detta är det enskilt viktigaste valet för hur roboten känns i vardagen.</p>'
-        + '<ul><li><strong>Sladdbunden robot.</strong> Drivs via en extern transformator som omvandlar 230 V till lågspänning (ofta 24–30 V DC). Den får obegränsad drifttid och lägre egen vikt eftersom den inte bär på ett batteri. Nackdelen är kabeln – moderna modeller har en <em>swivel</em>, en roterande kabelinfästning, som minskar trassel.</li>'
+        + '<ul><li><strong>Sladdbunden robot.</strong> Drivs via en extern transformator som omvandlar 230 V till lågspänning (ofta 24–30 V DC). Den får obegränsad drifttid och lägre egen vikt eftersom den inte bär på ett batteri. Nackdelen är kabeln – moderna modeller har en <strong>swivel</strong>, en roterande kabelinfästning, som minskar trassel.</li>'
         + '<li><strong>Sladdlös robot.</strong> Har ett laddningsbart litiumbatteri och driftstider på allt från ca 45 till 150 minuter. Ingen kabel att hantera, vilket är en klar fördel. Nackdelen är begränsad körtid per laddning och att batteriet åldras och förr eller senare behöver bytas.</li></ul>'
         + '<p>Stor pool och långa körningar talar för sladd. Liten pool, enkel hantering och inget kabeltrassel talar för batteri.</p>'],
       ['Teknik: klättring, vattenlinje och poolens material',
         '<p>Att bara städa botten löser halva problemet. Fett, solkräm och smuts lägger sig vid <strong>vattenlinjen</strong> och bildar en rand som ingen golvrobot tar.</p>'
         + '<p>En vattenlinjefunktion får roboten att köra längs vattenytan och borsta randen – en av de mest underskattade funktionerna. Poolens material styr också valet: <strong>liner är känsligare</strong> och vill ha mjukare borstar, medan <strong>betong och kakel</strong> tål kraftigare borstar.</p>'],
       ['Teknik: sugflöde, cykeltid och poolstorlek',
-        '<p>Varje robot har en kapacitet angiven som poolens längd eller yta (till exempel upp till 12 m, eller 100 m²). Välj en robot som klarar <em>mer</em> än din pool – kör den på gränsen tar rengöringen längre tid och blir sällan fullständig.</p>'
+        '<p>Varje robot har en kapacitet angiven som poolens längd eller yta (till exempel upp till 12 m, eller 100 m²). Välj en robot som klarar <strong>mer</strong> än din pool – kör den på gränsen tar rengöringen längre tid och blir sällan fullständig.</p>'
         + '<p><strong>Cykeltiden</strong> är hur lång en körning är. Kortare cykler (som 45 min) passar små pooler, medan stora pooler ofta behöver 2–2,5 timmar. Många modeller har flera program – snabbkörning, standard och grundlig – så att du kan anpassa efter behov.</p>'],
       ['Energi och driftkostnad',
         '<p>En poolrobot drar förvånansvärt lite. Motorn är liten och går på lågspänning, ofta i storleksordningen 100–200 W. Det gör den billigare att köra än att sätta igång poolens ordinarie pump enbart för dammsugning, som drar betydligt mer.</p>'

@@ -17,6 +17,9 @@ const og = abs(ogImage);
 ---
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" />
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
@@ -36,5 +39,8 @@ const og = abs(ogImage);
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={og} />
 <link rel="icon" href={u('/favicon.svg')} type="image/svg+xml" />
+<link rel="apple-touch-icon" href={u('/favicon.svg')} />
+<link rel="mask-icon" href={u('/favicon.svg')} color="#0d7794" />
+<link rel="manifest" href={u('/site.webmanifest')} />
 <link rel="alternate" type="application/rss+xml" title={`${SITE.name} – guideflöde`} href={abs('/rss.xml')} />
 {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}

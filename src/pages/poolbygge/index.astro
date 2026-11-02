@@ -23,9 +23,9 @@ const jsonLd = schemaGraph([
   <div class="wrap">
     <Breadcrumbs trail={[{ name: 'Hem', path: '/' }, { name: 'Poolbygge' }]} />
     <section class="sec">
-      <h1 style="font-size:32px;letter-spacing:-.8px;margin-top:22px">Poolbygge</h1>
+      <h1 class="hub-h1">Poolbygge</h1>
       <p class="sub">Från första skiss till färdig pool – och livet som poolägare därefter.</p>
-      <div class="prose" style="max-width:760px;margin:8px 0 28px">
+      <div class="prose hub-lead">
         <p>Att bygga pool är ett byggprojekt, inte ett köp av en produkt. Det mesta som går fel – förseningar, spräckt budget och en pool som används mindre än tänkt – kan härledas till beslut som fattades i fel ordning. Här har vi samlat guiderna som hjälper dig göra dem i rätt ordning.</p>
         <p>Oavsett om du funderar på att köpa pool, planerar ett bygge i höst eller redan har en pool och vill sänka driftskostnaden, hittar du utgångspunkterna här. Börja gärna med <a href={u('/poolbygge/att-kopa-pool/')}>att köpa pool</a> om du står inför ditt första köp, eller <a href={u('/poolbygge/energismarta-losningar/')}>energismarta lösningar</a> om du vill få ner kostnaden på en befintlig pool.</p>
         <p>Vår inställning är densamma som i resten av sajten: oberoende och utan säljsnack. Vi säljer ingen pool själva – vi skriver om vad som faktiskt spelar roll. Har du redan en pool hittar du skötsel och vattenvård under <a href={u('/guider/')}>guiderna</a> och <a href={u('/kopguider/')}>köpguiderna</a>.</p>
@@ -45,16 +45,16 @@ const jsonLd = schemaGraph([
         ))}
       </div>
     </section>
-    <div class="article" style="margin-top:44px">
+    <div class="article hub-article">
       <h2>Vanliga frågor om poolbygge</h2>
-      <div class="faq">
+      <dl class="faqgrid">
         {faq.map((f) => (
-          <details>
-            <summary>{f.q}</summary>
-            <div class="a" set:html={f.a} />
-          </details>
+          <div class="item">
+            <dt>{f.q}</dt>
+            <dd set:html={f.a} />
+          </div>
         ))}
-      </div>
+      </dl>
     </div>
   </div>
 </Base>

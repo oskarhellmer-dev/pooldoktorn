@@ -18,6 +18,7 @@ const { title, description, path, ogImage, ogType, jsonLd, noindex } = Astro.pro
 <!doctype html>
 <html lang="sv">
   <head>
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <Seo {title} {description} {path} {ogImage} {ogType} {jsonLd} {noindex} />
   </head>
   <body>
@@ -27,5 +28,41 @@ const { title, description, path, ogImage, ogType, jsonLd, noindex } = Astro.pro
       <slot />
     </main>
     <Footer />
+    <script>
+      // Scroll-reveal: sektioner stiger in en gång, via IntersectionObserver.
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const targets = document.querySelectorAll('.sec, .article, .page');
+      if (!reduce && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+          }
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
+        targets.forEach((el) => io.observe(el));
+        // Säkerhetsnät: om något inte triggat inom 3 s (t.ex. dold flik), visa allt.
+        setTimeout(() => targets.forEach((el) => el.classList.add('in')), 3000);
+      } else {
+        targets.forEach((el) => el.classList.add('in'));
+      }
+
+      // Nyhetsbrev: klientvalidering (inga alert-rutor).
+      document.querySelectorAll('form.js-news').forEach((f) => {
+        f.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const input = f.querySelector('input[type=email]');
+          const msg = f.parentElement?.querySelector('[data-msg]');
+          const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((input?.value || '').trim());
+          if (!ok) {
+            if (msg) { msg.textContent = 'Kontrollera e-postadressen och försök igen.'; msg.dataset.ok = '0'; }
+            input?.setAttribute('aria-invalid', 'true');
+            input?.focus();
+            return;
+          }
+          input?.removeAttribute('aria-invalid');
+          if (msg) { msg.textContent = 'Tack — du är tillagd på listan.'; msg.dataset.ok = '1'; }
+          f.reset();
+        });
+      });
+    </script>
   </body>
 </html>

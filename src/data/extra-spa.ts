@@ -23,7 +23,7 @@ export const EXTRA_SPA = [
         '<p>Köpesumman är bara början. Varje år tillkommer el för uppvärmning och cirkulation, kemikalier, filter och någon gång reservdelar. Uppvärmningen är den stora posten, och den beror nästan helt på isolering och termolock. Vi räknar igenom siffrorna i <a href="/spabad/spabad-energiforbrukning/">vad ett spabad drar i energi</a>.</p>'],
       ['Vattenvården – det som avgör upplevelsen',
         '<p>Balanserat vatten är skillnaden mellan ett spabad du vill bada i och ett som irriterar hud och ögon. Du behöver hålla koll på pH, alkalinitet, kalkhårdhet och klor- eller bromhalt. Grunderna finns i <a href="/spabad/spabad-vattenbalans/">vattenbalans i spabad</a>.</p>'
-        + '<p>Det viktigaste att förstå: klorlukt beror nästan alltid på för <em>lite</em> fritt klor, inte för mycket – det bildas kloraminer som luktar och irriterar.</p>'],
+        + '<p>Det viktigaste att förstå: klorlukt beror nästan alltid på för <strong>lite</strong> fritt klor, inte för mycket – det bildas kloraminer som luktar och irriterar.</p>'],
       ['Skötselrutinen i korthet',
         '<ul><li>Testa vattnet varje vecka och justera vid behov.</li>'
         + '<li>Rengör filtret minst en gång i månaden.</li>'
@@ -141,7 +141,7 @@ export const EXTRA_SPA = [
         + '<li><strong>Cirkulationspumpens</strong> konstruktion och filtreringstid.</li></ul>'],
       ['Så räknar du på din kostnad',
         '<p>En förenklad modell: lägg ihop badets genomsnittliga effekt i drift (värmare + pump under ett dygn) och multiplicera med ditt elpris. Räkna med att kall väderlek och vinterbad drar mer än sommarveckor. Utgå från tillverkarens testdata om sådan finns och justera upp för vårt klimat.</p>'
-        + '<p>Vill du jämföra bad mot varandra, kräv att få se <em>hur</em> siffrorna tagits fram: metod, utetemperatur och vem som utfört testet.</p>'],
+        + '<p>Vill du jämföra bad mot varandra, kräv att få se <strong>hur</strong> siffrorna tagits fram: metod, utetemperatur och vem som utfört testet.</p>'],
       ['Sänk kostnaden utan att sluta bada',
         '<ul><li>Ha alltid ett rejält, tättslutande termolock.</li>'
         + '<li>Sänk temperaturen en aning – några grader gör märkbar skillnad.</li>'
@@ -188,11 +188,11 @@ export const EXTRA_SPA = [
       ['pH – viktigast av alla',
         '<p>Rekommenderat pH ligger på <strong>7,2–7,6</strong>, helst nära 7,2. Felaktigt pH är den vanligaste orsaken till problem: kloret tappar verkan, vattnet irriterar hud och ögon och materialet i badet tar skada. Justera med pH-höjande eller pH-sänkande medel.</p>'],
       ['Alkalinitet – bufferten',
-        '<p>Alkaliniteten avgör hur lätt pH förändras. Rekommenderat värde är <strong>80–160 ppm</strong>. Är den för låg svänger pH upp och ner; är den för hög blir pH svårt att rubba. Justera alkaliniteten <em>före</em> pH.</p>'],
+        '<p>Alkaliniteten avgör hur lätt pH förändras. Rekommenderat värde är <strong>80–160 ppm</strong>. Är den för låg svänger pH upp och ner; är den för hög blir pH svårt att rubba. Justera alkaliniteten <strong>före</strong> pH.</p>'],
       ['Kalkhårdhet',
         '<p>Riktvärdet ligger på <strong>150–400 ppm</strong>. För mjukt vatten blir aggressivt och fräter; för hårt vatten kan bli mjölkigt och fälla ut kalk om pH stiger. Har du hårt vatten kan ett påfyllningsfilter och kalkreducerande preparat behövas.</p>'],
       ['Klor eller brom',
-        '<p>Både klor och brom desinficerar effektivt. Fritt klor bör ligga på <strong>1–3 ppm</strong>; brom på <strong>2–4 ppm</strong>. Viktigt: en stark klorlukt betyder oftast <em>för lite</em> fritt klor, eftersom bundet klor (kloraminer) bildas och luktar. Chockklorera då för att bryta ned dem.</p>'],
+        '<p>Både klor och brom desinficerar effektivt. Fritt klor bör ligga på <strong>1–3 ppm</strong>; brom på <strong>2–4 ppm</strong>. Viktigt: en stark klorlukt betyder oftast <strong>för lite</strong> fritt klor, eftersom bundet klor (kloraminer) bildas och luktar. Chockklorera då för att bryta ned dem.</p>'],
       ['Cyanursyra – den smygande faktorn',
         '<p>Använder du klor som innehåller cyanursyra (stabiliserat klor) stiger halten långsamt. Vid för hög cyanursyra slutar kloret verka. Håll den under <strong>50 ppm</strong> – och om den är hög byter du helt enkelt vatten.</p>'],
       ['Testa rätt',
@@ -393,7 +393,7 @@ export const EXTRA_SPA = [
       ['Snö och lock',
         '<p>Borsta bort tung snö och is från termolocket – men försiktigt. Skotta inte så att du repar locket. Står badet under en takfot kan snörasskydd på taket behövas så att inte snö rasar ner på locket. Håll locket fastspänt; vid utsatt vind kan extra band behövas.</p>'],
       ['Filtrering i kyla',
-        '<p>Se över filtercyklerna. Ett välisolerat bad kan få så kallad <em>smyguppvärmning</em> om filtreringen körs för länge – temperaturen stiger över det inställda. Anpassa cyklerna enligt manualen. Kontrollera också att vattennivån är rätt och att filter är rena.</p>'],
+        '<p>Se över filtercyklerna. Ett välisolerat bad kan få så kallad <strong>smyguppvärmning</strong> om filtreringen körs för länge – temperaturen stiger över det inställda. Anpassa cyklerna enligt manualen. Kontrollera också att vattennivån är rätt och att filter är rena.</p>'],
       ['Strömavbrott',
         '<p>Ett spabad är beroende av el. Kortare avbrott klarar ett välisolerat bad, men vid långvarigt avbrott i sträng kyla kan vattnet börja frysa. Ett elverk kan användas som strömkälla. Om det inte orkar driva badet kan en kupévärmare ställas utanför maskinrumsluckan som är öppen på glänt – aldrig inuti ett stängt utrymme. Skador efter strömavbrott hanteras som ett försäkringsärende.</p>'],
       ['Frånvaro under vintern',

@@ -3,13 +3,15 @@ interface Props { faq: { q: string; a: string }[] }
 const { faq } = Astro.props;
 ---
 {faq?.length > 0 && (
-  <section class="faq">
+  <section class="faq" aria-labelledby="vanliga-fragor">
     <h2 id="vanliga-fragor">Vanliga frågor</h2>
-    {faq.map(({ q, a }) => (
-      <details>
-        <summary>{q}</summary>
-        <div class="a" set:html={a} />
-      </details>
-    ))}
+    <dl class="faqgrid">
+      {faq.map(({ q, a }) => (
+        <div class="item">
+          <dt>{q}</dt>
+          <dd set:html={a} />
+        </div>
+      ))}
+    </dl>
   </section>
 )}

@@ -25,7 +25,7 @@
     },
     {
      "h2": "Steg 2 – få pH ner till 7,2–7,4",
-     "html": "<p>Klor verkar bäst i intervallet 7,2–7,4. Ligger pH över 7,6 sänker du det <em>först</em> – annars slösar du bort kloret. Använd pH-minus (natriumklorid / saltsyra-baserat) enligt dosering på förpackningen och mät igen efter cirka en timmes cirkulation.</p><div class=\"note\">Ett pH över 7,8 gör att kloret tappar en stor del av sin verkan. Fixa pH först, klor efter.</div>"
+     "html": "<p>Klor verkar bäst i intervallet 7,2–7,4. Ligger pH över 7,6 sänker du det <strong>först</strong> – annars slösar du bort kloret. Använd pH-minus (natriumklorid / saltsyra-baserat) enligt dosering på förpackningen och mät igen efter cirka en timmes cirkulation.</p><div class=\"note\">Ett pH över 7,8 gör att kloret tappar en stor del av sin verkan. Fixa pH först, klor efter.</div>"
     },
     {
      "h2": "Steg 3 – chockklorera ordentligt",
@@ -102,7 +102,7 @@
     },
     {
      "h2": "Klor: fritt klor och bundet klor",
-     "html": "<p>Det är <strong>fritt klor</strong> som desinficerar. <strong>Bundet klor</strong> (kloraminer) är klor som redan reagerat med smuts och svett – det luktar starkt \"klor\" och irriterar ögonen, men desinficerar inte. Luktar poolen mycket klor är det paradoxalt nog ofta ett tecken på att det fria kloret är för <em>lågt</em> och att kloraminer byggts upp.</p><div class=\"note\">Klorlukt betyder oftast att du behöver chockklorera, inte att du har för mycket klor.</div>"
+     "html": "<p>Det är <strong>fritt klor</strong> som desinficerar. <strong>Bundet klor</strong> (kloraminer) är klor som redan reagerat med smuts och svett – det luktar starkt \"klor\" och irriterar ögonen, men desinficerar inte. Luktar poolen mycket klor är det paradoxalt nog ofta ett tecken på att det fria kloret är för <strong>lågt</strong> och att kloraminer byggts upp.</p><div class=\"note\">Klorlukt betyder oftast att du behöver chockklorera, inte att du har för mycket klor.</div>"
     },
     {
      "h2": "Cyanursyran – den tysta boven",
@@ -273,7 +273,7 @@
    "sections": [
     {
      "h2": "Varför filtret är viktigare än du tror",
-     "html": "<p>Kemikalier dödar bakterier och alger, men det är filtret som <em>tar bort</em> dem. Utan fungerande filtrering cirkulerar bara skiten runt. Rätt filter ger klarare vatten, mindre kemikalieåtgång och färre problem.</p>"
+     "html": "<p>Kemikalier dödar bakterier och alger, men det är filtret som <strong>tar bort</strong> dem. Utan fungerande filtrering cirkulerar bara skiten runt. Rätt filter ger klarare vatten, mindre kemikalieåtgång och färre problem.</p>"
     },
     {
      "h2": "Sandfilter",

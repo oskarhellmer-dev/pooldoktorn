@@ -39,7 +39,7 @@ const jsonLd = schemaGraph([
           <select id="form"><option value="rect">Rektangulär</option><option value="round">Rund/oval</option></select></div>
         <div class="row" id="r-len"><label for="len">Längd (m)</label><input id="len" type="number" value="8" step="0.1" min="1" /></div>
         <div class="row" id="r-wid"><label for="wid">Bredd (m)</label><input id="wid" type="number" value="4" step="0.1" min="1" /></div>
-        <div class="row" id="r-dia" style="display:none"><label for="dia">Diameter (m)</label><input id="dia" type="number" value="4" step="0.1" min="1" /></div>
+        <div class="row" id="r-dia" hidden><label for="dia">Diameter (m)</label><input id="dia" type="number" value="4" step="0.1" min="1" /></div>
         <div class="row"><label for="dep">Medeldjup (m)</label><input id="dep" type="number" value="1.5" step="0.1" min="0.3" /></div>
         <div class="row"><label for="ph">Aktuellt pH</label><input id="ph" type="number" value="7.8" step="0.1" min="6" max="9" /></div>
         <div class="out" id="out"></div>
@@ -56,7 +56,7 @@ const jsonLd = schemaGraph([
       <p><strong>Medeldjup</strong> får du genom att lägga ihop djupet vid den grunda och den djupa änden och dela med två. Har din pool en separat djupdel eller trappa, mät upp den ungefärliga fördelningen och uppskatta därefter.</p>
 
       <h2 id="sa-laser-du-resultatet">Så tolkar du resultatet</h2>
-      <p>Verktyget visar volymen och ger ett <em>startvärde</em> — inte en exakt doseringsinstruktion. Använd siffrorna som en riktlinje:</p>
+      <p>Verktyget visar volymen och ger ett <strong>startvärde</strong> — inte en exakt doseringsinstruktion. Använd siffrorna som en riktlinje:</p>
       <ul>
         <li><strong>Chockklor</strong> används vid grönt eller grumligt vatten och vid uppstart. Sikta på 5–10 mg/l fritt klor, vänta 8–12 timmar och mät igen innan du justerar vidare.</li>
         <li><strong>pH-minus</strong> sänker ett för högt pH. Justera i steg, cirkulera i minst 2–4 timmar och mät om — sikta på pH 7,2–7,4.</li>
@@ -69,14 +69,14 @@ const jsonLd = schemaGraph([
       <p>Behöver du bakgrunden? Läs <a href={u('/guider/ph-och-klor/')}>pH och klor — rätt nivåer</a> eller <a href={u('/guider/gront-poolvatten/')}>guiden om grönt poolvatten</a>. Vill du följa värdena över tid i stället för att räkna varje gång, använd <a href={u('/pooljournal/')}>pooljournalen</a>.</p>
 
       <h2 id="vanliga-fragor">Vanliga frågor om kalkylatorn</h2>
-      <div class="faq">
+      <dl class="faqgrid">
         {faq.map((f) => (
-          <details>
-            <summary>{f.q}</summary>
-            <div class="a">{f.a}</div>
-          </details>
+          <div class="item">
+            <dt>{f.q}</dt>
+            <dd>{f.a}</dd>
+          </div>
         ))}
-      </div>
+      </dl>
       <Newsletter />
     </article>
   </div>

@@ -23,10 +23,10 @@ const jsonLd = schemaGraph([
   <div class="wrap">
     <Breadcrumbs trail={[{ name: 'Hem', path: '/' }, { name: 'Köpguider' }]} />
     <section class="sec">
-      <h1 style="font-size:32px;letter-spacing:-.8px;margin-top:22px">Köpguider</h1>
+      <h1 class="hub-h1">Köpguider</h1>
       <p class="sub">Utrustning som faktiskt passar din pool — utan säljsnack.</p>
-      <div class="prose" style="max-width:760px;margin:8px 0 28px">
-        <p>Att köpa poolutrustning är sällan svårt för att produkterna är dåliga — det är svårt för att de måste <em>matcha din pool</em>. En poolrobot som är för liten för en 50 m³-pool gör ingen nytta, och en värmepump som är dimensionerad för inomhuspool räcker inte när hösten kommer. I våra köpguider går vi igenom vad som avgör valet innan vi ens nämner märken.</p>
+      <div class="prose hub-lead">
+        <p>Att köpa poolutrustning är sällan svårt för att produkterna är dåliga — det är svårt för att de måste <strong>matcha din pool</strong>. En poolrobot som är för liten för en 50 m³-pool gör ingen nytta, och en värmepump som är dimensionerad för inomhuspool räcker inte när hösten kommer. I våra köpguider går vi igenom vad som avgör valet innan vi ens nämner märken.</p>
         <p>Tre saker att tänka på oavsett vad du köper:</p>
         <ul>
           <li><strong>Utrustning &ne; pool.</strong> Börja alltid med din volym i m³, din vattentyp (klor eller salt) och hur stor andel av året poolen är i drift. Det styr robot, filter och värmepump mer än något annat.</li>
@@ -50,16 +50,16 @@ const jsonLd = schemaGraph([
         ))}
       </div>
     </section>
-    <div class="article" style="margin-top:44px">
+    <div class="article hub-article">
       <h2>Vanliga frågor om poolutrustning</h2>
-      <div class="faq">
+      <dl class="faqgrid">
         {faq.map((f) => (
-          <details>
-            <summary>{f.q}</summary>
-            <div class="a" set:html={f.a} />
-          </details>
+          <div class="item">
+            <dt>{f.q}</dt>
+            <dd set:html={f.a} />
+          </div>
         ))}
-      </div>
+      </dl>
     </div>
   </div>
 </Base>
