@@ -301,7 +301,7 @@ export const EXTRA_BATCH6 = [
       ['Material: titan eller rostfritt stål',
         '<ul><li><strong>Titan:</strong> korrosionsbeständigt och tål klor- och saltvatten. Rekommenderas för de flesta pooler och <em>krävs</em> i praktiken för saltvattenpooler.</li>'
         + '<li><strong>Rostfritt syrafast stål:</strong> hållbart vid normala klorhalter, men känsligare om vattnet är aggressivt eller salt.</li></ul>'
-        + '<p>För dig med <a href="/guider/saltklorinator/">saltklorinator</a> eller saltvattenpool är titan det säkra valet.</p>'],
+        + '<p>För dig med <a href="/kopguider/saltklorinator/">saltklorinator</a> eller saltvattenpool är titan det säkra valet.</p>'],
       ['Dimensionering – effekt i kW',
         '<p>Värmeväxlare dimensioneras i <strong>kW</strong> efter poolens volym och hur snabbt du vill värma den. Marknaden spänner från små enheter på cirka <strong>13 kW</strong> upp till stora på <strong>75–120 kW</strong> (till exempel Pahlen Hi-Flow 13/28/40/75 kW och Maxi-Flo 40–120 kW).</p>'
         + '<p>En tumregel är att en korrekt dimensionerad värmeväxlare kan värma en medelstor pool <strong>inom 1–2 dagar</strong> från kallt till badtemperatur. Väljer du för klen enhet räcker effekten inte när värmekällan samtidigt arbetar åt huset. Räkna därför även på hur mycket effekt husets värmekälla kan avvara till poolen.</p>'],
