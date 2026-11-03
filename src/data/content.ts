@@ -12,6 +12,7 @@ import { EXTRA_BATCH2 } from './extra-batch2';
 import { EXTRA_BATCH3 } from './extra-batch3';
 import { EXTRA_BATCH4 } from './extra-batch4';
 import { EXTRA_BATCH5 } from './extra-batch5';
+import { EXTRA_BATCH6 } from './extra-batch6';
 
 export interface FaqItem { q: string; a: string }
 export interface Aff { title: string; text: string; cta: string; url: string }
@@ -38,22 +39,30 @@ const RELATED_ADDITIONS: Record<string, string[]> = {
   'vinterstangning-pool': ['brunt-vatten-pool', 'algmedel-pool', 'alger-efter-vintern'],
   'varstart-pool': ['brunt-vatten-pool', 'chockklorering', 'smart-pool-automation', 'alger-efter-vintern'],
   'poolfilter-guide': ['cirkulationspump-pool', 'grumligt-poolvatten', 'basta-poolrengoraren', 'basta-poolroboten', 'backspolning-pool', 'mjolkigt-vatten-pool', 'sandfilterpump', 'poolservice', 'filterbollar-pool', 'vattentester-pool'],
-  'chockklorering': ['snabbklor', 'mjolkigt-vatten-pool', 'cyanursyra-pool', 'alger-efter-vintern', 'flockningsmedel-pool', 'poolkemikalier'],
+  'chockklorering': ['snabbklor', 'mjolkigt-vatten-pool', 'cyanursyra-pool', 'alger-efter-vintern', 'flockningsmedel-pool', 'poolkemikalier', 'gront-vatten-spabad'],
   'grumligt-poolvatten': ['brunt-vatten-pool', 'mjolkigt-vatten-pool', 'backspolning-pool', 'flockningsmedel-pool'],
   'poolvard-vecka': ['klorvarde-pool', 'smart-pool-automation', 'basta-poolrengoraren', 'basta-poolroboten', 'poolservice'],
   'pooltackning-sakerhet': ['poolbelysning', 'poolstege'],
   'basta-poolroboten': ['basta-poolrengoraren', 'pooldammsugare'],
-  'varmepump-pool': ['driftkostnad-pool', 'smart-pool-automation', 'solfangare-pool', 'forangare-varmepump', 'pooltermometer', 'inomhuspool'],
+  'varmepump-pool': ['driftkostnad-pool', 'smart-pool-automation', 'solfangare-pool', 'forangare-varmepump', 'pooltermometer', 'inomhuspool', 'poolvarmepump-bypass', 'poolvarmevaxlare'],
   'saltklorinator': ['smart-pool-automation'],
   // Batch 2 – köpguider & guider in i internlänkningen
-  'poolpump': ['cirkulationspump-pool', 'sandfilterpump', 'poolfilter-guide', 'solfangare-pool', 'forangare-varmepump', 'poolslang'],
+  'poolpump': ['cirkulationspump-pool', 'sandfilterpump', 'poolfilter-guide', 'solfangare-pool', 'forangare-varmepump', 'poolslang', 'poolvarmepump-bypass'],
   'glasfiberpool': ['poolliner'],
   'barnpool': ['poolstege'],
   // Batch 3 – köpguider & guider in i internlänkningen
-  'spabad-vattenbalans': ['grumligt-vatten-spabad', 'spabad-barn'],
+  'spabad-vattenbalans': ['grumligt-vatten-spabad', 'spabad-barn', 'ph-spabad', 'klor-spabad', 'brom-spabad', 'cyanursyra-spabad'],
   'att-kopa-pool': ['poolpaket', 'poolsarg', 'tjallendens-pool', 'inomhuspool'],
-  'spabad-kemikalier': ['grumligt-vatten-spabad'],
-  'skotsel-av-spabad': ['spabad-barn', 'kopa-begagnat-spabad'],
+  'spabad-kemikalier': ['grumligt-vatten-spabad', 'klor-spabad', 'brom-spabad', 'ph-spabad'],
+  'skotsel-av-spabad': ['spabad-barn', 'kopa-begagnat-spabad', 'gront-vatten-spabad'],
+  // Batch 6 – kopplar in de nya spabad-kemi- och poolvärme-guiderna
+  'grumligt-vatten-spabad': ['gront-vatten-spabad', 'klor-spabad', 'ph-spabad'],
+  'cyanursyra-pool': ['cyanursyra-spabad'],
+  'klorvarde-pool': ['klor-spabad'],
+  'vattenbyte-spabad': ['cyanursyra-spabad'],
+  'poolskydd': ['bubbelplast-pool'],
+  'driftkostnad-pool': ['bubbelplast-pool', 'poolvarmevaxlare'],
+  'solfangare-pool': ['poolvarmevaxlare'],
   // Batch 5 – kopplar in nya guider i internlänkningen
   'installera-spabad-markarbete': ['elanslutning-spabad'],
   'spabad-energiforbrukning': ['elanslutning-spabad'],
@@ -82,6 +91,7 @@ const all: Page[] = [
   ...(EXTRA_BATCH3 as unknown as Page[]),
   ...(EXTRA_BATCH4 as unknown as Page[]),
   ...(EXTRA_BATCH5 as unknown as Page[]),
+  ...(EXTRA_BATCH6 as unknown as Page[]),
 ].map((p: any) => ({ ...p, sections: normSections(p.sections), faq: normFaq(p.faq) }));
 
 export const pages: Page[] = all.map((p) => {
