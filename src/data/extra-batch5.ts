@@ -60,7 +60,7 @@ export const EXTRA_BATCH5 = [
     h1: 'Bräddavlopp i pool – funktion, montering och fel',
     meta_title: 'Bräddavlopp pool – så funkar ytavloppet (skimmern)',
     meta_desc:
-      'Bräddavloppet suger in ytvatten med löv och smuts innan det sjunker. Så funkar ytavloppet, vilka material som finns och vad du gör när det sörplar eller tappar flöde.',
+      'Bräddavloppet suger in ytvatten med löv och smuts innan det sjunker. Så funkar ytavloppet, vilka material som finns och vad du gör när det inte flödar.',
     lead:
       'Ett bräddavlopp sitter i poolkanten och suger in vatten från ytan tillsammans med löv, hår och annan smuts innan det hinner sjunka till botten. Det är en av de mest underskattade delarna i ett reningsverk – och en av de vanligaste orsakerna till att pumpen tappar flöde eller låter illa.',
     img: 'braddavlopp-pool',

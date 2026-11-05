@@ -93,7 +93,7 @@ export const EXTRA_BATCH2 = [
     h1: 'Poolliner – när ska du byta och vilken ska du välja?',
     meta_title: 'Byta poolliner – pris, steg och så väljer du rätt',
     meta_desc:
-      'Liner håller poolen tät och ger vattnet sin färg. Så skiljer du platssvetsad från fabrikssvetsad liner, känner igen ett liner som är på väg att ge upp och väljer rätt.',
+      'Liner håller poolen tät och ger vattnet sin färg. Så skiljer du platssvetsad från fabrikssvetsad liner, ser när den är på väg att ge upp och väljer rätt.',
     lead: 'Linern är poolens täta hinnsida – den håller vattnet inne och ger botten och väggar sin färg. När den börjar ge upp är det läckage och blekt yta som avslöjar det. Så väljer du rätt.',
     img: 'poolliner',
     image_prompt:
@@ -181,7 +181,7 @@ export const EXTRA_BATCH2 = [
       ['Uppvärmning och elkostnad',
         '<p>Ett uppblåsbart spabad värms oftast med en inbyggd värmare på ca 1–2 kW. Det tar många timmar att värma upp, och håller du varmt dygnet runt drar det el kontinuerligt. Isoleringen är sämre än i ett fast spabad, så locket med isolerande botten är avgörande. Har du poolvärme eller solfångare kan de ibland komplettera. Läs mer om <a href="/spabad/spabad-energiforbrukning/">energiförbrukning för spabad</a>.</p>'],
       ['Vattenvård gäller även här',
-        '<p>Uppblåsbart eller inte – varmt vatten kräver samma kemi. Filtrera, håll pH runt 7,2–7,6 och håll koll på klor eller brom. Byter du vatten med jämna mellanrum. Vattenvården är identisk med ett fast spabad, se <a href="/guider/starta-spabad-forsta-gangen/">att starta spabadet första gången</a>.</p>'],
+        '<p>Uppblåsbart eller inte – varmt vatten kräver samma kemi. Filtrera, håll pH runt 7,2–7,6 och håll koll på klor eller brom. Byter du vatten med jämna mellanrum. Vattenvården är identisk med ett fast spabad, se <a href="/spabad/starta-spabad-forsta-gangen/">att starta spabadet första gången</a>.</p>'],
       ['När kylan kommer',
         '<p>Ett uppblåsbart spabad är känsligare för vinter än ett fast. Låter du det stå ute i minusgrader måste det hållas igång och uppvärmt – slår värmen av kan vattnet frysa och skada badet. Många väljer att tömma och packa ihop det över vintern. Bor du i ett kallt läge, överväg ett fast spabad om du vill bada året runt.</p>'],
     ],

@@ -279,7 +279,7 @@ export const EXTRA_BATCH4 = [
       ['Vad kostar ett spabad 2026?',
         '<p>Uppblåsbara bad ligger på cirka <strong>3 000–15 000 kr</strong>. Fasta svenska spabad börjar runt <strong>69 900 kr</strong>: exempel från Svenska Bad är Kalix och Sarek vit 69 900 kr, Freja 74 900 kr, Orion 79 900 kr, Idun och Abisko 87 900 kr, Denver 96 895 kr och Dallas XL 97 900 kr (priser 2026). Räkna med att lock, locklyft, trappa och installation ofta tillkommer.</p>'],
       ['Test och trygghet',
-        '<p>Vissa modeller utmärker sig i tester – Svenska Bads Sarek utsågs till Bäst i test 2025. Läs omdömen, fråga efter energiförbrukning och kontrollera garantier. Ett bra spabad ska hålla i många år, så service och reservdelar väger tyngre än en låg inköpspris. Läs vidare i vår <a href="/kopguider/spabad-kopguide/">spabad-köpguide</a> och om <a href="/guider/spabad-energiforbrukning/">energiförbrukning</a>.</p>'],
+        '<p>Vissa modeller utmärker sig i tester – Svenska Bads Sarek utsågs till Bäst i test 2025. Läs omdömen, fråga efter energiförbrukning och kontrollera garantier. Ett bra spabad ska hålla i många år, så service och reservdelar väger tyngre än en låg inköpspris. Läs vidare i vår <a href="/kopguider/spabad-kopguide/">spabad-köpguide</a> och om <a href="/spabad/spabad-energiforbrukning/">energiförbrukning</a>.</p>'],
     ],
     faq: [
       ['Vilket är det bästa spabadet?', 'Det bästa spabadet är välisolerat, lagom stort för er och har dokumenterad service och reservdelar. Prioritera isolering och rening före antal jets – och jämför tekniska data, inte bara varumärke.'],
