@@ -22,7 +22,7 @@ const jsonLd = schemaGraph([
 ---
 <Base title={title} description={SITE.description} path="/" jsonLd={jsonLd} ogImage="/bilder/hero.jpg">
   <section class="hero">
-    <img class="heroimg" src={u('/bilder/hero-1200.webp')} alt="" width="1200" height="675" loading="eager" fetchpriority="high" aria-hidden="true" />
+    <img class="heroimg" src={u('/bilder/hero-1200.webp')} srcset={`${u('/bilder/hero-400.webp')} 400w, ${u('/bilder/hero-800.webp')} 800w, ${u('/bilder/hero-1200.webp')} 1200w`} sizes="100vw" alt="" width="1200" height="675" loading="eager" fetchpriority="high" aria-hidden="true" />
     <div class="wrap">
       <h1>Skötsel och köpguider för din pool — utan krångel</h1>
       <p>Oberoende guider för dig med pool eller spa: vattenkemi, vårstart, vinterstängning och ärliga köpguider. Vi säljer inget själva — vi visar bara vad som funkar.</p>
