@@ -52,7 +52,7 @@ export const EXTRA_BATCH4 = [
     slug: 'filterbollar-pool',
     tag: 'Guide',
     h1: 'Filterbollar till pool – så ersätter du sanden',
-    meta_title: 'Filterbollar pool – guide, dosering och tvätt',
+    meta_title: 'Filterbollar pool – dosering och så tvättar du dem',
     meta_desc:
       'Filterbollar ersätter sanden i sandfiltret och ger renare vatten med mindre el och slitage. Så doserar, tvättar och byter du filterbollar i poolen.',
     lead:

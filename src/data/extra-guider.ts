@@ -3,8 +3,8 @@ export const EXTRA_GUIDER = [
   {
     slug: 'chockklorering',
     tag: 'Guide',
-    h1: 'Chockklorering av pool – så gör du rätt',
-    meta_title: 'Chockklorering av pool – så gör du rätt',
+    h1: 'Chockklorera pool – dosering och steg för steg',
+    meta_title: 'Chockklorera pool – dosering och steg för steg',
     meta_desc:
       'Chockklorering tar död på alger och kloraminer. Så räknar du dosen, när du ska chocka och vad du gör efteråt – utan att slösa kemikalier.',
     lead: 'Chockklorering är poolens återställningsknapp. Gör du den rätt är vattnet rent igen inom ett dygn. Gör du den fel luktar poolen klor och du har slösat pengar.',
@@ -55,8 +55,8 @@ export const EXTRA_GUIDER = [
   {
     slug: 'grumligt-poolvatten',
     tag: 'Guide',
-    h1: 'Grumligt vatten i poolen – varför och vad du gör',
-    meta_title: 'Grumligt vatten i poolen – orsaker och åtgärd',
+    h1: 'Grumligt poolvatten – orsaker och åtgärder',
+    meta_title: 'Grumligt poolvatten – orsaker, åtgärder och när det klarnar',
     meta_desc:
       'Grumligt eller mjölkigt vatten i poolen beror sällan på samma sak. Här är orsakerna, hur du skiljer dem åt och vad du gör – steg för steg.',
     lead: 'Grumligt vatten är inte samma problem som grönt vatten. Det är oftast döda alger, fel kemi eller ett filter som inte hinner med. Rätt åtgärd beror på orsaken.',
@@ -107,7 +107,7 @@ export const EXTRA_GUIDER = [
     slug: 'algmedel-pool',
     tag: 'Guide',
     h1: 'Algmedel i poolen – när och hur du använder det',
-    meta_title: 'Algmedel i poolen – när och hur det används',
+    meta_title: 'Algmedel pool – när, hur och mot vilka alger',
     meta_desc:
       'Algmedel förebygger alger men ersätter inte klor. Så använder du algmedel rätt, vilka typer som finns och varför överdosering ställer till problem.',
     lead: 'Algmedel är ett skydd, inte en lösning. Använt rätt sparar det dig en chockklorering. Använt fel gör det vattnet skummigt och sliter på filtret.',

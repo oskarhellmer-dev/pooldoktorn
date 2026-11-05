@@ -42,8 +42,8 @@ export const EXTRA_BATCH1 = [
   {
     slug: 'backspolning-pool',
     tag: 'Guide',
-    h1: 'Backspolning av poolfilter – så gör du rätt',
-    meta_title: 'Backspolning av poolfilter – när och hur',
+    h1: 'Backspola poolfiltret – så gör du rätt',
+    meta_title: 'Backspolning av poolfilter – när, hur och hur ofta',
     meta_desc:
       'Backspolning rensar filtret från skräp och håller flödet uppe. Så vet du när det är dags, hur länge du spolar och vad du gör efteråt.',
     lead: 'Ett igensatt filter sänker flödet, och då funkar varken cirkulation eller klorering som de ska. Backspolning är lösningen – men bara när den behövs.',
@@ -171,7 +171,7 @@ export const EXTRA_BATCH1 = [
     slug: 'alger-efter-vintern',
     tag: 'Guide',
     h1: 'Alger i poolen efter vintern – så får du bukt med dem',
-    meta_title: 'Alger i poolen efter vintern – åtgärder vid vårstart',
+    meta_title: 'Alger i poolen efter vintern – så får du bukt med dem',
     meta_desc:
       'Grön, grå eller svart sörja i poolen efter vintern? Så åtgärdar du algerna vid vårstarten steg för steg – utan att byta allt vatten.',
     lead: 'Efter en lång vinter med presenning ser poolen ibland ut som en damm. Paniken är överflödig – alger efter vintern går att åtgärda på några dagar om du gör rätt.',

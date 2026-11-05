@@ -50,7 +50,7 @@ export const EXTRA_BATCH2 = [
     slug: 'sandfilterpump',
     tag: 'Köpguide',
     h1: 'Sandfilterpump – så dimensionerar du rätt för din pool',
-    meta_title: 'Sandfilterpump – guide för rätt storlek',
+    meta_title: 'Sandfilterpump – så väljer du rätt storlek och flöde',
     meta_desc:
       'Sandfilterpumpen renar poolvattnet genom sand, glas eller patron. Så räknar du fram rätt flöde för din poolvolym – och vad som skiljer sand från glas.',
     lead: 'En sandfilterpump cirkulerar vattnet och filtrerar det genom ett sandbädd. Väljer du fel storlek blir vattnet grumligt oavsett hur mycket klor du häller i. Så räknar du rätt.',
@@ -91,7 +91,7 @@ export const EXTRA_BATCH2 = [
     slug: 'poolliner',
     tag: 'Guide',
     h1: 'Poolliner – när ska du byta och vilken ska du välja?',
-    meta_title: 'Poolliner – guide till byte och val av liner',
+    meta_title: 'Byta poolliner – pris, steg och så väljer du rätt',
     meta_desc:
       'Liner håller poolen tät och ger vattnet sin färg. Så skiljer du platssvetsad från fabrikssvetsad liner, känner igen ett liner som är på väg att ge upp och väljer rätt.',
     lead: 'Linern är poolens täta hinnsida – den håller vattnet inne och ger botten och väggar sin färg. När den börjar ge upp är det läckage och blekt yta som avslöjar det. Så väljer du rätt.',
