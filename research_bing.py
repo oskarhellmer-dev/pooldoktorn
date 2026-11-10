@@ -1,156 +1,82 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Deep-research brief (Bing + Google autocomplete) med robusthet.
+"""Fallback deep-research brief via Bing (Brave slut pa kvot).
+Anrop: python3 research_bing.py "<sokord>" """
+import sys, re, urllib.parse, urllib.request, html, base64, time
 
-Bing-servern kan svara med irrelevant innehall (datacenter-IP). Darfor:
-  - flera parameter-varianter och omforsok,
-  - relevansfilter: minst 2 traffar dar ett nyckelord fran sokordet finns,
-  - Google autocomplete for verkliga sokfragor,
-  - konkurrenternas h2/h3 fran topp-sidorna.
-Skriver markdown-brief pa stdout. Ingen API-nyckel.
-"""
-import sys, re, time, json, base64, urllib.parse, urllib.request, html as htmllib
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 
-UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
+def fetch(url):
+    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Language": "sv-SE,sv;q=0.9"})
+    return urllib.request.urlopen(req, timeout=25).read().decode("utf-8", "replace")
 
-
-def get(url, timeout=25, referer=None):
-    h = {"User-Agent": UA, "Accept-Language": "sv-SE,sv;q=0.9,en;q=0.8",
-         "Accept": "text/html,application/xhtml+xml"}
-    if referer:
-        h["Referer"] = referer
-    try:
-        return urllib.request.urlopen(urllib.request.Request(url, headers=h),
-                                      timeout=timeout).read().decode("utf-8", "replace")
-    except Exception:
-        return ""
-
-
-def clean(t):
-    return re.sub(r"\s+", " ", htmllib.unescape(re.sub(r"<[^>]+>", "", t))).strip()
-
+def strip(t):
+    t = re.sub(r"<[^>]+>", "", t)
+    return html.unescape(re.sub(r"\s+", " ", t)).strip()
 
 def real_url(href):
-    href = htmllib.unescape(href)
     m = re.search(r"[?&]u=a1([A-Za-z0-9_\-]+)", href)
     if m:
-        b = m.group(1) + "=" * (-len(m.group(1)) % 4)
+        b = m.group(1).replace("-", "+").replace("_", "/")
+        b += "=" * (-len(b) % 4)
         try:
-            return base64.urlsafe_b64decode(b).decode("utf-8", "replace")
+            return base64.b64decode(b).decode("utf-8", "replace")
         except Exception:
             pass
+    if href.startswith("http") and "bing.com/ck/a" not in href:
+        return href
     return href
 
-
-def parse_bing(body):
+def serp(q, count=12):
+    url = "https://www.bing.com/search?" + urllib.parse.urlencode(
+        {"q": q, "setlang": "sv", "cc": "SE", "mkt": "sv-SE", "count": count})
+    h = fetch(url)
     out = []
-    for it in re.findall(r'<li class="b_algo".*?</li>', body, re.S):
-        m = re.search(r'<h2>\s*<a[^>]*href="([^"]+)"[^>]*>(.*?)</a>', it, re.S)
+    for block in re.findall(r'<li class="b_algo".*?</li>', h, re.S):
+        m = re.search(r'<h2[^>]*>\s*<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', block, re.S)
         if not m:
             continue
-        u = real_url(m.group(1))
-        t = clean(m.group(2))
-        p = re.search(r'<p[^>]*>(.*?)</p>', it, re.S)
-        d = clean(p.group(1)) if p else ""
-        if t and u.startswith("http"):
-            out.append({"title": t, "url": u, "desc": d})
-    seen, res = set(), []
-    for r in out:
-        if r["url"] not in seen:
-            seen.add(r["url"]); res.append(r)
-    return res
-
-
-def relevant(results, q):
-    toks = [w.lower() for w in re.split(r"\W+", q) if len(w) >= 4]
-    if not toks:
-        return False
-    hits = 0
-    for r in results:
-        blob = (r["title"] + " " + r["url"]).lower()
-        if any(t in blob for t in toks):
-            hits += 1
-    return hits >= 2
-
-
-def serp(q, n=10, tries=7):
-    variants = [
-        {"q": q, "count": "20", "mkt": "sv-SE"},
-        {"q": q, "count": "20", "setlang": "sv", "cc": "SE"},
-        {"q": q, "count": "20"},
-        {"q": q + " sverige", "count": "20", "mkt": "sv-SE"},
-    ]
-    for i in range(tries):
-        v = variants[i % len(variants)]
-        body = get("https://www.bing.com/search?" + urllib.parse.urlencode(v))
-        res = parse_bing(body)
-        if relevant(res, q):
-            return res[:n]
-        time.sleep(1.2)
-    return []
-
-
-def suggest(q):
-    u = ("https://suggestqueries.google.com/complete/search?client=firefox&hl=sv&gl=se&q="
-         + urllib.parse.quote(q))
-    try:
-        return json.loads(get(u))[1]
-    except Exception:
-        return []
-
-
-def headings(html):
-    hs = re.findall(r"<h[23][^>]*>(.*?)</h[23]>", html, re.S | re.I)
-    out = []
-    for h in hs:
-        t = clean(h)
-        if 3 < len(t) < 120:
-            out.append(t)
-    return out[:18]
-
-
-def questions(q):
-    seen, out = set(), []
-    base = [q, f"{q} hur", f"{q} varför", f"{q} bästa", f"hur {q}",
-            f"bästa {q}", f"{q} pris", f"{q} problem", f"{q} vs", f"{q} dimension"]
-    for b in base:
-        for s in suggest(b):
-            if s not in seen:
-                seen.add(s); out.append(s)
-        time.sleep(0.4)
+        u = real_url(html.unescape(m.group(1)))
+        title = strip(m.group(2))
+        sn = re.search(r'<p[^>]*>(.*?)</p>', block, re.S)
+        snippet = strip(sn.group(1)) if sn else ""
+        if title:
+            out.append((title, u, snippet))
     return out
 
+def headings(url):
+    try:
+        h = fetch(url)
+    except Exception:
+        return []
+    res = []
+    for x in re.findall(r"<h[23][^>]*>(.*?)</h[23]>", h, re.S | re.I):
+        t = strip(x)
+        if 3 < len(t) < 120:
+            res.append(t)
+    return res[:16]
 
-def brief(q):
-    print(f"# Research-brief: {q}\n")
-    res = serp(q, 10)
-    if not res:
-        print("_(Bing gav inga relevanta traffar efter omforsok)_\n")
+def main(q):
+    print(f"# Research-brief (Bing): {q}\n")
+    res = serp(q)
     print("## SERP topp 10\n")
-    for i, r in enumerate(res, 1):
-        print(f"{i}. **{r['title']}**")
-        print(f"   {r['url']}")
-        print(f"   _{r['desc']}_\n")
-    print("## Sokfragor (Google autocomplete)\n")
-    for t in questions(q)[:25]:
-        print(f"- {t}")
-    print()
-    print("## Konkurrenternas rubriker (topp 5)\n")
-    for r in res[:5]:
-        body = get(r["url"], referer="https://www.bing.com/")
-        if not body:
-            continue
-        hs = headings(body)
+    for i, (t, u, s) in enumerate(res[:10], 1):
+        print(f"{i}. **{t}**")
+        print(f"   {u}")
+        print(f"   _{s}_\n")
+    print("## Vanliga frågor (auto-förslag)\n")
+    for f in [f"hur {q}", f"varför {q}", f"{q} problem", f"bästa {q}"]:
+        for t, u, s in serp(f)[:4]:
+            print(f"- {t}  ({u})")
+        time.sleep(0.4)
+    print("\n## Konkurrenternas rubriker (topp 5)\n")
+    for t, u, s in res[:5]:
+        hs = headings(u)
         if hs:
-            print(f"### {r['title']} — {r['url']}\n")
-            for h in hs:
-                print(f"- {h}")
+            print(f"### {t} — {u}\n")
+            for x in hs:
+                print(f"- {x}")
             print()
-    print("\n## Gap-analys (FYLL I EFTER GENOMLASNING)")
-
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        raise SystemExit("Ange ett sokord")
-    brief(sys.argv[1])
+    main(sys.argv[1])
