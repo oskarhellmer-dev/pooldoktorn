@@ -443,7 +443,7 @@ export const EXTRA_SPA = [
       ['Känsla och användning',
         '<p>Vedeldad tunna förknippas med en traditionell, naturnära känsla och passar den som badar mer sällan och tycker om ritualen kring elden. Spabadet passar den som vill kunna bada spontant, året runt, med massagedysar och jämn temperatur.</p>'],
       ['Kostnad över tid',
-        '<p>En spabad är oftast dyrare i inköp men har förutsägbar drift. En enklare tunna är billigare att köpa men kräver mer manuell hantering. Jämför över flera år och räkna in vattenbyten, kemikalier och eventuell el.</p>'],
+        '<p>En spabad är oftast dyrare i inköp men har förutsägbar drift. En enklare tunna är billigare att köpa men kräver mer manuell hantering. Jämför över flera år och räkna in vattenbyten, kemikalier och eventuell el. Ska du köpa en tunna är utbudet stort – hos en renodlad tillverkare som <a href="https://www.badtunnaspa.se/badtunnor/" rel="noopener">Badtunnaspa</a> hittar du både vedeldade och eluppvärmda tunnor att jämföra med.</p>'],
       ['Så väljer du',
         '<ul><li>Vill du bada spontant och året runt? Välj spabad.</li>'
         + '<li>Vill du ha en enklare, vedeldad ritual? Välj tunna.</li>'
