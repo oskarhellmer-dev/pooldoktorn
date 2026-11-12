@@ -1,11 +1,19 @@
 ---
-interface Props { aff: { title: string; text: string; cta: string; url: string } }
+interface Props { aff: { title: string; text: string; cta: string; url: string; code?: string } }
 const { aff } = Astro.props;
 ---
 {aff && (
   <aside class="aff" aria-label="Annonslänk">
     <h3>{aff.title}</h3>
     <p>{aff.text}</p>
+    {aff.code && (
+      <p class="aff-code">
+        <span class="aff-code-label">Rabattkod</span>
+        <code>{aff.code}</code>
+        <span class="aff-code-hint">— koden läggs automatiskt i varukorgen via länken nedan</span>
+      </p>
+    )}
     <a class="btn" href={aff.url} rel="sponsored nofollow noopener" target="_blank">{aff.cta}</a>
+    <p class="aff-disclosure">Annonslänk: handlar du via länken kan vi få en provision. Priset blir detsamma för dig.</p>
   </aside>
 )}

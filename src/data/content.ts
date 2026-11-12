@@ -16,7 +16,7 @@ import { EXTRA_BATCH6 } from './extra-batch6';
 import { EXTRA_BATCH7 } from './extra-batch7';
 
 export interface FaqItem { q: string; a: string }
-export interface Aff { title: string; text: string; cta: string; url: string }
+export interface Aff { title: string; text: string; cta: string; url: string; code?: string }
 export interface Page {
   slug: string;
   tag: 'Guide' | 'Köpguide' | 'Bygge' | 'Spa' | 'Recension';

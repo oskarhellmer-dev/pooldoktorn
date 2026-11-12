@@ -449,7 +449,7 @@ export const EXTRA_SPA = [
         + '<li>Vill du ha en enklare, vedeldad ritual? Välj tunna.</li>'
         + '<li>Vill du kombinera massage och varmt vatten? Välj spabad.</li>'
         + '<li>Vill du ha lägst inköpspris? En enkel tunna.</li></ul>'
-        + '<p>Vill du hellre jämföra spabad mot en full pool, läs <a href="/poolbygge/att-kopa-pool/">att köpa pool</a>.</p>'],
+        + '<p>Vill du hellre jämföra spabad mot en full pool, läs <a href="/poolbygge/att-kopa-pool/">att köpa pool</a>. Har du bestämt dig för tunna går vi igenom uppvärmning, underlag och skötsel i <a href="/spabad/badtunna/">badtunna – så väljer du rätt</a>.</p>'],
     ],
     faq: [
       ['Är badtunna billigare än spabad?',
@@ -460,10 +460,11 @@ export const EXTRA_SPA = [
         'Spabadet, eftersom det cirkulerar och filtrerar vattnet kontinuerligt. En tunna utan filtrering kräver mer manuell vattenvård och tätare vattenbyten.'],
     ],
     aff: {
-      title: 'Vattenvård oavsett val',
-      text: 'Både spabad och tunna behöver rätt kemi. Testkit och preparat gör vattnet behagligt i båda.',
-      cta: 'Se vattenvård',
-      url: 'https://www.poolstore.se',
+      title: 'Badtunna direkt från tillverkaren',
+      text: 'TimberIN tillverkar badtunnor och utomhusbastur i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt på samtliga badtunnor samt bastun Nordic Cube.',
+      cta: 'Se badtunnor hos Badtunnaspa',
+      url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
+      code: 'POOLDOKTORN',
     },
     related: ['spabad-komplett-guide', 'spabad-energiforbrukning', 'spabad-kemikalier'],
   },
@@ -605,5 +606,55 @@ export const EXTRA_SPA = [
       url: 'https://www.poolstore.se',
     },
     related: ['installera-spabad-markarbete', 'spabad-vattenbalans', 'spabad-kemikalier'],
+  },
+
+  {
+    slug: 'badtunna',
+    tag: 'Spa',
+    h1: 'Badtunna – så väljer du rätt',
+    meta_title: 'Badtunna – köpguide vedeldad och el',
+    meta_desc:
+      'Vedeldad eller eluppvärmd badtunna? Så väljer du uppvärmning, storlek, underlag och vattenvård – och vad du bör kontrollera innan du köper.',
+    lead: 'En badtunna är enklare och billigare än ett spabad – men ställer egna krav. Uppvärmningen, vattenvården utan cirkulation och underlaget avgör om den blir ett lyft eller ett projekt. Här är det som faktiskt spelar roll.',
+    img: 'spabad-eller-badtunna',
+    image_prompt:
+      'A rustic wooden hot tub with steam in a Nordic garden at dusk, timber construction, realistic photo, no people',
+    sections: [
+      ['Vedeldad eller eluppvärmd?',
+        '<p>Den vedeldade tunnan värms med en kamin, ofta i en mantel runt tunnan, och har ingen elkostnad i drift – men den tar tid att värma och kräver ved och tålamod. En eluppvärmd tunna håller temperaturen dygnet runt, ungefär som ett spabad, och kan därför användas spontant. Frågan är hur du vill bada: en planerad kväll med eld och ånga, eller ett snabbt bad när andan faller på.</p>'
+        + '<p>En mellanvariant är en tunna med både kamin och elpatron, där elen håller grundvärmen och kaminen snabbt höjer temperaturen inför badet.</p>'],
+      ['Storlek och vattenvolym',
+        '<p>Vanliga storlekar ligger kring 1,6–2 meter i diameter, vilket rymmer fyra till sex personer bekvämt. Räkna också med vikten: en tunna på 1 700 liter väger över två ton fylld, och det styr både underlaget och var den kan stå. Välj inte större än att du kan fylla, värma och tömma den med rimlig insats – en för stor tunna blir dyr att värma och tyngre att sköta.</p>'],
+      ['Underlag och placering',
+        '<p>Tunnan behöver ett plant, bärande och dränerande underlag – packad makadam, betongplatta eller ett däck dimensionerat för lasten. Ställ den inte direkt på gräsmatta eller löst grus som kan sätta sig; då lutar tunnan och fogar belastas fel. Placera den där du kan tömma den med slang eller pump utan att vatten blir stående, och tänk på insyn och vind – lä skyddar både badet och värmen.</p>'],
+      ['Vattenvård i en tunna',
+        '<p>En tunna utan cirkulation filtrerar inte vattnet löpande, och det är den stora skillnaden mot ett spabad. Vattnet behöver därför bytas oftare, och du kan inte luta dig mot en pump som renar dygnet runt. Grunderna är ändå desamma: håll koll på pH och alkalinitet, duscha före bad och byt vatten innan det hinner bli grumligt. Vid flitigt badande kan det bli tal om tätare byten än man tror. Vill du ha kemin i detalj finns grunderna i <a href="/spabad/spabad-vattenbalans/">vattenbalans i spabad</a>.</p>'],
+      ['Vinter och tömning',
+        '<p>En vedeldad tunna som inte används vintertid bör tömmas och förberedas för kyla, annars riskerar vatten i kamin, rör och kopplingar att frysa sönder. En eluppvärmd tunna kan ofta hållas igång året runt om den är isolerad och elen är rätt dragen. Bestäm tidigt om tunnan ska vara året-runt-bad eller säsongsbad – det påverkar både driftkostnad och skötsel.</p>'],
+      ['Checklista innan köp',
+        '<ul><li>Vedeldad, eluppvärmd eller kombination?</li>'
+        + '<li>Storlek efter hur många som faktiskt ska bada – inte efter hur många som får plats.</li>'
+        + '<li>Underlag som tål vikten och dränerar.</li>'
+        + '<li>Isolering och lock om tunnan ska gå året runt.</li>'
+        + '<li>Elanslutning av behörig elektriker om den är eluppvärmd.</li>'
+        + '<li>Leverans och lyft till plats – väg in åtkomsten för en tung tunna.</li>'
+        + '<li>Garanti och tillgång till reservdelar i Sverige.</li></ul>'],
+    ],
+    faq: [
+      ['Hur lång tid tar det att värma en vedeldad tunna?',
+        'En vedeldad tunna värms oftast under några timmar, beroende på kaminens effekt, vattenvolymen och utetemperaturen. En eluppvärmd tunna håller temperaturen kontinuerligt och behöver bara värmas upp en gång vid start.'],
+      ['Kan man ha en badtunna året runt?',
+        'En eluppvärmd och isolerad tunna kan användas året runt. En vedeldad tunna används ofta säsongsvis och bör tömmas och vinterförberedas om den inte ska vara igång.'],
+      ['Hur ofta behöver vattnet bytas i en tunna?',
+        'Oftare än i ett spabad, eftersom vattnet inte filtreras löpande. Hur ofta beror på hur mycket tunnan används och hur väl vattenvården sköts.'],
+    ],
+    aff: {
+      title: 'Badtunna direkt från tillverkaren',
+      text: 'TimberIN tillverkar badtunnor och utomhusbastur i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt på samtliga badtunnor samt bastun Nordic Cube.',
+      cta: 'Se badtunnor hos Badtunnaspa',
+      url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
+      code: 'POOLDOKTORN',
+    },
+    related: ['spabad-eller-badtunna', 'spabad-vattenbalans', 'spabad-komplett-guide'],
   },
 ];

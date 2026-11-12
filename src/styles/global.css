@@ -201,6 +201,12 @@ header.site{position:sticky;top:var(--s4);z-index:50;padding:0 var(--s6)}
   transition:background var(--dur-color) var(--ease),transform var(--dur-color) var(--ease)}
 .aff .btn:hover{background:var(--brand-d)}
 .aff .btn:active{transform:translateY(1px)}
+.aff .aff-code{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s2);font-size:var(--fs-sm);color:var(--fg);margin:0 0 var(--s4)}
+.aff .aff-code-label{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.aff .aff-code code{font-family:var(--mono,ui-monospace,SFMono-Regular,Menlo,monospace);font-weight:700;font-size:var(--fs-base);
+  background:var(--brand);color:#fff;padding:.25rem .6rem;border-radius:var(--r-sm);letter-spacing:.04em}
+.aff .aff-code-hint{font-size:var(--fs-xs);color:var(--muted)}
+.aff .aff-disclosure{font-size:var(--fs-xs);color:var(--muted);margin:var(--s4) 0 0;opacity:.85}
 
 /* ---------------- FAQ: sida-vid-sida-lista (inte accordion) -------------- */
 .faq{margin-top:var(--s9)}
