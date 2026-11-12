@@ -329,12 +329,15 @@ html.js .sec.in,html.js .article.in,html.js .page.in{opacity:1;transform:none;tr
   background:var(--accent-soft);box-shadow:inset 0 0 0 1.5px var(--accent);
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b0560d' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E");
   background-size:11px;background-repeat:no-repeat;background-position:center}
-.redak-code{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3);margin:0 0 var(--s5)}
-.redak-code code{font-family:var(--font-mono);font-weight:700;font-size:var(--fs-base);letter-spacing:.06em;
-  background:var(--accent-soft);color:var(--accent-d);padding:.35rem .7rem;border-radius:var(--r-sm);border:1px dashed var(--accent)}
-.redak-copy{font:inherit;font-weight:600;font-size:var(--fs-sm);cursor:pointer;border:1px solid var(--accent);background:transparent;
-  color:var(--accent-d);padding:.45rem .85rem;border-radius:var(--r-pill);transition:background var(--dur-color) var(--ease),color var(--dur-color) var(--ease)}
-.redak-copy:hover{background:var(--accent-soft)}
+.redak-code{margin:0 0 var(--s5)}
+.redak-copy{font-family:var(--font-mono);font-weight:700;font-size:var(--fs-sm);letter-spacing:.03em;cursor:pointer;
+  border:1.5px dashed var(--accent);background:var(--accent-soft);color:var(--accent-d);
+  padding:.55rem .95rem;border-radius:var(--r-sm);transition:background var(--dur-color) var(--ease),border-color var(--dur-color) var(--ease)}
+.redak-copy .redak-copy-lbl{font-family:var(--font-sans);font-weight:600;color:var(--accent);text-transform:uppercase;font-size:var(--fs-xs);letter-spacing:.06em}
+.redak-copy .redak-copy-code{font-family:var(--font-mono);font-weight:700}
+.redak-copy:hover{background:#f7e3c8}
+.redak-copy.done{background:var(--accent);color:#fff;border-style:solid}
+.redak-copy.done .redak-copy-lbl{color:#fff}
 .redak-cta{display:inline-block;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;
   padding:.85rem 1.4rem;border-radius:var(--r-md);transition:background var(--dur-color) var(--ease),transform var(--dur-color) var(--ease)}
 .redak-cta:hover{background:var(--accent-d)}
@@ -384,6 +387,9 @@ html.js .sec.in,html.js .article.in,html.js .page.in{opacity:1;transform:none;tr
 .valkort-body h3{color:#fff;font-size:var(--fs-2xl);line-height:var(--lh-2xl);margin:var(--s3) 0 var(--s2)}
 .valkort-body p{color:rgba(255,255,255,.9);font-size:var(--fs-sm);margin:0}
 .valkort--accent::after{background:linear-gradient(180deg,rgba(138,66,9,.15) 20%,rgba(138,66,9,.6) 55%,rgba(70,32,4,.9))}
+.valkort--wide{min-height:320px;margin:0 0 var(--s6)}
+.valkort--wide .valkort-body h3{font-size:var(--fs-3xl);line-height:var(--lh-3xl);max-width:22ch}
+.valkort--wide .valkort-body p{max-width:62ch}
 
 /* meny-badge */
 .nav .badge{display:inline-block;background:var(--accent);color:#fff;font-size:10px;font-weight:700;

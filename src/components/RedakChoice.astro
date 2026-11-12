@@ -24,8 +24,9 @@ const { img, kicker = 'Redaktionens val', title, usps, code, cta, url, note } = 
     <h3>{title}</h3>
     <ul class="redak-usps">{usps.map((x) => <li>{x}</li>)}</ul>
     <div class="redak-code">
-      <button class="redak-copy" type="button" data-copy={code} aria-label={`Kopiera rabattkoden ${code}`}>Kopiera rabattkod</button>
-      <code>{code}</code>
+      <button class="redak-copy" type="button" data-copy={code} aria-label={`Kopiera rabattkoden ${code}`}>
+        <span class="redak-copy-lbl">Kopiera kod:</span> <span class="redak-copy-code">{code}</span>
+      </button>
     </div>
     <a class="redak-cta" href={url} rel="sponsored nofollow noopener" target="_blank">{cta}</a>
     {note && <p class="redak-note">{note}</p>}
@@ -36,7 +37,7 @@ const { img, kicker = 'Redaktionens val', title, usps, code, cta, url, note } = 
   btns.forEach((b) => {
     b.addEventListener('click', async () => {
       const code = b.getAttribute('data-copy') || '';
-      const label = b.textContent;
+      const html = b.innerHTML;
       try {
         await navigator.clipboard.writeText(code);
       } catch (e) {
@@ -47,9 +48,9 @@ const { img, kicker = 'Redaktionens val', title, usps, code, cta, url, note } = 
         try { document.execCommand('copy'); } catch (_) {}
         document.body.removeChild(t);
       }
-      b.textContent = 'Kopierat!';
+      b.innerHTML = '<span class="redak-copy-lbl">Kopierat!</span> ' + code;
       b.classList.add('done');
-      setTimeout(() => { b.textContent = label; b.classList.remove('done'); }, 1600);
+      setTimeout(() => { b.innerHTML = html; b.classList.remove('done'); }, 1600);
     });
   });
 </script>

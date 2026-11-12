@@ -52,7 +52,7 @@ export const EXTRA_SPA = [
     ],
     aff: {
       title: 'Badtunna eller bastu i stället?',
-      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      text: 'TimberIN levererar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -112,7 +112,7 @@ export const EXTRA_SPA = [
     ],
     aff: {
       title: 'Badtunna eller bastu i stället?',
-      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      text: 'TimberIN levererar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -166,7 +166,7 @@ export const EXTRA_SPA = [
     ],
     aff: {
       title: 'Badtunna eller bastu i stället?',
-      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      text: 'TimberIN levererar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -220,7 +220,7 @@ export const EXTRA_SPA = [
     ],
     aff: {
       title: 'Badtunna eller bastu i stället?',
-      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      text: 'TimberIN levererar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -274,7 +274,7 @@ export const EXTRA_SPA = [
     ],
     aff: {
       title: 'Badtunna eller bastu i stället?',
-      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      text: 'TimberIN levererar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -323,7 +323,7 @@ export const EXTRA_SPA = [
     ],
     aff: {
       title: 'Badtunna eller bastu i stället?',
-      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      text: 'TimberIN levererar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -373,7 +373,7 @@ export const EXTRA_SPA = [
     ],
     aff: {
       title: 'Badtunna eller bastu i stället?',
-      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      text: 'TimberIN levererar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -422,7 +422,7 @@ export const EXTRA_SPA = [
     ],
     aff: {
       title: 'Badtunna eller bastu i stället?',
-      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      text: 'TimberIN levererar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -468,8 +468,8 @@ export const EXTRA_SPA = [
         'Spabadet, eftersom det cirkulerar och filtrerar vattnet kontinuerligt. En tunna utan filtrering kräver mer manuell vattenvård och tätare vattenbyten.'],
     ],
     aff: {
-      title: 'Badtunna direkt från tillverkaren',
-      text: 'TimberIN tillverkar badtunnor och utomhusbastur i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt på samtliga badtunnor samt bastun Nordic Cube.',
+      title: 'Badtunna direkt från TimberIN',
+      text: 'TimberIN levererar badtunnor och utomhusbastur i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt på samtliga badtunnor samt bastun Nordic Cube.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -514,7 +514,7 @@ export const EXTRA_SPA = [
     ],
     aff: {
       title: 'Badtunna eller bastu i stället?',
-      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      text: 'TimberIN levererar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -562,7 +562,7 @@ export const EXTRA_SPA = [
     ],
     aff: {
       title: 'Badtunna eller bastu i stället?',
-      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      text: 'TimberIN levererar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -611,7 +611,7 @@ export const EXTRA_SPA = [
     ],
     aff: {
       title: 'Badtunna eller bastu i stället?',
-      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      text: 'TimberIN levererar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -660,8 +660,8 @@ export const EXTRA_SPA = [
         'Oftare än i ett spabad, eftersom vattnet inte filtreras löpande. Hur ofta beror på hur mycket tunnan används och hur väl vattenvården sköts.'],
     ],
     aff: {
-      title: 'Badtunna direkt från tillverkaren',
-      text: 'TimberIN tillverkar badtunnor och utomhusbastur i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt på samtliga badtunnor samt bastun Nordic Cube.',
+      title: 'Badtunna direkt från TimberIN',
+      text: 'TimberIN levererar badtunnor och utomhusbastur i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt på samtliga badtunnor samt bastun Nordic Cube.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -711,8 +711,8 @@ export const EXTRA_SPA = [
         'Inte om den är korrekt tömd och vinterförberedd. Risken ligger i vatten som blir stående i kamin, rör eller kopplingar. Töm ordentligt om tunnan inte ska användas.'],
     ],
     aff: {
-      title: 'Badtunna eller bastu direkt från tillverkaren',
-      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      title: 'Badtunna eller bastu direkt från TimberIN',
+      text: 'TimberIN levererar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -760,8 +760,8 @@ export const EXTRA_SPA = [
         'Det beror på om tunnan ställs på befintligt däck, packad makadam eller en ny betongplatta, och om markarbete behövs. En full tunna väger flera ton, så underlaget är ingen punkt att spara på.'],
     ],
     aff: {
-      title: 'Badtunna eller bastu direkt från tillverkaren',
-      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      title: 'Badtunna eller bastu direkt från TimberIN',
+      text: 'TimberIN levererar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -803,8 +803,8 @@ export const EXTRA_SPA = [
         'Ja, om däcket dimensioneras för lasten, kaminen får åtkomst och underlaget dränerar. Tänk särskilt på skydd mot värme och gnistor där kaminen möter trä.'],
     ],
     aff: {
-      title: 'Badtunna eller bastu direkt från tillverkaren',
-      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      title: 'Badtunna eller bastu direkt från TimberIN',
+      text: 'TimberIN levererar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -852,8 +852,8 @@ export const EXTRA_SPA = [
         'Mycket viktig. Ventilation ger syre till värmeaggregatet och för bort fukt så att inte mögel bildas. Dålig ventilation märks både i luftkvaliteten och i hur bastun åldras.'],
     ],
     aff: {
-      title: 'Badtunna eller bastu direkt från tillverkaren',
-      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      title: 'Badtunna eller bastu direkt från TimberIN',
+      text: 'TimberIN levererar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',
@@ -899,8 +899,8 @@ export const EXTRA_SPA = [
         'Kallbad innebär en kraftig påfrestning på kroppen och bör göras med respekt. Bada aldrig ensam, gå i lugnt, avbryt vid yrsel eller obehag, och rådgör med vården om du har hjärt- eller kärlsjukdom, högt blodtryck, epilepsi eller är gravid.'],
     ],
     aff: {
-      title: 'Badtunna eller bastu direkt från tillverkaren',
-      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      title: 'Badtunna eller bastu direkt från TimberIN',
+      text: 'TimberIN levererar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
       cta: 'Se badtunnor hos Badtunnaspa',
       url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
       code: 'POOLDOKTORN',

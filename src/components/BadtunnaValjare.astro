@@ -39,8 +39,9 @@ const CODE = 'POOLDOKTORN';
     <h3 data-res-title></h3>
     <p data-res-text></p>
     <div class="redak-code">
-      <button class="redak-copy" type="button" data-copy={CODE} aria-label={`Kopiera rabattkoden ${CODE}`}>Kopiera rabattkod</button>
-      <code>{CODE}</code>
+      <button class="redak-copy" type="button" data-copy={CODE} aria-label={`Kopiera rabattkoden ${CODE}`}>
+        <span class="redak-copy-lbl">Kopiera kod:</span> <span class="redak-copy-code">{CODE}</span>
+      </button>
     </div>
     <a class="redak-cta" href={URL} rel="sponsored nofollow noopener" target="_blank" data-res-cta>Se modellerna hos TimberIN</a>
     <p class="redak-note">Annonslänk: handlar du via länken kan vi få en provision — priset blir detsamma för dig. Koden ger dig 4 % rabatt.</p>

@@ -28,8 +28,8 @@ const vinter = [
   { slug: 'vinterstangning-pool', title: 'Vinterstäng poolen steg för steg' },
 ].map((x) => ({ ...x, page: bySlug(x.slug) })).filter((x) => x.page);
 
-// Vinter först i spabad-sektionen
-const spaOrder = ['badtunna', 'spabad-vinter', 'spabad-energiforbrukning', 'spabad-eller-badtunna', 'skotsel-av-spabad', 'spabad-vattenbalans'];
+// Spabad-sektionens kort – badtunna + energiförbrukning ligger redan under "Just nu – vinter", så de undviks här (ingen deja vu)
+const spaOrder = ['spabad-vinter', 'skotsel-av-spabad', 'spabad-vattenbalans', 'spabad-komplett-guide', 'installera-spabad-markarbete', 'vattenbyte-spabad'];
 const spaTop = spaOrder.map((s) => bySlug(s)).filter(Boolean);
 
 // Populära guider – vinterstängning först, vårstart/grönt vatten medvetet längre ner
@@ -55,8 +55,8 @@ const popular = popOrder.map((s) => bySlug(s)).filter(Boolean);
         kicker="Redaktionens val"
         title="Isolerad vedeldad badtunna med plastinsats"
         usps={[
-          'Svensktillverkat av TimberIN — vedeldat eller eluppvärmt',
-          'Leveransklart, byggt för året-runt-drift — 0 kr i standby-el för vedmodellen',
+          'Byggd för nordiskt vinterklimat — vedeldad eller eluppvärmd',
+          'Leveransklart och byggt för året-runt-drift — 0 kr i standby-el för vedmodellen',
           '4 % läsarrabatt med koden nedan – spara ca 1 500–2 500 kr',
         ]}
         code="POOLDOKTORN"
@@ -87,6 +87,14 @@ const popular = popOrder.map((s) => bySlug(s)).filter(Boolean);
     <section class="sec">
       <h2>Spabad &amp; badtunna</h2>
       <div class="sub">Köp, installera och sköt ditt spabad eller din badtunna – året runt</div>
+      <a class="valkort valkort--accent valkort--wide" href={u('/spabad/spabad-eller-badtunna/')}>
+        <img src={u('/bilder/spabad-eller-badtunna-800.webp')} srcset={`${u('/bilder/spabad-eller-badtunna-400.webp')} 400w, ${u('/bilder/spabad-eller-badtunna-800.webp')} 800w`} sizes="(max-width:720px) 100vw, 1100px" width="1200" height="675" loading="lazy" alt="Spabad eller badtunna – så väljer du" />
+        <div class="valkort-body">
+          <span class="tag">Jämförelse</span>
+          <h3>Spabad eller badtunna — så väljer du</h3>
+          <p>Den ena är en apparat med cirkulation och kemi, den andra en enklare tunna med manuell vattenvård. Så avgör du vilken som passar dig — och vad du ska titta efter.</p>
+        </div>
+      </a>
       <div class="grid">
         {spaTop.map((p) => (
           <a class="card" href={u(`/spabad/${p.slug}/`)}>
