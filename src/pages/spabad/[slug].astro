@@ -4,6 +4,8 @@ import Base from '../../layouts/Base.astro';
 import ArticleView from '../../components/ArticleView.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Related from '../../components/Related.astro';
+import RedakChoice from '../../components/RedakChoice.astro';
+import BadtunnaValjare from '../../components/BadtunnaValjare.astro';
 import { article, breadcrumbs, faqPage, howTo, schemaGraph } from '../../lib/schema';
 
 export function getStaticPaths() {
@@ -15,6 +17,17 @@ const related = page.related.map((s: string) => bySlug(s)).filter(Boolean).map((
 
 const published = '2026-10-06';
 const modified = '2026-10-06';
+
+// Alla spabad-artiklar får en "Alternativ"-box mitt i som dränerar till badtunna/TimberIN
+const midbox = {
+  text: 'Chockad över spabadets elkostnad på vintern? En isolerad vedeldad badtunna med plastinsats drar 0 kr i standby-el. Se TimberINs modeller här (spara ~2 000 kr med koden POOLDOKTORN).',
+  code: 'POOLDOKTORN',
+  cta: 'Se badtunnor hos TimberIN',
+  url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
+};
+// TimerbIN-produktkort på pengasidan + jämförelsesidan
+const showRedak = page.slug === 'badtunna' || page.slug === 'spabad-eller-badtunna' || page.slug === 'vedeldad-badtunna';
+const showValjare = page.slug === 'badtunna' || page.slug === 'spabad-eller-badtunna';
 
 // Bygg HowTo-schema om guiden har steg-sektioner
 const steps = (page.sections as any[])
@@ -42,7 +55,25 @@ const jsonLd = schemaGraph(nodes);
   jsonLd={jsonLd}>
   <div class="wrap">
     <Breadcrumbs trail={[{ name: 'Hem', path: '/' }, { name: 'Spabad', path: '/spabad/' }, { name: page.h1 }]} />
-    <ArticleView page={page} modified={modified} />
+    <ArticleView page={page} modified={modified} midbox={midbox}>
+      {showRedak && (
+        <RedakChoice
+          slot="top"
+          img="badtunna"
+          title="Isolerad vedeldad badtunna med plastinsats"
+          usps={[
+            'Svensktillverkat av TimberIN — vedeldat eller eluppvärmt',
+            'Leveransklart och byggt för året-runt-drift',
+            '4 % läsarrabatt med koden — spara ca 1 500–2 500 kr',
+          ]}
+          code="POOLDOKTORN"
+          cta="Se pris & modeller hos TimberIN"
+          url="https://www.badtunnaspa.se/badtunnor/?ref=pooldoktorn"
+          note="Annons: länkar till TimberIN/Badtunnaspa. Priset blir detsamma för dig."
+        />
+      )}
+    </ArticleView>
+    {showValjare && <BadtunnaValjare />}
     <Related related={related} />
   </div>
 </Base>

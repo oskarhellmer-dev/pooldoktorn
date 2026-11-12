@@ -1,0 +1,104 @@
+---
+const URL = 'https://www.badtunnaspa.se/badtunnor/?ref=pooldoktorn';
+const CODE = 'POOLDOKTORN';
+---
+<section class="valjare" data-valjare aria-label="Badtunna-väljare">
+  <p class="redak-kicker">Väljare</p>
+  <h2>Vilken badtunna passar dig?</h2>
+  <p class="sub" style="margin-top:0">Tre frågor — så visar vi vilken typ av tunna som passar dig bäst.</p>
+  <div class="valjare-bar"><i data-bar></i></div>
+
+  <div class="valjare-step on" data-step="0">
+    <p class="valjare-q">1. Hur många ska kunna bada samtidigt?</p>
+    <div class="valjare-opts">
+      <button class="valjare-opt" type="button" data-q="personer" data-v="liten">1–2 personer</button>
+      <button class="valjare-opt" type="button" data-q="personer" data-v="mellan">3–5 personer</button>
+      <button class="valjare-opt" type="button" data-q="personer" data-v="stor">6 personer eller fler</button>
+    </div>
+  </div>
+
+  <div class="valjare-step" data-step="1">
+    <p class="valjare-q">2. Vedeldad eller eluppvärmd?</p>
+    <div class="valjare-opts">
+      <button class="valjare-opt" type="button" data-q="varme" data-v="ved">Vedeldad — billig drift, jag gillar elden</button>
+      <button class="valjare-opt" type="button" data-q="varme" data-v="el">Eluppvärmd — vill bara trycka på en knapp</button>
+      <button class="valjare-opt" type="button" data-q="varme" data-v="vet">Vet inte — ge mig råd</button>
+    </div>
+  </div>
+
+  <div class="valjare-step" data-step="2">
+    <p class="valjare-q">3. Invändigt material?</p>
+    <div class="valjare-opts">
+      <button class="valjare-opt" type="button" data-q="material" data-v="plast">Isolerad plastinsats (PP) — prisvärd och lättskött</button>
+      <button class="valjare-opt" type="button" data-q="material" data-v="tra">Trä — traditionell känsla</button>
+      <button class="valjare-opt" type="button" data-q="material" data-v="glasfiber">Glasfiber — slät och lätt att rengöra</button>
+    </div>
+  </div>
+
+  <div class="valjare-res" data-res>
+    <h3 data-res-title></h3>
+    <p data-res-text></p>
+    <div class="redak-code">
+      <button class="redak-copy" type="button" data-copy={CODE} aria-label={`Kopiera rabattkoden ${CODE}`}>Kopiera rabattkod</button>
+      <code>{CODE}</code>
+    </div>
+    <a class="redak-cta" href={URL} rel="sponsored nofollow noopener" target="_blank" data-res-cta>Se modellerna hos TimberIN</a>
+    <p class="redak-note">Annonslänk: handlar du via länken kan vi få en provision — priset blir detsamma för dig. Koden ger dig 4 % rabatt.</p>
+    <p style="margin-top:var(--s5)"><button class="valjare-back" type="button" data-back>← Börja om</button></p>
+  </div>
+</section>
+
+<script>
+  const root = document.querySelector('[data-valjare]');
+  if (root) {
+    const steps = root.querySelectorAll('.valjare-step');
+    const res = root.querySelector('[data-res]');
+    const bar = root.querySelector('[data-bar]');
+    const state = { personer: '', varme: '', material: '' };
+    let idx = 0;
+
+    const sizeText = {
+      liten: 'en mindre tunna (oftast 2–4 sittplatser) som blir snabb att värma upp och tar liten plats',
+      mellan: 'en medelstor tunna (oftast 5–6 sittplatser) — den vanligaste storleken för familj och vänner',
+      stor: 'en större tunna (7 sittplatser och uppåt) som rymmer hela sällskapet',
+    };
+    const heatText = {
+      ved: 'En vedeldad tunna är billig i drift — du eldar upp den när du ska bada, och den drar ingen standby-el alls. Nackdelen är att uppvärmningen tar tid, så planera in den i förväg.',
+      el: 'En eluppvärmd tunna håller värmen redo dygnet runt och startar med en knapp. Räkna med standby-förbrukning, men bekvämligheten är svår att slå för vardagsbad.',
+      vet: 'Eldar du för njutningen och kan planera in badet några timmar i förväg är vedeldat billigast i drift. Vill du kunna bada spontant väljer du el. Bor du där ved är billigt och gärna eldar själv — välj ved.',
+    };
+    const matText = {
+      plast: 'En isolerad plastinsats (PP) är den mest prisvärda och lättskötta invändiga ytan, och isolerar värmen bra.',
+      tra: 'Trä ger den traditionella känslan men kräver mest skötsel — räkna med att hålla efter ytan.',
+      glasfiber: 'Glasfiber är slät, tålig och lätt att rengöra — ett bekvämt mellanting.',
+    };
+    const sizeCta = { liten: 'mindre tunnor', mellan: 'medelstora tunnor', stor: 'stora tunnor' };
+
+    function show(i) {
+      idx = i;
+      steps.forEach((s, n) => s.classList.toggle('on', n === i));
+      res.classList.remove('on');
+      bar.style.width = ((i / steps.length) * 100) + '%';
+    }
+    function finish() {
+      steps.forEach((s) => s.classList.remove('on'));
+      res.classList.add('on');
+      bar.style.width = '100%';
+      root.querySelector('[data-res-title]').textContent = 'Rekommendation: ' + sizeCta[state.personer];
+      root.querySelector('[data-res-text]').innerHTML =
+        'Du passar bäst med <strong>' + sizeText[state.personer] + '</strong>. ' +
+        heatText[state.varme] + ' ' + matText[state.material] +
+        ' Hos TimberIN hittar du <strong>' + sizeCta[state.personer] + '</strong> i både ved och el — ' +
+        'använd koden <strong>POOLDOKTORN</strong> för 4 % rabatt.';
+    }
+
+    root.querySelectorAll('.valjare-opt').forEach((b) => {
+      b.addEventListener('click', () => {
+        state[b.getAttribute('data-q')] = b.getAttribute('data-v');
+        if (idx + 1 < steps.length) show(idx + 1); else finish();
+      });
+    });
+    const back = root.querySelector('[data-back]');
+    if (back) back.addEventListener('click', () => { show(0); });
+  }
+</script>

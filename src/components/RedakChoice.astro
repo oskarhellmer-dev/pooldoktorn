@@ -1,0 +1,55 @@
+---
+import { u } from '../lib/urls';
+interface Props {
+  img: string;
+  kicker?: string;
+  title: string;
+  usps: string[];
+  code: string;
+  cta: string;
+  url: string;
+  note?: string;
+}
+const { img, kicker = 'Redaktionens val', title, usps, code, cta, url, note } = Astro.props;
+---
+<aside class="redak" aria-label="Redaktionens val – annonslänk">
+  <div class="redak-media">
+    <img
+      src={u(`/bilder/${img}-800.webp`)}
+      srcset={`${u(`/bilder/${img}-400.webp`)} 400w, ${u(`/bilder/${img}-800.webp`)} 800w`}
+      sizes="(max-width:720px) 100vw, 340px" width="1200" height="675" loading="lazy" alt={title} />
+  </div>
+  <div class="redak-body">
+    <p class="redak-kicker">{kicker}</p>
+    <h3>{title}</h3>
+    <ul class="redak-usps">{usps.map((x) => <li>{x}</li>)}</ul>
+    <div class="redak-code">
+      <button class="redak-copy" type="button" data-copy={code} aria-label={`Kopiera rabattkoden ${code}`}>Kopiera rabattkod</button>
+      <code>{code}</code>
+    </div>
+    <a class="redak-cta" href={url} rel="sponsored nofollow noopener" target="_blank">{cta}</a>
+    {note && <p class="redak-note">{note}</p>}
+  </div>
+</aside>
+<script>
+  const btns = document.querySelectorAll('[data-copy]');
+  btns.forEach((b) => {
+    b.addEventListener('click', async () => {
+      const code = b.getAttribute('data-copy') || '';
+      const label = b.textContent;
+      try {
+        await navigator.clipboard.writeText(code);
+      } catch (e) {
+        const t = document.createElement('textarea');
+        t.value = code;
+        document.body.appendChild(t);
+        t.select();
+        try { document.execCommand('copy'); } catch (_) {}
+        document.body.removeChild(t);
+      }
+      b.textContent = 'Kopierat!';
+      b.classList.add('done');
+      setTimeout(() => { b.textContent = label; b.classList.remove('done'); }, 1600);
+    });
+  });
+</script>

@@ -1,0 +1,12 @@
+---
+interface Props { text: string; code: string; cta: string; url: string }
+const { text, code, cta, url } = Astro.props;
+---
+<aside class="altbox" aria-label="Alternativ – annonslänk">
+  <p class="altbox-text">{text}</p>
+  <div class="altbox-row">
+    <span class="altbox-code">Rabattkod <code>{code}</code></span>
+    <a class="altbox-cta" href={url} rel="sponsored nofollow noopener" target="_blank">{cta}</a>
+  </div>
+  <p class="altbox-note">Annonslänk: handlar du via länken kan vi få en provision — priset blir detsamma för dig.</p>
+</aside>

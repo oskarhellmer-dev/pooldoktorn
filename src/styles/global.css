@@ -308,3 +308,89 @@ html.js .sec.in,html.js .article.in,html.js .page.in{opacity:1;transform:none;tr
   .article h1{font-size:var(--fs-3xl)}
   .sec h2{font-size:var(--fs-2xl)}
 }
+
+/* ---------------- kontrasterande varm accent (partner/rabatt) ---------------- */
+:root{
+  --accent:#b0560d;      /* varm accent – WCAG AA med vit text */
+  --accent-d:#8a4209;    /* accent hover/aktiv */
+  --accent-soft:#fbeee0; /* svag varm ton */
+}
+
+/* ---------------- Redaktionens val (produktkort) ---------------- */
+.redak{display:grid;grid-template-columns:clamp(220px,32%,340px) 1fr;gap:var(--s7);align-items:center;
+  background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:var(--r-lg);
+  padding:var(--s6);margin:var(--s2) 0}
+.redak-media img{width:100%;height:auto;border-radius:var(--r-md);display:block;aspect-ratio:16/10;object-fit:cover;background:var(--soft)}
+.redak-kicker{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:700;margin:0}
+.redak h3{font-size:var(--fs-xl);line-height:var(--lh-xl);margin:var(--s2) 0 var(--s4)}
+.redak-usps{list-style:none;padding:0;margin:0 0 var(--s5);display:grid;gap:var(--sups,6px)}
+.redak-usps li{display:flex;gap:var(--s3);align-items:flex-start;font-size:var(--fs-sm);color:var(--ink2);line-height:1.45}
+.redak-usps li::before{content:"";flex:0 0 auto;width:16px;height:16px;margin-top:2px;border-radius:50%;
+  background:var(--accent-soft);box-shadow:inset 0 0 0 1.5px var(--accent);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b0560d' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E");
+  background-size:11px;background-repeat:no-repeat;background-position:center}
+.redak-code{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3);margin:0 0 var(--s5)}
+.redak-code code{font-family:var(--font-mono);font-weight:700;font-size:var(--fs-base);letter-spacing:.06em;
+  background:var(--accent-soft);color:var(--accent-d);padding:.35rem .7rem;border-radius:var(--r-sm);border:1px dashed var(--accent)}
+.redak-copy{font:inherit;font-weight:600;font-size:var(--fs-sm);cursor:pointer;border:1px solid var(--accent);background:transparent;
+  color:var(--accent-d);padding:.45rem .85rem;border-radius:var(--r-pill);transition:background var(--dur-color) var(--ease),color var(--dur-color) var(--ease)}
+.redak-copy:hover{background:var(--accent-soft)}
+.redak-cta{display:inline-block;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;
+  padding:.85rem 1.4rem;border-radius:var(--r-md);transition:background var(--dur-color) var(--ease),transform var(--dur-color) var(--ease)}
+.redak-cta:hover{background:var(--accent-d)}
+.redak-cta:active{transform:translateY(1px)}
+.redak-note{font-size:var(--fs-xs);color:var(--muted);margin:var(--s4) 0 0;opacity:.85}
+
+/* ---------------- Alternativ-box (mitt i artikel) ---------------- */
+.altbox{background:var(--accent-soft);border:1px solid #eccfa8;border-radius:var(--r-lg);
+  padding:var(--s6);margin:var(--s7) 0}
+.altbox-text{font-size:var(--fs-base);color:var(--ink);margin:0 0 var(--s5);line-height:1.55}
+.altbox-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s4)}
+.altbox-code{font-size:var(--fs-sm);color:var(--ink2)}
+.altbox-code code{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;color:var(--accent-d);
+  background:#fff;border:1px dashed var(--accent);padding:.25rem .55rem;border-radius:var(--r-sm)}
+.altbox-cta{margin-left:auto;display:inline-block;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;
+  padding:.7rem 1.2rem;border-radius:var(--r-md);transition:background var(--dur-color) var(--ease)}
+.altbox-cta:hover{background:var(--accent-d)}
+.altbox-note{font-size:var(--fs-xs);color:var(--muted);margin:var(--s4) 0 0;opacity:.85}
+
+/* ---------------- Väljare (quiz) ---------------- */
+.valjare{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s7);margin:var(--s6) 0}
+.valjare h2{margin-top:0}
+.valjare-bar{height:8px;background:var(--soft);border-radius:var(--r-pill);overflow:hidden;margin:0 0 var(--s6)}
+.valjare-bar i{display:block;height:100%;width:0;background:var(--accent);transition:width var(--dur-move) var(--ease)}
+.valjare-q{font-size:var(--fs-lg);font-weight:600;margin:0 0 var(--s5)}
+.valjare-opts{display:grid;gap:var(--s3);margin:0 0 var(--s5)}
+.valjare-opt{font:inherit;text-align:left;cursor:pointer;background:var(--bg);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:var(--s5);font-size:var(--fs-base);color:var(--ink);transition:border-color var(--dur-color) var(--ease),background var(--dur-color) var(--ease)}
+.valjare-opt:hover{border-color:var(--accent);background:var(--accent-soft)}
+.valjare-step{display:none}
+.valjare-step.on{display:block}
+.valjare-res{display:none}
+.valjare-res.on{display:block}
+.valjare-res h3{margin-top:0}
+.valjare-back{background:none;border:0;color:var(--muted);font:inherit;cursor:pointer;text-decoration:underline;padding:0}
+
+/* ---------------- Stora valkort (hub-ingångar, vinterläge) ---------------- */
+.valkort-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);margin:var(--s2) 0}
+.valkort{position:relative;display:block;overflow:hidden;border-radius:var(--r-lg);text-decoration:none;color:#fff;
+  min-height:230px;isolation:isolate}
+.valkort img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform var(--dur-move) var(--ease)}
+.valkort::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(7,42,54,.05) 20%,rgba(7,42,54,.55) 60%,rgba(7,42,54,.88))}
+.valkort:hover img{transform:scale(1.04)}
+.valkort-body{position:absolute;left:0;right:0;bottom:0;padding:var(--s6)}
+.valkort-body .tag{background:rgba(255,255,255,.16);color:#fff;backdrop-filter:blur(6px)}
+.valkort-body h3{color:#fff;font-size:var(--fs-2xl);line-height:var(--lh-2xl);margin:var(--s3) 0 var(--s2)}
+.valkort-body p{color:rgba(255,255,255,.9);font-size:var(--fs-sm);margin:0}
+.valkort--accent::after{background:linear-gradient(180deg,rgba(138,66,9,.15) 20%,rgba(138,66,9,.6) 55%,rgba(70,32,4,.9))}
+
+/* meny-badge */
+.nav .badge{display:inline-block;background:var(--accent);color:#fff;font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em;padding:.1rem .4rem;border-radius:var(--r-pill);margin-left:var(--s2);vertical-align:middle}
+
+@media(max-width:720px){
+  .redak{grid-template-columns:1fr}
+  .valkort-grid{grid-template-columns:1fr}
+  .altbox-cta{margin-left:0}
+}

@@ -1,7 +1,8 @@
 ---
-import { guider, kopguider, bygge, spa } from '../data/content';
+import { guider, kopguider, bygge, spa, bySlug, href } from '../data/content';
 import Base from '../layouts/Base.astro';
 import { SITE } from '../consts';
+import RedakChoice from '../components/RedakChoice.astro';
 import { website, webPage, breadcrumbs, faqPage, schemaGraph } from '../lib/schema';
 import { u } from '../lib/urls';
 
@@ -19,27 +20,67 @@ const jsonLd = schemaGraph([
   breadcrumbs([{ name: 'Hem', path: '/' }]),
   faqPage(faq),
 ]);
+
+// Vinterläge – korten högst upp möter besökaren i november
+const vinter = [
+  { slug: 'badtunna', title: 'Bästa badtunnan 2026 – vedeldad, el eller plastinsats?' },
+  { slug: 'spabad-energiforbrukning', title: 'Vad kostar spabadet på vintern?' },
+  { slug: 'vinterstangning-pool', title: 'Vinterstäng poolen steg för steg' },
+].map((x) => ({ ...x, page: bySlug(x.slug) })).filter((x) => x.page);
+
+// Vinter först i spabad-sektionen
+const spaOrder = ['badtunna', 'spabad-vinter', 'spabad-energiforbrukning', 'spabad-eller-badtunna', 'skotsel-av-spabad', 'spabad-vattenbalans'];
+const spaTop = spaOrder.map((s) => bySlug(s)).filter(Boolean);
+
+// Populära guider – vinterstängning först, vårstart/grönt vatten medvetet längre ner
+const popOrder = ['vinterstangning-pool', 'ph-och-klor', 'chockklorering', 'grumligt-poolvatten', 'poolfilter-guide', 'poolvard-vecka'];
+const popular = popOrder.map((s) => bySlug(s)).filter(Boolean);
 ---
 <Base title={title} description={SITE.description} path="/" jsonLd={jsonLd} ogImage="/bilder/hero.jpg">
   <section class="hero">
     <img class="heroimg" src={u('/bilder/hero-1200.webp')} srcset={`${u('/bilder/hero-400.webp')} 400w, ${u('/bilder/hero-800.webp')} 800w, ${u('/bilder/hero-1200.webp')} 1200w`} sizes="100vw" alt="" width="1200" height="675" loading="eager" fetchpriority="high" aria-hidden="true" />
     <div class="wrap">
-      <h1>Skötsel och köpguider för din pool — utan krångel</h1>
-      <p>Oberoende guider för dig med pool eller spa: vattenkemi, vårstart, vinterstängning och ärliga köpguider. Vi säljer inget själva — vi visar bara vad som funkar.</p>
-      <a class="cta" href={u('/spabad/')}>Spabad &amp; badtunna</a>
-      <a class="cta" href={u('/guider/')}>Se alla guider</a>
+      <h1>Pool och spabad — rätt skött, hela året</h1>
+      <p>Det är vinter: dags att stänga poolen rätt, hålla koll på elkostnaden och planera badtunnan. Oberoende guider för dig med pool eller spa — vi säljer inget själva, vi visar bara vad som funkar.</p>
+      <a class="cta" href={u('/spabad/badtunna/')}>Bästa badtunnan 2026</a>
+      <a class="cta" href={u('/guider/vinterstangning-pool/')}>Vinterstäng poolen</a>
     </div>
   </section>
   <div class="disc"><div class="wrap">{SITE.affiliateDisclosure}</div></div>
 
   <div class="wrap">
     <section class="sec">
-      <div class="promo-partner">
-        <p class="promo-kicker">Läsarrabatt</p>
-        <h2>Badtunna eller bastu?</h2>
-        <p>TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du <strong>4 % rabatt</strong> med koden <code>POOLDOKTORN</code> — koden läggs automatiskt i varukorgen via länken.</p>
-        <a class="cta" href="https://www.badtunnaspa.se/?ref=pooldoktorn" rel="sponsored nofollow noopener" target="_blank">Se badtunnor hos Badtunnaspa</a>
-        <p class="promo-note">Annonslänk: handlar du via länken kan vi få en provision. Priset blir detsamma för dig.</p>
+      <RedakChoice
+        img="badtunna"
+        kicker="Redaktionens val"
+        title="Isolerad vedeldad badtunna med plastinsats"
+        usps={[
+          'Svensktillverkat av TimberIN — vedeldat eller eluppvärmt',
+          'Leveransklart, byggt för året-runt-drift — 0 kr i standby-el för vedmodellen',
+          '4 % läsarrabatt med koden nedan – spara ca 1 500–2 500 kr',
+        ]}
+        code="POOLDOKTORN"
+        cta="Se pris & modeller hos TimberIN"
+        url="https://www.badtunnaspa.se/badtunnor/?ref=pooldoktorn"
+      />
+    </section>
+
+    <section class="sec">
+      <h2>Just nu – vinter</h2>
+      <div class="sub">Det du behöver göra innan frosten och det du planerar inför nästa säsong</div>
+      <div class="grid">
+        {vinter.map(({ page, title: t }, i) => (
+          <a class="card" href={href(page.slug)}>
+            <img class="thumb" src={u(`/bilder/${page.img}-800.webp`)}
+              srcset={`${u(`/bilder/${page.img}-400.webp`)} 400w, ${u(`/bilder/${page.img}-800.webp`)} 800w`}
+              sizes="(max-width:860px) 100vw, 360px" width="1200" height="675" loading="lazy" alt={t} />
+            <div class="body">
+              <span class="tag">{i === 0 ? 'Badtunna' : page.tag}</span>
+              <h3>{t}</h3>
+              <p>{page.lead.slice(0, 110)}…</p>
+            </div>
+          </a>
+        ))}
       </div>
     </section>
 
@@ -47,7 +88,7 @@ const jsonLd = schemaGraph([
       <h2>Spabad &amp; badtunna</h2>
       <div class="sub">Köp, installera och sköt ditt spabad eller din badtunna – året runt</div>
       <div class="grid">
-        {spa.slice(0, 6).map((p) => (
+        {spaTop.map((p) => (
           <a class="card" href={u(`/spabad/${p.slug}/`)}>
             <img class="thumb" src={u(`/bilder/${p.img}-800.webp`)}
               srcset={`${u(`/bilder/${p.img}-400.webp`)} 400w, ${u(`/bilder/${p.img}-800.webp`)} 800w`}
@@ -66,7 +107,7 @@ const jsonLd = schemaGraph([
       <h2>Populära guider</h2>
       <div class="sub">Det folk faktiskt söker hjälp med</div>
       <div class="grid">
-        {guider.slice(0, 6).map((p) => (
+        {popular.map((p) => (
           <a class="card" href={u(`/guider/${p.slug}/`)}>
             <img class="thumb" src={u(`/bilder/${p.img}-800.webp`)}
               srcset={`${u(`/bilder/${p.img}-400.webp`)} 400w, ${u(`/bilder/${p.img}-800.webp`)} 800w`}

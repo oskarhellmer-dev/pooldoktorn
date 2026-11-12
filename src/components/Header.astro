@@ -10,7 +10,7 @@ const isActive = (href: string) => current === u(href) || (href !== '/' && curre
     <nav aria-label="Huvudmeny">
       <ul>
         {NAV.map((item) => (
-          <li><a href={u(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a></li>
+          <li><a href={u(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}{item.badge && <span class="badge">{item.badge}</span>}</a></li>
         ))}
       </ul>
     </nav>
@@ -19,7 +19,7 @@ const isActive = (href: string) => current === u(href) || (href !== '/' && curre
     </button>
   </div>
   <div class="mobilemenu" id="mobilmeny" hidden data-mobilemenu>
-    {NAV.map((item) => <a href={u(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>)}
+    {NAV.map((item) => <a href={u(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}{item.badge && <span class="badge">{item.badge}</span>}</a>)}
   </div>
 </header>
 <script>
