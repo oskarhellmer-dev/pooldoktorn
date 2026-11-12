@@ -616,7 +616,7 @@ export const EXTRA_SPA = [
     meta_desc:
       'Vedeldad eller eluppvärmd badtunna? Så väljer du uppvärmning, storlek, underlag och vattenvård – och vad du bör kontrollera innan du köper.',
     lead: 'En badtunna är enklare och billigare än ett spabad – men ställer egna krav. Uppvärmningen, vattenvården utan cirkulation och underlaget avgör om den blir ett lyft eller ett projekt. Här är det som faktiskt spelar roll.',
-    img: 'spabad-eller-badtunna',
+    img: 'badtunna',
     image_prompt:
       'A rustic wooden hot tub with steam in a Nordic garden at dusk, timber construction, realistic photo, no people',
     sections: [
