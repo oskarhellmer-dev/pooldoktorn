@@ -13,12 +13,12 @@ export const SITE = {
 export const AFF_BUTIK = 'https://www.poolstore.se';
 
 export const NAV = [
+  { label: 'Spabad & badtunna', href: '/spabad/' },
   { label: 'Guider', href: '/guider/' },
   { label: 'Vattenvård', href: '/guider/gront-poolvatten/' },
   { label: 'Vinter', href: '/guider/vinterstangning-pool/' },
   { label: 'Köpguider', href: '/kopguider/' },
   { label: 'Poolbygge', href: '/poolbygge/' },
-  { label: 'Spabad', href: '/spabad/' },
   { label: 'Recensioner', href: '/recensioner/' },
   { label: 'Kalkylator', href: '/kalkylator/' },
   { label: 'Pooljournal', href: '/pooljournal/' },

@@ -2,6 +2,7 @@
 import { spa as items } from '../../data/content';
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateBox from '../../components/AffiliateBox.astro';
 import { collectionPage, breadcrumbs, faqPage, schemaGraph } from '../../lib/schema';
 import { u } from '../../lib/urls';
 
@@ -56,5 +57,12 @@ const jsonLd = schemaGraph([
         ))}
       </dl>
     </div>
+    <AffiliateBox aff={{
+      title: 'Badtunna eller bastu i stället?',
+      text: 'TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du 4 % rabatt med koden nedan.',
+      cta: 'Se badtunnor hos Badtunnaspa',
+      url: 'https://www.badtunnaspa.se/?ref=pooldoktorn',
+      code: 'POOLDOKTORN',
+    }} />
   </div>
 </Base>

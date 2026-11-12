@@ -127,6 +127,16 @@ header.site{position:sticky;top:var(--s4);z-index:50;padding:0 var(--s6)}
 .sec h2{font-size:var(--fs-3xl);line-height:var(--lh-3xl);letter-spacing:var(--tracking-tight);font-weight:600}
 .sec .sub{color:var(--muted);font-size:var(--fs-base);max-width:60ch;margin-top:var(--s2)}
 .sec > .grid{margin-top:var(--s7)}
+/* partner-/rabattblock (t.ex. TimberIN) */
+.promo-partner{background:var(--soft);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s7) var(--s8);position:relative;overflow:hidden}
+.promo-partner .promo-kicker{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--brand-d);font-weight:700;margin:0}
+.promo-partner h2{font-size:var(--fs-2xl);line-height:var(--lh-2xl);margin-top:var(--s2)}
+.promo-partner p{color:var(--muted);font-size:var(--fs-base);max-width:62ch;margin-top:var(--s2)}
+.promo-partner code{font-family:var(--mono);font-weight:700;background:var(--brand);color:#fff;padding:.2rem .55rem;border-radius:var(--r-sm);letter-spacing:.04em}
+.promo-partner .cta{display:inline-block;margin-top:var(--s5);background:var(--brand);color:#fff;font-weight:600;text-decoration:none;padding:.8rem 1.3rem;border-radius:var(--r-md);transition:background var(--dur-color) var(--ease),transform var(--dur-color) var(--ease)}
+.promo-partner .cta:hover{background:var(--brand-d)}
+.promo-partner .cta:active{transform:translateY(1px)}
+.promo-partner .promo-note{font-size:var(--fs-xs);color:var(--muted);margin-top:var(--s4);opacity:.85}
 /* rubrik + text inkapslade i .sec > * – håll ihop */
 .sec h2 + .sub{margin-top:var(--s3)}
 

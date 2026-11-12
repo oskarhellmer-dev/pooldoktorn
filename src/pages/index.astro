@@ -26,12 +26,42 @@ const jsonLd = schemaGraph([
     <div class="wrap">
       <h1>Skötsel och köpguider för din pool — utan krångel</h1>
       <p>Oberoende guider för dig med pool eller spa: vattenkemi, vårstart, vinterstängning och ärliga köpguider. Vi säljer inget själva — vi visar bara vad som funkar.</p>
+      <a class="cta" href={u('/spabad/')}>Spabad &amp; badtunna</a>
       <a class="cta" href={u('/guider/')}>Se alla guider</a>
     </div>
   </section>
   <div class="disc"><div class="wrap">{SITE.affiliateDisclosure}</div></div>
 
   <div class="wrap">
+    <section class="sec">
+      <div class="promo-partner">
+        <p class="promo-kicker">Läsarrabatt</p>
+        <h2>Badtunna eller bastu?</h2>
+        <p>TimberIN tillverkar badtunnor, utomhusbastur och isbad i Sverige. Som läsare hos Pooldoktorn får du <strong>4 % rabatt</strong> med koden <code>POOLDOKTORN</code> — koden läggs automatiskt i varukorgen via länken.</p>
+        <a class="cta" href="https://www.badtunnaspa.se/?ref=pooldoktorn" rel="sponsored nofollow noopener" target="_blank">Se badtunnor hos Badtunnaspa</a>
+        <p class="promo-note">Annonslänk: handlar du via länken kan vi få en provision. Priset blir detsamma för dig.</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>Spabad &amp; badtunna</h2>
+      <div class="sub">Köp, installera och sköt ditt spabad eller din badtunna – året runt</div>
+      <div class="grid">
+        {spa.slice(0, 6).map((p) => (
+          <a class="card" href={u(`/spabad/${p.slug}/`)}>
+            <img class="thumb" src={u(`/bilder/${p.img}-800.webp`)}
+              srcset={`${u(`/bilder/${p.img}-400.webp`)} 400w, ${u(`/bilder/${p.img}-800.webp`)} 800w`}
+              sizes="(max-width:860px) 100vw, 360px" width="1200" height="675" loading="lazy" alt={p.h1} />
+            <div class="body">
+              <span class="tag">{p.tag}</span>
+              <h3>{p.h1}</h3>
+              <p>{p.lead.slice(0, 110)}…</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
     <section class="sec">
       <h2>Populära guider</h2>
       <div class="sub">Det folk faktiskt söker hjälp med</div>
@@ -76,25 +106,6 @@ const jsonLd = schemaGraph([
       <div class="grid">
         {bygge.slice(0, 6).map((p) => (
           <a class="card" href={u(`/poolbygge/${p.slug}/`)}>
-            <img class="thumb" src={u(`/bilder/${p.img}-800.webp`)}
-              srcset={`${u(`/bilder/${p.img}-400.webp`)} 400w, ${u(`/bilder/${p.img}-800.webp`)} 800w`}
-              sizes="(max-width:860px) 100vw, 360px" width="1200" height="675" loading="lazy" alt={p.h1} />
-            <div class="body">
-              <span class="tag">{p.tag}</span>
-              <h3>{p.h1}</h3>
-              <p>{p.lead.slice(0, 110)}…</p>
-            </div>
-          </a>
-        ))}
-      </div>
-    </section>
-
-    <section class="sec">
-      <h2>Spabad</h2>
-      <div class="sub">Köp, installera och sköt ditt spabad – igång året runt</div>
-      <div class="grid">
-        {spa.slice(0, 6).map((p) => (
-          <a class="card" href={u(`/spabad/${p.slug}/`)}>
             <img class="thumb" src={u(`/bilder/${p.img}-800.webp`)}
               srcset={`${u(`/bilder/${p.img}-400.webp`)} 400w, ${u(`/bilder/${p.img}-800.webp`)} 800w`}
               sizes="(max-width:860px) 100vw, 360px" width="1200" height="675" loading="lazy" alt={p.h1} />
