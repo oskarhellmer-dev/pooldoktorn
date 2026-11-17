@@ -292,7 +292,7 @@ export const EXTRA_BATCH8 = [
         '<p>Thermoblock är ihåliga, isolerande block – ofta av expanderad polystyren (EPS) eller lättbetong – som staplas till poolens väggar. Blocken armeras och fylls sedan med betong, så att de tillsammans bildar en <strong>massiv, isolerad poolstomme</strong>.</p>'
         + '<p>Eftersom väggarna är isolerade håller poolen värmen bättre än en oisolerad stomme, vilket sänker uppvärmningskostnaden och förlänger säsongen. Systemet är vanligt hos flera svenska poolleverantörer och säljs i moduler för olika storlekar.</p>'],
       ['Steg 1 – förbered mark och platta',
-        '<p>Poolen kräver ett plant, bärande underlag. Marken schaktas ur och en armerad betongplatta gjuts som botten. Rätt dränering och <a href="/guider/markskydd-pool/">markskydd</a> runt omkring är viktigt så att inte fukt och tjäle skadar konstruktionen.</p>'],
+        '<p>Poolen kräver ett plant, bärande underlag. Marken schaktas ur och en armerad betongplatta gjuts som botten. Rätt dränering och markskydd runt omkring är viktigt så att inte fukt och tjäle skadar konstruktionen.</p>'],
       ['Steg 2 – stapla, armera och gjut blocken',
         '<p>Blocken staplas i förband till önskad form och höjd. Armeringsjärn sticks ned i blockens hålrum och binds ihop, varefter betong fylls i. När betongen härdat står en stabil, isolerad vägg kvar. Ingjutna detaljer som skimmer, inlopp och belysning förbereds innan gjutningen.</p>'],
       ['Steg 3 – liner, teknik och färdigställande',
@@ -404,7 +404,7 @@ export const EXTRA_BATCH8 = [
         + '<ul><li>Runda täcken och bubbelplast finns färdigskurna i diametrar som Ø 3,05, 3,6, 4,6 och 5,5 m – se <a href="/guider/bubbelplast-pool/">bubbelplast till pool</a>.</li>'
         + '<li><a href="/kopguider/poolstege/">Poolstege</a> och trappa anpassade för runda modeller.</li>'
         + '<li>Runda <a href="/kopguider/pooltak/">pooltak</a> och <a href="/kopguider/poolkupol/">poolkupoler</a>.</li>'
-        + '<li><a href="/guider/markskydd-pool/">Markskydd</a> och bottenmatta som skyddar liner mot vassa föremål.</li></ul>'],
+        + '<li>Markskydd och bottenmatta som skyddar liner mot vassa föremål.</li></ul>'],
       ['Placering och underlag',
         '<p>En rund pool kräver ett <strong>plant och bärande underlag</strong>. Ojämn mark ger sned vattenyta och ökar påfrestningen på stommen. Lägg ett markskydd under poolen så att grus, rötter och stenar inte skadar botten.</p>'
         + '<p>Ska poolen stå på en altan eller ett trädäck måste du kontrollera bärigheten – en full pool väger flera ton. Kontrollera även avstånd till tomtgräns och eventuella ledningar.</p>'],
