@@ -184,9 +184,24 @@ header.site{position:sticky;top:var(--s4);z-index:50;padding:0 var(--s6)}
 .article ul,.article ol{max-width:68ch;margin:var(--s4) 0 var(--s4) var(--s6)}
 .article li{margin:var(--s2) 0}
 .article img{border-radius:var(--r-lg);margin:var(--s7) 0}
-.article table{border-collapse:collapse;width:100%;margin:var(--s6) 0;font-size:var(--fs-sm);font-variant-numeric:tabular-nums}
-.article th,.article td{border:1px solid var(--line);padding:var(--s3) var(--s4);text-align:left}
-.article th{background:var(--soft);font-weight:600}
+.article table{border-collapse:collapse;width:100%;margin:0;font-size:var(--fs-sm);font-variant-numeric:tabular-nums}
+.table-wrapper{overflow:auto;max-inline-size:100%;margin:var(--s6) 0;container-type:inline-size;
+  border:1px solid var(--line);border-radius:var(--r-md)}
+.table-wrapper:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.table-wrapper table{margin:0}
+.article table th,.article table td{padding:var(--s3) var(--s4);border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.article table thead th{position:sticky;inset-block-start:0;z-index:1;background:var(--soft);font-weight:600;color:var(--ink)}
+.article table th[scope="row"]{font-weight:600;color:var(--ink);background:var(--bg)}
+.article table tbody tr:last-child th,.article table tbody tr:last-child td{border-bottom:0}
+/* Nyckeltalstabeller (2 kolumner) staplas till etikett-över-värde när utrymmet är litet */
+@container (width < 520px){
+  .table-2col table,.table-2col thead,.table-2col tbody,.table-2col tr,.table-2col th,.table-2col td{display:block;width:auto}
+  .table-2col thead{display:none}
+  .table-2col tr{padding:var(--s4) 0;border-bottom:1px solid var(--line)}
+  .table-2col tr:last-child{border-bottom:0}
+  .table-2col th[scope="row"]{background:transparent;padding-bottom:2px;font-size:var(--fs-sm)}
+  .table-2col td{border-bottom:0;padding-top:0}
+}
 .article strong{font-weight:600}
 .lead{font-size:var(--fs-lg);line-height:var(--lh-lg);color:var(--ink2);max-width:64ch;margin-top:var(--s4)}
 /* notisrutor: ram runt om */
@@ -234,7 +249,9 @@ header.site{position:sticky;top:var(--s4);z-index:50;padding:0 var(--s6)}
 .news p{color:#b9d2da;font-size:var(--fs-sm);margin-top:var(--s2)}
 .news form{display:flex;gap:var(--s3);margin-top:var(--s6);flex-wrap:wrap}
 .news input{flex:1;min-width:180px;padding:var(--s3) var(--s4);border-radius:var(--r-md);border:1px solid transparent;font-size:var(--fs-base);font-family:inherit}
-.news input:invalid:not(:placeholder-shown){border-color:var(--warn)}
+.news input:user-invalid{border-color:var(--warn);background:#fdecea}
+.news input.user-invalid-fallback{border-color:var(--warn);background:#fdecea}
+.news .news-err{font-size:var(--fs-sm);color:#ffc2bb;margin-top:var(--s3)}
 .news button{background:var(--brand);color:#fff;border:0;padding:var(--s3) var(--s5);border-radius:var(--r-md);font-weight:600;font-size:var(--fs-base);cursor:pointer;transition:background var(--dur-color) var(--ease)}
 .news button:hover{background:var(--brand-d)}
 .news button:active{transform:translateY(1px)}
@@ -276,8 +293,22 @@ footer.site a:hover{color:#fff}
 .foot nav .grp.law{font-size:var(--fs-xs);opacity:.72}
 
 /* ---------------- scroll-reveal (endast när JS finns: html.js) ----------- */
+/* Basläge + JS-fallback: IntersectionObserver lägger på .in */
 html.js .sec,html.js .article,html.js .page{opacity:0;transform:translateY(18px)}
 html.js .sec.in,html.js .article.in,html.js .page.in{opacity:1;transform:none;transition:opacity .7s var(--ease),transform .7s var(--ease)}
+/* Modern väg: CSS scroll-driven animation (körs utanför main thread, ingen JS-loop).
+   .in-vägen ovan används automatiskt som fallback där animation-timeline saknas. */
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    html.js .sec,html.js .article,html.js .page{
+      opacity:1;transform:none;
+      animation:reveal linear both;
+      animation-timeline:view();
+      animation-range:entry 0% entry 80%;
+    }
+    @keyframes reveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  }
+}
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -286,12 +317,19 @@ html.js .sec.in,html.js .article.in,html.js .page.in{opacity:1;transform:none;tr
 }
 
 /* ---------------- responsivt ---------------- */
+/* Mobilmeny som native popover (topplager + light-dismiss + Escape).
+   .mobilemenu-open är klass-fallback för webbläsare utan popover-stöd. */
+.mobilemenu{display:none}
 @media(max-width:960px){
   .nav nav ul{display:none}
   .burger{display:block}
-  .mobilemenu{display:flex;flex-direction:column;padding:var(--s3) var(--s5) var(--s5);max-width:var(--max);margin:var(--s3) auto 0;
-    background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:var(--r-lg);
+  .mobilemenu{position:fixed;inset:auto;inset-block-start:calc(var(--s3) + 56px + var(--s3));
+    inset-inline:var(--s5);margin-inline:auto;max-width:var(--max);
+    flex-direction:column;padding:var(--s3) var(--s5) var(--s5);
+    background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    border:1px solid var(--line);border-radius:var(--r-lg);
     box-shadow:0 20px 40px -20px rgba(7,42,54,.35)}
+  .mobilemenu:is(:popover-open,.mobilemenu-open){display:flex}
   .mobilemenu a{padding:var(--s4) 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ink2);font-weight:600}
   .mobilemenu a:first-child{border-top:0}
   .mobilemenu a[aria-current=page]{color:var(--brand-d)}
@@ -338,6 +376,8 @@ html.js .sec.in,html.js .article.in,html.js .page.in{opacity:1;transform:none;tr
 .redak-copy:hover{background:#f7e3c8}
 .redak-copy.done{background:var(--accent);color:#fff;border-style:solid}
 .redak-copy.done .redak-copy-lbl{color:#fff}
+.redak-tip{display:inline-block;margin-left:var(--s3);font-size:var(--fs-xs);color:var(--accent-d);opacity:0;transition:opacity var(--dur-color) var(--ease)}
+.redak-tip:not(:empty){opacity:1}
 .redak-cta{display:inline-block;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;
   padding:.85rem 1.4rem;border-radius:var(--r-md);transition:background var(--dur-color) var(--ease),transform var(--dur-color) var(--ease)}
 .redak-cta:hover{background:var(--accent-d)}

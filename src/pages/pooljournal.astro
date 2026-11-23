@@ -111,12 +111,12 @@ const jsonLd = schemaGraph([
           <button type="button" class="btn2 danger" id="jr-clear">Rensa alla</button>
         </div>
       </div>
-      <div class="jr-tablewrap">
+      <div class="jr-tablewrap" role="region" aria-label="Loggade mätningar" tabindex="0">
         <table class="jr-table" id="jr-table">
           <thead>
             <tr>
-              <th>Datum</th><th>pH</th><th>Fritt Cl</th><th>Totalt Cl</th><th>Bundet Cl</th>
-              <th>Alk</th><th>CYA</th><th>Hårdhet</th><th>Salt</th><th>Temp</th><th>Åtgärd</th><th></th>
+              <th scope="col">Datum</th><th scope="col">pH</th><th scope="col">Fritt Cl</th><th scope="col">Totalt Cl</th><th scope="col">Bundet Cl</th>
+              <th scope="col">Alk</th><th scope="col">CYA</th><th scope="col">Hårdhet</th><th scope="col">Salt</th><th scope="col">Temp</th><th scope="col">Åtgärd</th><th scope="col"></th>
             </tr>
           </thead>
           <tbody id="jr-body"></tbody>
@@ -126,21 +126,23 @@ const jsonLd = schemaGraph([
 
       <h2 id="riktvarden">Riktvärden att hålla sig inom</h2>
       <p>Så här ser rekommenderade nivåer ut för en villapool med vanligt reningsverk. Värdena är riktlinjer — har du saltklorinator eller spabad kan zonen skilja något, följ då tillverkarens anvisning.</p>
+      <div class="table-wrapper" role="region" aria-labelledby="riktvarden" tabindex="0">
       <table>
         <thead>
-          <tr><th>Värde</th><th>Idealt</th><th>Godkänt</th><th>Varför det spelar roll</th></tr>
+          <tr><th scope="col">Värde</th><th scope="col">Idealt</th><th scope="col">Godkänt</th><th scope="col">Varför det spelar roll</th></tr>
         </thead>
         <tbody>
-          <tr><td>pH</td><td>ca 7,2</td><td>7,2–7,6</td><td>Styr hur effektivt kloret jobbar och hur vattnet känns mot hud och ögon</td></tr>
-          <tr><td>Fritt klor</td><td>ca 1 ppm</td><td>1–3 ppm</td><td>Det verksamma kloret som oskadliggör bakterier och alger</td></tr>
-          <tr><td>Totalt klor</td><td>ca 1 ppm</td><td>1–3 ppm</td><td>Summan av fritt och bundet klor</td></tr>
-          <tr><td>Bundet klor</td><td>0</td><td>max 0,5 ppm</td><td>Ger stickande klorlukt och irriterade ögon — ska hållas lågt</td></tr>
-          <tr><td>Alkalinitet</td><td>100–120 ppm</td><td>80–160 ppm</td><td>Buffert som håller pH stabilt istället för att det far runt</td></tr>
-          <tr><td>Cyanursyra (CYA)</td><td>0–20 ppm</td><td>max 50 ppm</td><td>Skyddar kloret mot solnedbrytning, men låser det vid för hög halt</td></tr>
-          <tr><td>Total hårdhet</td><td>ca 200 ppm</td><td>150–400 ppm</td><td>Kalcium och magnesium — för lågt fräter, för högt fäller ut som kalk</td></tr>
-          <tr><td>Salt (saltpool)</td><td>—</td><td>2 500–4 000 ppm</td><td>Krav för att saltklorinatorn ska producera klor</td></tr>
+          <tr><th scope="row">pH</th><td>ca 7,2</td><td>7,2–7,6</td><td>Styr hur effektivt kloret jobbar och hur vattnet känns mot hud och ögon</td></tr>
+          <tr><th scope="row">Fritt klor</th><td>ca 1 ppm</td><td>1–3 ppm</td><td>Det verksamma kloret som oskadliggör bakterier och alger</td></tr>
+          <tr><th scope="row">Totalt klor</th><td>ca 1 ppm</td><td>1–3 ppm</td><td>Summan av fritt och bundet klor</td></tr>
+          <tr><th scope="row">Bundet klor</th><td>0</td><td>max 0,5 ppm</td><td>Ger stickande klorlukt och irriterade ögon — ska hållas lågt</td></tr>
+          <tr><th scope="row">Alkalinitet</th><td>100–120 ppm</td><td>80–160 ppm</td><td>Buffert som håller pH stabilt istället för att det far runt</td></tr>
+          <tr><th scope="row">Cyanursyra (CYA)</th><td>0–20 ppm</td><td>max 50 ppm</td><td>Skyddar kloret mot solnedbrytning, men låser det vid för hög halt</td></tr>
+          <tr><th scope="row">Total hårdhet</th><td>ca 200 ppm</td><td>150–400 ppm</td><td>Kalcium och magnesium — för lågt fräter, för högt fäller ut som kalk</td></tr>
+          <tr><th scope="row">Salt (saltpool)</th><td>—</td><td>2 500–4 000 ppm</td><td>Krav för att saltklorinatorn ska producera klor</td></tr>
         </tbody>
       </table>
+      </div>
       <p class="jr-fineprint">1 ppm = 1 mg per liter. Hårdhet anges ofta även i tyska hårdhetsgrader: 150 ppm ≈ 8,4 °dH och 200 ppm ≈ 11,2 °dH.</p>
 
       <h2 id="vad-betyder">Vad betyder värdena egentligen?</h2>
@@ -289,34 +291,49 @@ const jsonLd = schemaGraph([
       const body = $('jr-body') as unknown as HTMLTableSectionElement | null;
       const empty = $('jr-empty');
       if (!body) return;
-      body.innerHTML = '';
+      body.replaceChildren();
       if (empty) empty.hidden = data.length > 0;
       const count = $('jr-count');
       if (count) count.textContent = String(data.length);
 
+      const cell = (text: string, cls?: string) => {
+        const td = document.createElement('td');
+        if (cls) td.className = cls;
+        td.textContent = text;
+        return td;
+      };
       for (const e of data) {
         const bound = (e.fcl !== null && e.tcl !== null) ? Math.round((e.tcl - e.fcl) * 100) / 100 : null;
         const act = [e.back ? 'Backspolning' : '', e.vac ? 'Bottensugning' : '', e.note].filter(Boolean).join(' · ');
         const tr = document.createElement('tr');
-        tr.innerHTML =
-          `<td>${e.date}${e.time ? ' ' + e.time : ''}</td>` +
-          `<td class="${cellStatus(e.ph, 7.2, 7.6, 0.2)}">${fmt(e.ph)}</td>` +
-          `<td class="${cellStatus(e.fcl, 1, 3, 0.5)}">${fmt(e.fcl)}</td>` +
-          `<td class="${cellStatus(e.tcl, 1, 3, 0.5)}">${fmt(e.tcl)}</td>` +
-          `<td class="${bound === null ? '' : (bound > 0.5 ? 'v-bad' : 'v-ok')}">${fmt(bound)}</td>` +
-          `<td class="${cellStatus(e.alk, 80, 160, 20)}">${e.alk ?? ''}</td>` +
-          `<td class="${cellStatus(e.cya, 0, 50, 0)}">${e.cya ?? ''}</td>` +
-          `<td class="${cellStatus(e.hard, 150, 400, 50)}">${e.hard ?? ''}</td>` +
-          `<td class="${cellStatus(e.salt, 2500, 4000, 500)}">${e.salt ?? ''}</td>` +
-          `<td>${ e.temp === null ? '' : fmt(e.temp, 1) }</td>` +
-          `<td>${act}</td>` +
-          `<td><button class="jr-del" data-id="${e.id}" title="Ta bort" aria-label="Ta bort">×</button></td>`;
-        body.appendChild(tr);
+        tr.append(
+          cell(`${e.date}${e.time ? ' ' + e.time : ''}`),
+          cell(fmt(e.ph), cellStatus(e.ph, 7.2, 7.6, 0.2)),
+          cell(fmt(e.fcl), cellStatus(e.fcl, 1, 3, 0.5)),
+          cell(fmt(e.tcl), cellStatus(e.tcl, 1, 3, 0.5)),
+          cell(fmt(bound), bound === null ? '' : (bound > 0.5 ? 'v-bad' : 'v-ok')),
+          cell(String(e.alk ?? ''), cellStatus(e.alk, 80, 160, 20)),
+          cell(String(e.cya ?? ''), cellStatus(e.cya, 0, 50, 0)),
+          cell(String(e.hard ?? ''), cellStatus(e.hard, 150, 400, 50)),
+          cell(String(e.salt ?? ''), cellStatus(e.salt, 2500, 4000, 500)),
+          cell(e.temp === null ? '' : fmt(e.temp, 1)),
+          cell(act)
+        );
+        const tdBtn = document.createElement('td');
+        const del = document.createElement('button');
+        del.className = 'jr-del';
+        del.dataset.id = String(e.id);
+        del.title = 'Ta bort';
+        del.setAttribute('aria-label', 'Ta bort');
+        del.textContent = '×';
+        tdBtn.append(del);
+        tr.append(tdBtn);
+        body.append(tr);
       }
 
       // trend
       const trends = $('jr-trends') as unknown as HTMLElement | null;
-      const chron = [...data].reverse();
+      const chron = data.toReversed();
       if (trends) trends.hidden = chron.length < 2;
       spark('sp-ph', chron.map((e) => e.ph));
       spark('sp-fcl', chron.map((e) => e.fcl));
@@ -330,7 +347,7 @@ const jsonLd = schemaGraph([
       const svg = document.getElementById(id) as unknown as SVGSVGElement | null;
       if (!svg) return;
       const pts = vals.map((v, i) => ({ v, i })).filter((p) => p.v !== null) as { v: number; i: number }[];
-      svg.innerHTML = '';
+      svg.replaceChildren();
       if (pts.length < 2) return;
       const min = Math.min(...pts.map((p) => p.v));
       const max = Math.max(...pts.map((p) => p.v));

@@ -195,10 +195,11 @@ const popular = popOrder.map((s) => bySlug(s)).filter(Boolean);
         <div class="news">
           <h3>Poolbrevet</h3>
           <p>Säsongstips och påminnelser — rakt i inkorgen, bara när det är relevant.</p>
-          <form class="js-news" novalidate>
-            <input type="email" name="email" placeholder="din@epost.se" aria-label="E-post" required autocomplete="email" />
+          <form class="js-news">
+            <input type="email" name="email" id="home-email" placeholder="din@epost.se" aria-label="E-post" required autocomplete="email" data-error="home-err" />
             <button type="submit">Prenumerera</button>
           </form>
+          <p class="news-err" id="home-err" hidden>Ange en e-postadress i formatet namn@exempel.se.</p>
           <p class="msg" role="status" aria-live="polite" data-msg></p>
         </div>
       </div>

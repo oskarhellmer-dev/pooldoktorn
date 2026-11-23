@@ -1,9 +1,14 @@
+---
+const uid = 'news-' + Math.random().toString(36).slice(2, 8);
+---
 <div class="news">
   <h3>Poolbrevet</h3>
   <p>Säsongstips, påminnelser och ärliga guider — bara när det är relevant för säsongen.</p>
-  <form class="js-news" novalidate>
-    <input type="email" name="email" placeholder="din@epost.se" aria-label="E-post" required autocomplete="email" />
+  <form class="js-news">
+    <input type="email" name="email" id={`${uid}-email`} placeholder="din@epost.se"
+      aria-label="E-post" required autocomplete="email" data-error={`${uid}-err`} />
     <button type="submit">Prenumerera</button>
   </form>
+  <p class="news-err" id={`${uid}-err`} hidden>Ange en e-postadress i formatet namn@exempel.se.</p>
   <p class="msg" role="status" aria-live="polite" data-msg></p>
 </div>

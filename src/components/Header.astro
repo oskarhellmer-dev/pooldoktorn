@@ -14,21 +14,43 @@ const isActive = (href: string) => current === u(href) || (href !== '/' && curre
         ))}
       </ul>
     </nav>
-    <button class="burger" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobilmeny" data-menu>
+    <button class="burger" type="button" aria-label="Öppna meny" aria-expanded="false"
+      commandfor="mobilmeny" command="toggle-popover" data-menu>
       <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
     </button>
   </div>
-  <div class="mobilemenu" id="mobilmeny" hidden data-mobilemenu>
+  <nav class="mobilemenu" id="mobilmeny" popover aria-label="Mobilmeny" data-mobilemenu>
     {NAV.map((item) => <a href={u(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}{item.badge && <span class="badge">{item.badge}</span>}</a>)}
-  </div>
+  </nav>
 </header>
 <script>
-  const btn = document.querySelector('[data-menu]');
-  const menu = document.querySelector('[data-mobilemenu]');
-  btn?.addEventListener('click', () => {
-    const open = menu.hasAttribute('hidden');
-    menu.toggleAttribute('hidden', !open);
-    btn.setAttribute('aria-expanded', String(open));
-    btn.setAttribute('aria-label', open ? 'Stäng meny' : 'Öppna meny');
-  });
+  // Mobilmeny via native popover (topplager + light-dismiss + Escape).
+  // Fallback i tre nivåer så den fungerar även utan stöd, utan extern polyfill.
+  const btn = document.querySelector<HTMLButtonElement>('[data-menu]');
+  const menu = document.querySelector<HTMLElement>('[data-mobilemenu]');
+  if (btn && menu) {
+    const sync = (open: boolean) => {
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Stäng meny' : 'Öppna meny');
+    };
+    const hasPopover = Object.hasOwn(HTMLElement.prototype, 'popover');
+    const hasCommands = 'commandForElement' in HTMLButtonElement.prototype;
+
+    if (hasPopover) {
+      menu.addEventListener('toggle', (e: any) => sync(e.newState === 'open'));
+      if (!hasCommands) {
+        // popover finns men inte Invoker Commands -> koppla klicket själva
+        btn.addEventListener('click', () => {
+          if (menu.matches(':popover-open')) menu.hidePopover?.();
+          else menu.showPopover?.();
+        });
+      }
+    } else {
+      // Varken popover eller commands -> klass-baserad fallback
+      btn.addEventListener('click', () => sync(menu.classList.toggle('mobilemenu-open')));
+      menu.addEventListener('click', (e) => {
+        if ((e.target as Element)?.closest('a')) { menu.classList.remove('mobilemenu-open'); sync(false); }
+      });
+    }
+  }
 </script>

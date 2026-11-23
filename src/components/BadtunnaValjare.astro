@@ -1,6 +1,7 @@
 ---
 const URL = 'https://www.badtunnaspa.se/badtunnor/?ref=pooldoktorn';
 const CODE = 'POOLDOKTORN';
+const uid = 'valj-kupong-' + Math.random().toString(36).slice(2, 8);
 ---
 <section class="valjare" data-valjare aria-label="Badtunna-väljare">
   <p class="redak-kicker">Väljare</p>
@@ -39,9 +40,10 @@ const CODE = 'POOLDOKTORN';
     <h3 data-res-title></h3>
     <p data-res-text></p>
     <div class="redak-code">
-      <button class="redak-copy" type="button" data-copy={CODE} aria-label={`Kopiera rabattkoden ${CODE}`}>
-        <span class="redak-copy-lbl">Kopiera kod:</span> <span class="redak-copy-code">{CODE}</span>
+      <button class="redak-copy" type="button" command="--copy" commandfor={uid} aria-label={`Kopiera rabattkoden ${CODE}`}>
+        <span class="redak-copy-lbl">Kopiera kod:</span> <span class="redak-copy-code" id={uid}>{CODE}</span>
       </button>
+      <span class="redak-tip" role="status" aria-live="polite"></span>
     </div>
     <a class="redak-cta" href={URL} rel="sponsored nofollow noopener" target="_blank" data-res-cta>Se modellerna hos TimberIN</a>
     <p class="redak-note">Annonslänk: handlar du via länken kan vi få en provision — priset blir detsamma för dig. Koden ger dig 4 % rabatt.</p>
@@ -81,16 +83,18 @@ const CODE = 'POOLDOKTORN';
       res.classList.remove('on');
       bar.style.width = ((i / steps.length) * 100) + '%';
     }
+    function strong(t) { const s = document.createElement('strong'); s.textContent = t; return s; }
     function finish() {
       steps.forEach((s) => s.classList.remove('on'));
       res.classList.add('on');
       bar.style.width = '100%';
       root.querySelector('[data-res-title]').textContent = 'Rekommendation: ' + sizeCta[state.personer];
-      root.querySelector('[data-res-text]').innerHTML =
-        'Du passar bäst med <strong>' + sizeText[state.personer] + '</strong>. ' +
-        heatText[state.varme] + ' ' + matText[state.material] +
-        ' Hos TimberIN hittar du <strong>' + sizeCta[state.personer] + '</strong> i både ved och el — ' +
-        'använd koden <strong>POOLDOKTORN</strong> för 4 % rabatt.';
+      root.querySelector('[data-res-text]').replaceChildren(
+        'Du passar bäst med ', strong(sizeText[state.personer]), '. ',
+        heatText[state.varme], ' ', matText[state.material],
+        ' Hos TimberIN hittar du ', strong(sizeCta[state.personer]),
+        ' i både ved och el — använd koden ', strong('POOLDOKTORN'), ' för 4 % rabatt.'
+      );
     }
 
     root.querySelectorAll('.valjare-opt').forEach((b) => {

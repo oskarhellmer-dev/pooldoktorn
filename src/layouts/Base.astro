@@ -29,36 +29,117 @@ const { title, description, path, ogImage, ogType, jsonLd, noindex } = Astro.pro
     </main>
     <Footer />
     <script>
-      // Scroll-reveal: sektioner stiger in en gång, via IntersectionObserver.
+      const can = (q: string) => typeof CSS !== 'undefined' && !!CSS.supports && CSS.supports(q);
+
+      // ---------- Scroll-reveal ----------
+      // Modern väg: CSS scroll-driven animation (animation-timeline: view()) sköter detta utan JS.
+      // JS/IntersectionObserver används bara som fallback där animation-timeline saknas.
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const scrollDriven = can('animation-timeline: view()');
       const targets = document.querySelectorAll('.sec, .article, .page');
-      if (!reduce && 'IntersectionObserver' in window) {
-        const io = new IntersectionObserver((entries) => {
-          for (const e of entries) {
-            if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-          }
-        }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
-        targets.forEach((el) => io.observe(el));
-        // Säkerhetsnät: om något inte triggat inom 3 s (t.ex. dold flik), visa allt.
-        setTimeout(() => targets.forEach((el) => el.classList.add('in')), 3000);
-      } else {
-        targets.forEach((el) => el.classList.add('in'));
+      if (!scrollDriven) {
+        if (!reduce && 'IntersectionObserver' in window) {
+          const io = new IntersectionObserver((entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+            }
+          }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
+          targets.forEach((el) => io.observe(el));
+          // Säkerhetsnät: om något inte triggat inom 3 s (t.ex. dold flik), visa allt.
+          setTimeout(() => targets.forEach((el) => el.classList.add('in')), 3000);
+        } else {
+          targets.forEach((el) => el.classList.add('in'));
+        }
       }
 
-      // Nyhetsbrev: klientvalidering (inga alert-rutor).
-      document.querySelectorAll('form.js-news').forEach((f) => {
+      // ---------- Copy-knappar (Invoker Commands + klick-fallback) ----------
+      function legacyCopy(text: string): boolean {
+        const field = document.createElement('textarea');
+        field.value = text;
+        field.setAttribute('readonly', '');
+        field.style.cssText = 'position:fixed;inset-block-start:0;opacity:0';
+        document.body.append(field);
+        field.select();
+        try { return document.execCommand('copy'); } finally { field.remove(); }
+      }
+      async function doCopy(button: Element, target: Element | null) {
+        const text = (target?.textContent || '').trim();
+        if (!text) return;
+        let ok = true;
+        try { await navigator.clipboard.writeText(text); }
+        catch { ok = legacyCopy(text); }
+        const tip = button.parentElement?.querySelector('.redak-tip');
+        const lbl = button.querySelector('.redak-copy-lbl');
+        if (lbl) lbl.textContent = ok ? 'Kopierat!' : 'Kunde inte kopiera';
+        button.classList.toggle('done', ok);
+        if (tip) tip.textContent = ok ? 'Rabattkoden kopierad' : 'Kopieringen misslyckades';
+        clearTimeout((button as any)._t);
+        (button as any)._t = setTimeout(() => {
+          button.classList.remove('done');
+          if (lbl) lbl.textContent = 'Kopiera kod:';
+          if (tip) tip.textContent = '';
+        }, 2000);
+      }
+      if ('CommandEvent' in window) {
+        // command-eventet bubblar inte – lyssna i capture-fas. event.source = knappen, event.target = commandfor-elementet.
+        document.addEventListener('command', (e: any) => {
+          if (e.command && String(e.command).startsWith('--copy')) doCopy(e.source, e.target);
+        }, true);
+      } else {
+        document.addEventListener('click', (e) => {
+          const el = e.target as Element | null;
+          const b = el?.closest?.('button[command^="--copy"]');
+          if (!b) return;
+          doCopy(b, document.getElementById(b.getAttribute('commandfor') || ''));
+        });
+      }
+
+      // ---------- Nyhetsbrev (nativ validering + :user-invalid + ARIA-synk) ----------
+      document.querySelectorAll<HTMLFormElement>('form.js-news').forEach((f) => {
+        const input = f.querySelector<HTMLInputElement>('input[type=email]');
+        if (!input) return;
+        const msg = f.parentElement?.querySelector<HTMLElement>('[data-msg]');
+        const errId = input.dataset.error;
+        const err = errId ? document.getElementById(errId) : null;
+
+        const baseDesc = input.getAttribute('aria-describedby') || '';
+        const linkErr = (shown: boolean) => {
+          if (!errId) return;
+          const ids = baseDesc.split(/\s+/).filter((x) => x && x !== errId);
+          if (shown) ids.push(errId);
+          if (ids.length) input.setAttribute('aria-describedby', ids.join(' '));
+          else input.removeAttribute('aria-describedby');
+        };
+
+        const nativeUI = can('selector(:user-invalid)');
+        let touched = false, blurred = false;
+        const invalidNow = () =>
+          nativeUI ? input.matches(':user-invalid') : (touched && blurred && !input.validity.valid);
+
+        const sync = (announce: boolean) => {
+          const invalid = invalidNow();
+          input.setAttribute('aria-invalid', invalid ? 'true' : 'false');
+          input.classList.toggle('user-invalid-fallback', invalid); // för webbläsare utan :user-invalid
+          if (err) err.hidden = !invalid;
+          linkErr(invalid);
+          if (announce && invalid && msg) { msg.textContent = 'Kontrollera e-postadressen och försök igen.'; msg.dataset.ok = '0'; }
+        };
+
+        sync(false);
+        input.addEventListener('input', () => {
+          touched = true;
+          if (blurred || nativeUI) sync(false);
+        });
+        input.addEventListener('blur', () => { blurred = true; touched = true; sync(true); }, true);
+
         f.addEventListener('submit', (e) => {
           e.preventDefault();
-          const input = f.querySelector('input[type=email]');
-          const msg = f.parentElement?.querySelector('[data-msg]');
-          const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((input?.value || '').trim());
-          if (!ok) {
-            if (msg) { msg.textContent = 'Kontrollera e-postadressen och försök igen.'; msg.dataset.ok = '0'; }
-            input?.setAttribute('aria-invalid', 'true');
-            input?.focus();
-            return;
-          }
-          input?.removeAttribute('aria-invalid');
+          touched = true; blurred = true;
+          if (!input.checkValidity()) { sync(true); input.focus(); return; }
+          input.setAttribute('aria-invalid', 'false');
+          input.classList.remove('user-invalid-fallback');
+          linkErr(false);
+          if (err) err.hidden = true;
           if (msg) { msg.textContent = 'Tack — du är tillagd på listan.'; msg.dataset.ok = '1'; }
           f.reset();
         });
