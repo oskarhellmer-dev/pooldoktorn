@@ -428,7 +428,7 @@ export const EXTRA_BATCH9 = [
         + '</ul>'
         + '<p>Runt poolen är <strong>halksäkerhet</strong> viktig – välj gärna en räfflad eller borstad yta, och undvik hala lacker.</p>'],
       ['Säkerhet och skötsel',
-        '<p>Ligger poolen i nivå med däcket minskar risken att snubbla, men barnsäkerheten kvarstår. Ett <a href="/poolbygge/poolstaket-och-poollarm/">staket eller larm</a> och ett <a href="/poolbygge/poolskydd/">skydd</a> är fortfarande grundkrav med små barn i huset.</p>'
+        + '<p>Ligger poolen i nivå med däcket minskar risken att snubbla, men barnsäkerheten kvarstår. Ett <a href="/guider/poolstaket-och-poollarm/">staket eller larm</a> och ett <a href="/poolbygge/poolskydd/">skydd</a> är fortfarande grundkrav med små barn i huset.</p>'
         + '<p>Skötselmässigt är ett däck runt poolen lättare att hålla rent än en gräskant, men du behöver hålla efter löv i springor och se till att vattnet inte samlas där träet möter poolkanten. Med rätt konstruktion håller ett poolträdäck i många år och höjer dessutom värdet på tomten.</p>'],
     ],
     faq: [
