@@ -15,6 +15,7 @@ import { EXTRA_BATCH5 } from './extra-batch5';
 import { EXTRA_BATCH6 } from './extra-batch6';
 import { EXTRA_BATCH7 } from './extra-batch7';
 import { EXTRA_BATCH8 } from './extra-batch8';
+import { EXTRA_BATCH9 } from './extra-batch9';
 
 export interface FaqItem { q: string; a: string }
 export interface Aff { title: string; text: string; cta: string; url: string; code?: string }
@@ -45,17 +46,17 @@ const RELATED_ADDITIONS: Record<string, string[]> = {
   'grumligt-poolvatten': ['brunt-vatten-pool', 'mjolkigt-vatten-pool', 'backspolning-pool', 'flockningsmedel-pool'],
   'poolvard-vecka': ['klorvarde-pool', 'smart-pool-automation', 'basta-poolrengoraren', 'basta-poolroboten', 'poolservice'],
   'pooltackning-sakerhet': ['poolbelysning', 'poolstege', 'poolstaket-och-poollarm'],
-  'basta-poolroboten': ['basta-poolrengoraren', 'pooldammsugare'],
+  'basta-poolroboten': ['basta-poolrengoraren', 'pooldammsugare', 'batteridriven-pooldammsugare'],
   'varmepump-pool': ['driftkostnad-pool', 'smart-pool-automation', 'solfangare-pool', 'forangare-varmepump', 'pooltermometer', 'inomhuspool', 'poolvarmepump-bypass', 'poolvarmevaxlare', 'poolvarmare'],
   'saltklorinator': ['smart-pool-automation', 'saltvattenpool', 'poolsalt'],
   // Batch 2 – köpguider & guider in i internlänkningen
   'poolpump': ['cirkulationspump-pool', 'sandfilterpump', 'poolfilter-guide', 'solfangare-pool', 'forangare-varmepump', 'poolslang', 'poolvarmepump-bypass'],
-  'glasfiberpool': ['poolliner', 'betongpool', 'thermoblock-pool'],
+  'glasfiberpool': ['poolliner', 'betongpool', 'thermoblock-pool', 'kompositpool'],
   'barnpool': ['poolstege'],
   // Batch 3 – köpguider & guider in i internlänkningen
   'spabad-vattenbalans': ['grumligt-vatten-spabad', 'spabad-barn', 'ph-spabad', 'klor-spabad', 'brom-spabad', 'cyanursyra-spabad', 'skummande-spabad', 'aktivt-syre-spabad'],
   'att-kopa-pool': ['poolpaket', 'poolsarg', 'tjallendens-pool', 'inomhuspool'],
-  'spabad-kemikalier': ['grumligt-vatten-spabad', 'klor-spabad', 'brom-spabad', 'ph-spabad', 'aktivt-syre-spabad'],
+  'spabad-kemikalier': ['grumligt-vatten-spabad', 'klor-spabad', 'brom-spabad', 'ph-spabad', 'aktivt-syre-spabad', 'saltvatten-spabad'],
   'skotsel-av-spabad': ['spabad-barn', 'kopa-begagnat-spabad', 'gront-vatten-spabad', 'rorrengoring-spabad', 'cirkulationspump-spabad', 'spabad-lacker'],
   // Batch 6 – kopplar in de nya spabad-kemi- och poolvärme-guiderna
   'grumligt-vatten-spabad': ['gront-vatten-spabad', 'klor-spabad', 'ph-spabad'],
@@ -75,12 +76,18 @@ const RELATED_ADDITIONS: Record<string, string[]> = {
   'klor-spabad': ['aktivt-syre-spabad'],
   // Batch 8 – poolvärme, vattenvård och pooltyper in i internlänkningen
   'algmedel-pool': ['alger-i-poolen', 'gront-poolvatten'],
-  'saltvattenpool': ['poolsalt', 'saltklorinator'],
+  'saltvattenpool': ['poolsalt', 'saltklorinator', 'saltvatten-spabad'],
   'pooloverdrag': ['lamelltacke-pool', 'poolkupol'],
   'pooltak': ['poolkupol', 'lamelltacke-pool'],
   'stalvagsspool': ['thermoblock-pool', 'betongpool', 'rund-pool'],
   'liten-pool': ['rund-pool'],
-  'terasspool-och-ovanmarkspool': ['rund-pool'],
+  'terasspool-och-ovanmarkspool': ['rund-pool', 'pool-i-tradack'],
+  // Batch 9 – pooltillbehör, spabad-tillbehör/insida, saltvatten, batterisug,
+  // naturpool, pool i trädäck och kompositpooler in i internlänkningen.
+  'pooldammsugare': ['batteridriven-pooldammsugare'],
+  'poolkemikalier': ['pooltillbehor'],
+  'betongpool': ['naturpool', 'kompositpool'],
+  'spabad-komplett-guide': ['locklyft-spabad', 'saltvatten-spabad', 'spabad-inomhus'],
 };
 
 // Korslänkning spabad <-> befintlig spabad-köpguide
@@ -109,6 +116,7 @@ const all: Page[] = [
   ...(EXTRA_BATCH6 as unknown as Page[]),
   ...(EXTRA_BATCH7 as unknown as Page[]),
   ...(EXTRA_BATCH8 as unknown as Page[]),
+  ...(EXTRA_BATCH9 as unknown as Page[]),
 ].map((p: any) => ({ ...p, sections: normSections(p.sections), faq: normFaq(p.faq) }));
 
 export const pages: Page[] = all.map((p) => {
