@@ -1,0 +1,12 @@
+{
+  "name": "Pooldoktorn",
+  "short_name": "Pooldoktorn",
+  "description": "Oberoende guider för pool och spa – vattenvård, vårstart, vinterstängning och köpguider.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#eef3f6",
+  "theme_color": "#072a36",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
