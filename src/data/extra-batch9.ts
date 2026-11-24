@@ -48,8 +48,8 @@ export const EXTRA_BATCH9 = [
         + '</ul>'
         + '<p>Köp gärna ett par extra packningar och en reservkulventil i förväg – de kostar nästan inget men kan rädda en helg om något börjar droppa.</p>'],
       ['Säkerhet och komfort',
-        '<p>Barnsäkerhet är inte valfritt. Ett <a href="/poolbygge/poolstaket-och-poollarm/">poolstaket eller larm</a> och ett täckande skydd är grundkrav om det finns små barn i närheten. Ett <a href="/poolbygge/poolskydd/">poolskydd</a> gör dessutom dubbel nytta: det håller värmen kvar och minskar både avdunstning och kemiåtgång.</p>'
-        + '<p>Komforttillbehör som stege, <a href="/guider/poolbelysning/">belysning</a> och termometer är trevliga men kan köpas i andra hand. Prioritera dem sist om budgeten är tight.</p>'],
+        + '<p>Barnsäkerhet är inte valfritt. Ett <a href="/guider/poolstaket-och-poollarm/">poolstaket eller larm</a> och ett täckande skydd är grundkrav om det finns små barn i närheten. Ett <a href="/poolbygge/poolskydd/">poolskydd</a> gör dessutom dubbel nytta: det håller värmen kvar och minskar både avdunstning och kemiåtgång.</p>'
+        + '<p>Komforttillbehör som stege, <a href="/kopguider/poolbelysning/">belysning</a> och termometer är trevliga men kan köpas i andra hand. Prioritera dem sist om budgeten är tight.</p>'],
       ['I vilken ordning du köper pooltillbehör',
         '<p>En rimlig inköpsordning för en ny poolägare:</p>'
         + '<ol>'
